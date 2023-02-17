@@ -10,24 +10,10 @@ script = ExtResource( 2 )
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BG_Image" type="TextureRect" parent="SceneManager"]
 margin_right = 1020.0
 margin_bottom = 600.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SkipButton" type="Button" parent="SceneManager"]
-modulate = Color( 1, 1, 1, 0 )
-margin_right = 1020.0
-margin_bottom = 600.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Music_Looper" type="AudioStreamPlayer" parent="SceneManager"]
 
@@ -37,9 +23,5 @@ bus = "SFX"
 [node name="Speaker_Text" type="RichTextLabel" parent="SceneManager"]
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Speaker_Image" type="Sprite" parent="SceneManager"]
-[connection signal="pressed" from="SceneManager/SkipButton" to="SceneManager" method="Continue"]
