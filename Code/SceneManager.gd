@@ -4,10 +4,11 @@ extends Control
 
 const debug_mode = true
 const incr_size = 0.1 # time in seconds between checking for a Wait to be cancelled
-const script_path = "Assets/scripts/"
-const background_path = "Assets/images/"
-const audio_path = "Assets/audio/"
-const sprite_path = "Assets/characters/"
+export var script_path = "Assets/scripts/"
+export var background_path = "Assets/images/"
+export var audio_path = "Assets/audio/"
+export var sprite_path = "Assets/characters/"
+export var wait_after_dialogue : bool = true
 
 # ==== Main functions & variables =================================================================
 
