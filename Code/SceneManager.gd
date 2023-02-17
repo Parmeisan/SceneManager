@@ -134,6 +134,9 @@ func Continue():
 func _input(event):
 	if event.is_action_pressed("ui_skip") or event.is_action_pressed("ui_accept"):
 		Continue()
+	if event.is_action_pressed("ui_click"):
+		Continue()
+
 
 # The main one
 func BeginScene(script_name):
@@ -185,25 +188,6 @@ func BeginScene(script_name):
 					cmd.OPERATION.MINUS:
 						value -= cmd.var_value
 				SetVar(cmd.var_name, value)
-#			if (!Util.isnull(cmd.Dialogue_Line)):
-#				Game.verboseMessage(Game.CAT.SCRIPT, "Dialogue: " + cmd.Dialogue_Line)
-#				var speaker = cmd.Dialogue_Speaker
-#				if speaker == "DEFAULT": speaker = cmd.Character_ID
-#				if (!characters.has(speaker)):
-#					characters[speaker] = Game.entityWhere(Game.ENTITY.CHAR, ["ID"], [speaker], false)
-#				var sp_label = Game.sceneNode.get_node("Dialogue/SpeakerLabel")
-#				var sp_text = Game.sceneNode.get_node("Dialogue/SpeakerText")
-#				var s = characters[speaker]
-#				Game.beginSpeaking(s, cmd.Dialogue_Emotion)
-#				sp_text.text = cmd.Dialogue_Line
-#				Game.sceneNode.setLabelFont(sp_text, s)
-#				if s.Label_Portrait == "1":
-#					var emo = Game.speakerEmotion
-#					if emo.Label == "DEFAULT":
-#						sp_label.text = s.Label
-#					else:
-#						sp_label.text = emo.Label
-#					Game.sceneNode.setLabelFont(sp_label, emo)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
 				# Wait on a loop; the loop may be ended early from elsewhere
