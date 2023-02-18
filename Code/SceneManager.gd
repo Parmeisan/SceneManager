@@ -199,6 +199,9 @@ func BeginScene(script_name):
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
+			cmd.TYPE.DIALOGUE:
+				var box = get_node("Speaker_Text")
+				box.text = cmd.dial_line
 
 	print("==== Finished! ====")
 	$BG_Image.visible = false

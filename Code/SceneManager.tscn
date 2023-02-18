@@ -6,9 +6,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BG_Image" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -22,9 +19,7 @@ bus = "SFX"
 [node name="Speaker_Image" type="Sprite" parent="."]
 
 [node name="Speaker_Text" type="Label" parent="."]
-margin_right = 603.0
-margin_bottom = 224.0
+margin_top = 424.0
+margin_right = 1023.0
+margin_bottom = 596.0
 text = "test"
-__meta__ = {
-"_edit_use_anchors_": false
-}

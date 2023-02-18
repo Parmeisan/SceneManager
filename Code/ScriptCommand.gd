@@ -96,10 +96,8 @@ func _init(line : String):
 		return
 	
 	# Dialogue
-	print("WORDS")
 	var colon = line.find(":")
 	if colon >= 0:
-		print("poop storage")
 		var i = 0;
 		var dialog = true;
 		while(i < colon):
@@ -109,8 +107,6 @@ func _init(line : String):
 				i = colon + 1;
 			i = i + 1;
 		if dialog:
-			print("found a dialogue line")
-			print(line)
 			command_type = TYPE.DIALOGUE
 		dial_character = line.substr(0, colon).strip_edges()
 		dial_line = line.substr(colon + 1)
