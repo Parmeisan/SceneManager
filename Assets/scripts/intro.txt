@@ -5,7 +5,7 @@ $title=0
 [on an intro screen, depicting the God of the Wild on one side, the God of Industry on the other, and the border between city and forest in between.]
 Intro-God-War.png
 Intro_Narration1.wav
-Many, many eons ago, Arborent, the God of the Wild, ruled this world. That's what they say, and that's what we believe.
+NR:Many, many eons ago, Arborent, the God of the Wild, ruled this world. That's what they say, and that's what we believe.
 ...
 $title=2
 Intro_Narration2.wav
