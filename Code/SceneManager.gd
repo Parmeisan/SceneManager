@@ -8,6 +8,7 @@ export var script_path = "Assets/scripts/"
 export var background_path = "Assets/images/"
 export var audio_path = "Assets/audio/"
 export var sprite_path = "Assets/characters/"
+export var font_path = "Assets/fonts/"
 export var wait_after_dialogue : bool = true
 
 # ==== Main functions & variables =================================================================
@@ -16,9 +17,11 @@ enum MODES { INIT, READY, RUNNING, STOPPING, WAITING }
 var mode = MODES.INIT
 var variables = {}
 var all_scripts = {}
+var characters = {}
 
 func _ready():
 	LoadAllScripts()
+	FillCharacterArray()
 	mode = MODES.READY
 
 func debug(s):
@@ -40,6 +43,7 @@ func LoadAllScripts():
 			elif not file.begins_with(".") and not file.begins_with("_") and dir.current_is_dir():
 				LoadScript(file)
 		dir.list_dir_end()
+
 func LoadScript(script_name):
 	
 	# Proceed only if this hasn't already been loaded
@@ -56,7 +60,7 @@ func LoadScript(script_name):
 	var line_count = 0 # For reporting errors
 	var command_array = []
 	
-	# Every line in this file will correspond to some type of
+	# Every line in this file will correspond to some type of command - play audio, show dialogue, etc
 	while !file.eof_reached():
 		current_line = file.get_line()
 		line_count += 1 # Human-readable, so first line is 1
@@ -202,7 +206,29 @@ func BeginScene(script_name):
 			cmd.TYPE.DIALOGUE:
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
+				# This is quick-and-dirty, we'll want some scaffolding around this
+				if characters.has(cmd.dial_character):
+					var c : SceneCharacter = characters[cmd.dial_character]
+					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					var font = GetFont(font_path, c.dialogue_fontname, "")
+					#font.size = int(c.Font_Size)
+					box.set("custom_fonts/font", font)
+					box.set("custom_colors/font_color", c.dialogue_colour)
+					if c.dialogue_shadow != c.dialogue_colour:
+						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 
 	print("==== Finished! ====")
 	$BG_Image.visible = false
 	mode = MODES.READY
+
+
+# === Loading and retrieving characters / emotions ================================================
+
+func FillCharacterArray():
+	for node in $Characters.get_children():
+		var c : SceneCharacter = node
+		characters[c.character_abbreviation] = c
+
+#
+#func GetCharacter(abbr : String):
+#	pass

@@ -4,6 +4,7 @@ class_name SceneCharacter
 export var character_abbreviation : String
 export var character_full_name : String
 export var neutral_image : Texture
+#export (Array, String) var emotions
 export (Array, String) var emotion_keywords
 export (Array, Texture) var emotion_images
 export var dialogue_colour : Color
@@ -21,6 +22,11 @@ func _ready():
 		emotions[emotion_keywords[i]] = emotion_images[i]
 		i += 1
 
+func GetEmotionTexture(e : String):
+	if emotion_images.has(e):
+		return emotion_images[e]
+	else:
+		return neutral_image
 
 #func setLabelFont(label, c):
 #	var font = Game.getFont(c.Font_Path, c.Font_Filename, c.Font_Extension)
