@@ -12,6 +12,7 @@ var file_ext
 var dial_character
 var dial_mood
 var dial_line
+var dial_emotion
 # For waiting
 var wait_seconds : float
 const WAIT_FOREVER = -1

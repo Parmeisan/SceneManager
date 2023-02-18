@@ -18,11 +18,18 @@ var mode = MODES.INIT
 var variables = {}
 var all_scripts = {}
 var characters = {}
+var playing = false;
 
 func _ready():
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
+
+func _process(delta):
+	if playing:
+		if !($SFX_Player.playing):
+			playing = false;
+			Continue()
 
 func debug(s):
 	if debug_mode:
@@ -168,6 +175,7 @@ func BeginScene(script_name):
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
 					player = $SFX_Player
+					playing = true;
 				elif cmd.file_ext == "ogg":
 					player = $Music_Looper
 				if player != null:
@@ -209,7 +217,7 @@ func BeginScene(script_name):
 				# This is quick-and-dirty, we'll want some scaffolding around this
 				if characters.has(cmd.dial_character):
 					var c : SceneCharacter = characters[cmd.dial_character]
-					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					#$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					#font.size = int(c.Font_Size)
 					box.set("custom_fonts/font", font)

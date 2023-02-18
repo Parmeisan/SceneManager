@@ -9,23 +9,22 @@ NR:Many, many eons ago, Arborent, the God of the Wild, ruled this world. That's 
 ...
 $title=2
 Intro_Narration2.wav
-But no one in the forest remembers a time before Civitos, the God of Industry, rose, built by creatures who turned away from nature.
+NR:But no one in the forest remembers a time before Civitos, the God of Industry, rose, built by creatures who turned away from nature.
 ...
 Intro_Narration3.wav
-Yet the forest will not lay down quietly. We acolytes make sure of that.
+NR:Yet the forest will not lay down quietly. We acolytes make sure of that.
 ...
 [An image of a mattress pops up]
 Intro_Narration4.wav
-Even today, when a mysterious altar appeared at Arborent's roots.
-Clearly a challenge to our god's power.
+NR:Even today, when a mysterious altar appeared at Arborent's roots.  Clearly a challenge to our god's power.
 $title+3
 ...
 [intro screen changes to an image of Treefoot]
 Intro_Narration5.wav
-The God of the Wild has entrusted me with a mission. Travel his great roots throughout what remains of the forest.
+NR:The God of the Wild has entrusted me with a mission. Travel his great roots throughout what remains of the forest.
 ...
 Intro_Narration6.wav
-Find the corrupting artifacts that the followers of the God of Industry left behind.
+NR:Find the corrupting artifacts that the followers of the God of Industry left behind.
 ...
 Intro_Narration7.wav
-And when we sacrifice these vile things, we will be that much closer to rising again.
+NR:And when we sacrifice these vile things, we will be that much closer to rising again.
