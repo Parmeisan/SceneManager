@@ -9,12 +9,18 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BG_Image" type="TextureRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 expand = true
 stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Music_Looper" type="AudioStreamPlayer" parent="."]
 
@@ -22,12 +28,17 @@ stretch_mode = 5
 bus = "SFX"
 
 [node name="Speaker_Image" type="Sprite" parent="."]
+position = Vector2( 20, 300 )
+centered = false
 
 [node name="Speaker_Text" type="Label" parent="."]
 margin_top = 424.0
 margin_right = 1023.0
 margin_bottom = 596.0
 text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Characters" type="Node2D" parent="."]
 

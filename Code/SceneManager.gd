@@ -25,12 +25,6 @@ func _ready():
 	FillCharacterArray()
 	mode = MODES.READY
 
-func _process(delta):
-	if playing:
-		if !($SFX_Player.playing):
-			playing = false;
-			Continue()
-
 func debug(s):
 	if debug_mode:
 		print("SceneManager | %s" % s)
@@ -68,6 +62,7 @@ func LoadScript(script_name):
 	var command_array = []
 	
 	# Every line in this file will correspond to some type of command - play audio, show dialogue, etc
+	var do_wait = ScriptCommand.new("...") # We might need this a bunch
 	while !file.eof_reached():
 		current_line = file.get_line()
 		line_count += 1 # Human-readable, so first line is 1
@@ -78,6 +73,11 @@ func LoadScript(script_name):
 			print ("Error message was: %s" % command.error_message)
 		elif command.isCommand():
 			command_array.append(command)
+			# If set as such in configuration, dialogue automatically waits before moving on
+			# It will be skippable by clicking / pressing certain keys and will stop if there's
+			# an accompanying sound effect that completes
+			if wait_after_dialogue and command.command_type == command.TYPE.DIALOGUE:
+				command_array.append(do_wait)
 	
 	all_scripts[script_name] = command_array
 
@@ -208,6 +208,10 @@ func BeginScene(script_name):
 				var waited = 0.0
 				while mode == MODES.WAITING and (seconds == cmd.WAIT_FOREVER or waited < seconds):
 					# MODES.WAITING may be set to false outside this function
+					if playing and !($SFX_Player.playing):
+						playing = false;
+						Continue()
+						break
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
@@ -217,7 +221,7 @@ func BeginScene(script_name):
 				# This is quick-and-dirty, we'll want some scaffolding around this
 				if characters.has(cmd.dial_character):
 					var c : SceneCharacter = characters[cmd.dial_character]
-					#$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					#font.size = int(c.Font_Size)
 					box.set("custom_fonts/font", font)
@@ -226,7 +230,7 @@ func BeginScene(script_name):
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 
 	print("==== Finished! ====")
-	$BG_Image.visible = false
+	#$BG_Image.visible = false
 	mode = MODES.READY
 
 
