@@ -63,12 +63,13 @@ func _init(line : String):
 		match file_ext:
 			"wav":
 				command_type = TYPE.AUDIO
+				return
 			"ogg":
 				command_type = TYPE.AUDIO
+				return
 			"png":
 				command_type = TYPE.BACKGROUND
-		if command_type != null:
-			return
+				return
 	
 	# Variable
 	if line.begins_with("$"):
@@ -95,8 +96,21 @@ func _init(line : String):
 		return
 	
 	# Dialogue
-	var dash = line.find("-")
-	if dash >= 0:
-		command_type = TYPE.DIALOGUE
-		dial_character = line.substr(0, dash).strip_edges()
-		dial_line = line.substr(dash + 1)
+	print("WORDS")
+	var colon = line.find(":")
+	if colon >= 0:
+		print("poop storage")
+		var i = 0;
+		var dialog = true;
+		while(i < colon):
+			var asc = ord(line[i])
+			if(!(asc >= 65 && asc <= 90) && !(asc == 33)):
+				dialog = false;
+				i = colon + 1;
+			i = i + 1;
+		if dialog:
+			print("found a dialogue line")
+			print(line)
+			command_type = TYPE.DIALOGUE
+		dial_character = line.substr(0, colon).strip_edges()
+		dial_line = line.substr(colon + 1)
