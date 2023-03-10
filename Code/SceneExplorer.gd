@@ -48,21 +48,6 @@ func _ready():
 		# Now display the extra details
 		t.get_node("ItemCounts").text = "Images: %d\nAudio: %d" % [img_count, audio_count]
 		t.get_node("ItemDetail").text = "Characters: %s\nVariables: %s" % [chars, vars]
-		
-		# Various info about the game data
-#		var infolist = t.get_node("GameData/InfoList")
-#		var saves = Data.getFileList("Saves/" + game)
-#		dataLabel(infolist, DATA.NAME, game)
-#		dataLabel(infolist, DATA.NUM_SAVES, "Saves: " + str(saves.size()))
-#		# Last played date takes a bit of doing
-#		var lastPlayed = 0
-#		var strLP = "-"
-#		for s in range(0, saves.size()):
-#			var folderPlayed = Data.getFileAccessTime("Saves/" + game + "/" + saves[s] + "/data/characters.csv")
-#			if folderPlayed > lastPlayed: lastPlayed = folderPlayed
-#		if lastPlayed > 0:
-#			strLP = Util.getStringDateUnix(lastPlayed)
-#		dataLabel(infolist, DATA.LAST_PLAYED, "Last played: " + strLP)
 		t.visible = true
 		add_child(t)
 	#get_parent().
