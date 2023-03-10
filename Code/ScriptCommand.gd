@@ -44,7 +44,6 @@ func _init(line : String):
 	if line.begins_with("..."):
 		command_type = TYPE.WAIT
 		var remainder = line.replace("...", "")
-		print ("remainder %s (length %s)" % [remainder, remainder.length()])
 		if remainder.length() > 0:
 			wait_seconds = float(remainder)
 		else:
@@ -85,7 +84,6 @@ func _init(line : String):
 				op_posn = line.find("=")
 				if op_posn >= 0:
 					var_operation = OPERATION.EQUALS
-		print("position %s operation %s" % [op_posn, var_operation])
 		if var_operation != OPERATION.INVALID:
 			command_type = TYPE.VARIABLE
 			var_name = line.substr(1, op_posn-1) # Skip the $

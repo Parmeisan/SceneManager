@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Code/SceneCharacter.gd"
 }, {
+"base": "Control",
+"class": "SceneManager",
+"language": "GDScript",
+"path": "res://Code/SceneManager.gd"
+}, {
 "base": "Node",
 "class": "ScriptCommand",
 "language": "GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "SceneCharacter": "",
+"SceneManager": "",
 "ScriptCommand": "",
 "ScriptManager": ""
 }

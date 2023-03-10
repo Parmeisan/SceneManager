@@ -1,4 +1,5 @@
 extends Control
+class_name SceneManager
 
 # ==== Configuration ==============================================================================
 
@@ -33,35 +34,37 @@ func debug(s):
 
 func LoadAllScripts():
 	# Load in scripts
+	print("Loading all scripts.")
 	var dir = Directory.new()
 	if dir.dir_exists(script_path):
+		print("Directory: ", script_path)
 		dir.open(script_path)
 		dir.list_dir_begin()
 		while true:
-			var file = dir.get_next()
-			if file == "":
+			var fname = dir.get_next()
+			if fname == "":
 				break
-			elif not file.begins_with(".") and not file.begins_with("_") and dir.current_is_dir():
-				LoadScript(file)
+			if not fname.begins_with(".") and not fname.begins_with("_"):
+				var script_name = fname.substr(0, fname.find_last("."))
+				LoadScript(script_name)
 		dir.list_dir_end()
+
 func LoadScript(script_name):
-	
+	print("   Loading ", script_name)
 	# Proceed only if this hasn't already been loaded
 	if all_scripts.has(script_name):
 		return
-	
 	# Open and read the file
 	var file = File.new()
 	if not file.open(script_path + "/" + script_name + ".txt", file.READ) == OK:
 		return
 	file.seek(0)
-	
+	# Init vars for this loop
 	var current_line : String
 	var line_count = 0 # For reporting errors
 	var command_array = []
-	
-	# Every line in this file will correspond to some type of command - play audio, show dialogue, etc
 	var do_wait = ScriptCommand.new("...") # We might need this a bunch
+	# Every line in this file will correspond to some type of command - play audio, show dialogue, etc
 	while !file.eof_reached():
 		current_line = file.get_line()
 		line_count += 1 # Human-readable, so first line is 1
@@ -77,7 +80,8 @@ func LoadScript(script_name):
 			# an accompanying sound effect that completes
 			if wait_after_dialogue and command.command_type == command.TYPE.DIALOGUE:
 				command_array.append(do_wait)
-	
+	# And, save it
+	print("   Loaded %d commands" % command_array.size())
 	all_scripts[script_name] = command_array
 
 static func GetImage(folder, file, ext):
