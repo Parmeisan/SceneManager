@@ -9,9 +9,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BG_Image" type="TextureRect" parent="."]
 margin_right = 1024.0
@@ -33,12 +30,9 @@ centered = false
 
 [node name="Speaker_Text" type="Label" parent="."]
 margin_top = 424.0
-margin_right = 1023.0
+margin_right = 744.0
 margin_bottom = 596.0
-text = "test"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+autowrap = true
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -55,4 +49,5 @@ neutral_image = ExtResource( 4 )
 emotion_keywords = [ "serious" ]
 emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.796078, 0.505882, 0.333333, 1 )
-dialogue_fontname = "Handlee-Regular.ttf"
+dialogue_fontname = "CaveatBrush-Regular.ttf"
+dialogue_fontsize = 28

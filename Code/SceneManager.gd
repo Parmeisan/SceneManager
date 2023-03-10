@@ -44,7 +44,6 @@ func LoadAllScripts():
 			elif not file.begins_with(".") and not file.begins_with("_") and dir.current_is_dir():
 				LoadScript(file)
 		dir.list_dir_end()
-
 func LoadScript(script_name):
 	
 	# Proceed only if this hasn't already been loaded
@@ -152,6 +151,7 @@ func _input(event):
 # The main one
 func BeginScene(script_name):
 	$BG_Image.visible = false
+	visible = true
 	
 	# Get our array of commands
 	if !all_scripts.has(script_name):
@@ -223,14 +223,14 @@ func BeginScene(script_name):
 					var c : SceneCharacter = characters[cmd.dial_character]
 					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
-					#font.size = int(c.Font_Size)
+					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
 					box.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 
 	print("==== Finished! ====")
-	#$BG_Image.visible = false
+	visible = false
 	mode = MODES.READY
 
 
