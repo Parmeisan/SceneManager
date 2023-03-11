@@ -1,11 +1,12 @@
 extends Control
+class_name SceneExplorer
 
-#const SceneManager = preload("SceneManager.gd")
 onready var mgr = $SceneManager
-onready var grid = $ColorRect/GridContainer
+onready var grid = $SceneList/GridContainer
 
 func _ready():
 	# First child is the invisible template; clear everything else and then start copying it
+	grid.get_child(0).visible = false
 	while grid.get_child_count() > 1:
 		remove_child(get_child(1))
 	var template = grid.get_node("GridScene")
@@ -48,7 +49,11 @@ func _ready():
 		# Now display the extra details
 		t.get_node("ItemCounts").text = "Images: %d\nAudio: %d" % [img_count, audio_count]
 		t.get_node("ItemDetail").text = "Characters: %s\nVariables: %s" % [chars, vars]
+		# And the final touches
+		t.get_node("ButtonBG/Button").connect("pressed", self, "scene_button_pressed", [script])
 		t.visible = true
-		add_child(t)
-	#get_parent().
+		grid.add_child(t)
 	emit_signal("draw")
+
+func scene_button_pressed(script):
+	mgr.BeginScene(script)

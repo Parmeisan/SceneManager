@@ -22,6 +22,7 @@ var characters = {}
 var playing = false;
 
 func _ready():
+	visible = false
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
@@ -148,7 +149,7 @@ func Continue():
 func _input(event):
 	if event.is_action_pressed("ui_skip") or event.is_action_pressed("ui_accept"):
 		Continue()
-	if event.is_action_pressed("ui_click"):
+	if event.is_action_pressed("ui_click") and visible == true:
 		Continue()
 
 
