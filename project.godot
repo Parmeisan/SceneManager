@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "SceneCharacter",
 "language": "GDScript",
-"path": "res://Code/SceneCharacter.gd"
+"path": "res://SceneManager/SceneCharacter.gd"
 }, {
 "base": "Control",
 "class": "SceneExplorer",
@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "SceneManager",
 "language": "GDScript",
-"path": "res://Code/SceneManager.gd"
+"path": "res://SceneManager/SceneManager.gd"
 }, {
 "base": "Node",
 "class": "ScriptCommand",
 "language": "GDScript",
-"path": "res://Code/ScriptCommand.gd"
+"path": "res://SceneManager/ScriptCommand.gd"
 } ]
 _global_script_class_icons={
 "SceneCharacter": "",
