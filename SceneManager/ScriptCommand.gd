@@ -1,7 +1,7 @@
 extends Node
 class_name ScriptCommand
 
-enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, LOAD_SCENE, WAIT, INVALID }
+enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, WAIT, INVALID }
 var command_type : int
 
 var original_line
@@ -46,11 +46,12 @@ func _init(line : String):
 	# Options
 	var arrow_posn = line.find_last("=>")
 	if arrow_posn > 0:
+		command_type = TYPE.OPTION
 		opt_text = line.substr(0, arrow_posn)
 		if opt_text.begins_with("-"):
 			opt_text = opt_text.substr(1)
 		opt_text = opt_text.strip_edges()
-		opt_destination = line.substr(arrow_posn + 1).strip_edges()
+		opt_destination = line.substr(arrow_posn + 2).strip_edges()
 		
 	# Wait -- this one has to be before looking for a file
 	if line.begins_with("..."):
