@@ -1,5 +1,4 @@
-[gd_scene load_steps=9 format=2]
-
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
@@ -70,9 +69,9 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
 character_abbreviation = "JEFF"
-neutral_image = ExtResource( 5 )
+neutral_image = ExtResource( 7 )
 emotion_keywords = [ "ANGRY" ]
-emotion_images = [ ExtResource( 6 ) ]
+emotion_images = [ ExtResource( 8 ) ]
 dialogue_fontname = "CaveatBrush-Regular.ttf"
 
 [node name="BranchOptions" type="GridContainer" parent="."]
