@@ -1,3 +1,4 @@
+Intro.png
 [Title card]
 [CG 1]
 "Ugh... another day at AstonishCorp."
@@ -20,7 +21,7 @@ G: "Those guys again? I'll take it... Can't be worse than what we've already dea
 [Background: Generic Cubicles, Barbarian variant. Portraits: Greg]
 "Dealing with internal customers like IT has to is bad enough. External customers who actually call you and want to talk to you are worse. So anyone who actually takes a job where YOU have to call THEM has to be a certain kind of person."
 "So I'm not hopeful walking into Outbound Calls."
-"You can hear those people all the way down the hall, declaring things like ‘You are honour-bound to follow our purchasing contract or we shall send our armies to your door!' And usually smell them roasting meat over whatever broken equipment they called you to replace."
+"You can hear those people all the way down the hall, declaring things like 'You are honour-bound to follow our purchasing contract or we shall send our armies to your door!' And usually smell them roasting meat over whatever broken equipment they called you to replace."
 "This time, there are fewer fires than usual. Maybe a good sign."
 G: "IT here. Where's your emergency?
 [Add Thogra portrait]
