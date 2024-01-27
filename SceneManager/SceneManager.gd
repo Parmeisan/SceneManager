@@ -19,7 +19,7 @@ var mode = MODES.INIT
 var variables = {}
 var all_scripts = {}
 var characters = {}
-var playing = false;
+var playing = false
 
 func _ready():
 	visible = false
@@ -157,6 +157,11 @@ func _input(event):
 func BeginScene(script_name):
 	$BG_Image.visible = false
 	$BranchOptions.visible = false
+	var num = 0
+	for opt in $BranchOptions.get_children():
+		if (num > 0): # The first one will serve as a template
+			$BranchOptions.remove_child(opt)
+		num += 1
 	visible = true
 	
 	# Get our array of commands
@@ -212,12 +217,10 @@ func BeginScene(script_name):
 			cmd.TYPE.OPTION:
 				var template = $BranchOptions.get_child(0);
 				var new_button = template.duplicate()
-				new_button.text = cmd.opt_text
+				new_button.get_node("Label").text = cmd.opt_text
 				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
 				$BranchOptions.add_child(new_button)
-				
 			cmd.TYPE.WAIT:
-				
 				var seconds = float(cmd.wait_seconds)
 				# Wait on a loop; the loop may be ended early from elsewhere
 				# DO NOT PUT THIS INSIDE A FUNCTION
@@ -247,7 +250,7 @@ func BeginScene(script_name):
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 
 	# Remove the template child
-	$BranchOptions.remove_child($BranchOptions.get_child(0))
+	#$BranchOptions.remove_child($BranchOptions.get_child(0))
 	# If there's still more than one, display them
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
