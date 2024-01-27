@@ -140,6 +140,7 @@ dialogue_colour = Color( 0.533333, 0.807843, 0.356863, 1 )
 dialogue_background = Color( 0.0901961, 0.239216, 0.278431, 1 )
 dialogue_fontname = "Peralta-Regular.ttf"
 dialogue_fontsize = 28
+image_side = 1
 
 [node name="TEXT" type="Control" parent="Characters"]
 margin_top = 6.0
@@ -154,17 +155,31 @@ dialogue_background = Color( 1, 1, 1, 1 )
 dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
 
-[node name="Nobody" type="Control" parent="Characters"]
+[node name="NobodyLeft" type="Control" parent="Characters"]
 margin_top = 6.0
 margin_right = 747.0
 margin_bottom = 209.0
 script = ExtResource( 2 )
-character_abbreviation = "0"
+character_abbreviation = "0L"
 emotion_keywords = [ "serious" ]
 emotion_images = [ ExtResource( 3 ) ]
 dialogue_background = Color( 1, 1, 1, 1 )
 dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
+image_side = -1
+
+[node name="NobodyRight" type="Control" parent="Characters"]
+margin_top = 6.0
+margin_right = 747.0
+margin_bottom = 209.0
+script = ExtResource( 2 )
+character_abbreviation = "0R"
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_background = Color( 1, 1, 1, 1 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
+dialogue_fontsize = 28
+image_side = 1
 
 [node name="Jeff" type="Control" parent="Characters"]
 margin_right = 40.0
