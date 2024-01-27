@@ -16,7 +16,7 @@ margin_bottom = 600.0
 expand = true
 stretch_mode = 5
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="Music_Looper" type="AudioStreamPlayer" parent="."]
@@ -33,14 +33,9 @@ margin_top = 424.0
 margin_right = 744.0
 margin_bottom = 596.0
 autowrap = true
-
-[node name="BranchOptions" type="GridContainer" parent="."]
-margin_right = 749.0
-margin_bottom = 216.0
-
-[node name="Button" type="Button" parent="BranchOptions"]
-margin_right = 12.0
-margin_bottom = 20.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -57,3 +52,21 @@ emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.796078, 0.505882, 0.333333, 1 )
 dialogue_fontname = "CaveatBrush-Regular.ttf"
 dialogue_fontsize = 28
+
+[node name="BranchOptions" type="GridContainer" parent="."]
+anchor_left = 0.321333
+anchor_top = 0.343333
+anchor_right = 0.321333
+anchor_bottom = 0.343333
+margin_right = 300.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 150, 200 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="BranchOptions"]
+margin_right = 300.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 300, 40 )
+text = "I AM BUTTON"
