@@ -248,6 +248,9 @@ func BeginScene(script_name):
 					box.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+					var box_back = c.dialogue_background
+					box_back.a8 = 224
+					$Speaker_Background.color = box_back#c.dialogue_background
 
 	# Remove the template child
 	#$BranchOptions.remove_child($BranchOptions.get_child(0))
@@ -268,6 +271,7 @@ func BeginScene(script_name):
 func FillCharacterArray():
 	for node in $Characters.get_children():
 		var c : SceneCharacter = node
+		print("Adding character " + c.character_abbreviation)
 		characters[c.character_abbreviation] = c
 
 func option_button_pressed(scene):
