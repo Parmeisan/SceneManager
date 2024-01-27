@@ -21,11 +21,20 @@ var all_scripts = {}
 var characters = {}
 var playing = false
 
+var thisIsNothing = 0
+var vibrating = false
+
 func _ready():
 	visible = false
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
+
+func _physics_process(delta):
+	if vibrating:
+		thisIsNothing = thisIsNothing + 1
+		print(str(thisIsNothing))
+
 
 func debug(s):
 	if debug_mode:
@@ -241,13 +250,26 @@ func BeginScene(script_name):
 				# This is quick-and-dirty, we'll want some scaffolding around this
 				if characters.has(cmd.dial_character):
 					var c : SceneCharacter = characters[cmd.dial_character]
-					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					if cmd.image_location == -1:
+						c.image_side = -1
+					elif cmd.image_location == 1:
+						c.image_side = 1
+					if(c.image_side == -1):
+						$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					elif(c.image_side == 1):
+						$Speaker_Image2.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
 					box.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+			cmd.TYPE.EVENT:
+				var theObject = get_node(cmd.target)
+				vibrating = true
+				yield(get_tree().create_timer(2), "timeout")
+				vibrating = false
+				
 
 	# Remove the template child
 	#$BranchOptions.remove_child($BranchOptions.get_child(0))

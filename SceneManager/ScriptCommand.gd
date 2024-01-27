@@ -1,7 +1,7 @@
 extends Node
 class_name ScriptCommand
 
-enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, WAIT, INVALID }
+enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, WAIT, EVENT, INVALID }
 var command_type : int
 
 var original_line
@@ -24,6 +24,9 @@ enum OPERATION { PLUS, MINUS, EQUALS, INVALID }
 var var_name
 var var_operation : int = OPERATION.INVALID
 var var_value
+var image_location = -99
+var event
+var target
 
 # Checking for validity, errors, etc
 var error_message
@@ -107,6 +110,13 @@ func _init(line : String):
 		error_message = "Invalid value used with variable: " + var_value
 		return
 	
+	if line.begins_with("<"):
+		command_type = TYPE.EVENT
+		var exclaimation = line.find("!")
+		event = line.substr(1, exclaimation - 1)
+		var closeBracket = line.find(">")
+		target = line.substr(exclaimation + 1 , closeBracket - exclaimation -1)
+	
 	# Dialogue - two types
 	if line.begins_with("\""):
 		command_type = TYPE.DIALOGUE
@@ -114,12 +124,17 @@ func _init(line : String):
 		dial_line = line.substr(1, line.length() - 2)
 		dial_emotion = "neutral"
 	var colon = line.find(":")
+	var at = line.find("@")
 	if colon >= 0:
 		var i = 0;
 		var dialog = true;
 		while(i < colon):
 			var asc = ord(line[i])
-			if(!(asc >= 65 && asc <= 90) && !(asc == 33)):
+			var BANG_ASCII = 33
+			var AT_ASCII = 64
+			var UPPER_ASCII_LIMIT = 90
+			var LOWER_ASCII_LIMIT = 65
+			if(!(asc >= LOWER_ASCII_LIMIT && UPPER_ASCII_LIMIT <= 90) && !(asc == BANG_ASCII) &&!(asc == AT_ASCII)):
 				dialog = false;
 				i = colon + 1;
 			i = i + 1;
@@ -130,5 +145,14 @@ func _init(line : String):
 		dial_emotion = "neutral"
 		var exclaimation = line.find("!")
 		if(exclaimation >= 0):
-			dial_emotion = line.substr(exclaimation + 1, colon - exclaimation - 1)
+			var erb = colon -1
+			if(at >= 0):
+				erb = min(at -1, erb)
+			dial_emotion = line.substr(exclaimation + 1, erb - exclaimation)
 			dial_character = line.substr(0, exclaimation)
+	if at >= 0:
+		var location = line.substr(at+1, 1)
+		if location == "R":
+			image_location = 1
+		elif location == "L":
+			image_location = -1
