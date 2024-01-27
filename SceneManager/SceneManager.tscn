@@ -81,6 +81,7 @@ dialogue_colour = Color( 0.207843, 0.12549, 0.392157, 1 )
 dialogue_background = Color( 0.796078, 0.745098, 0.623529, 0.8 )
 dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
+image_side = -1
 
 [node name="Internal Monologue" type="Control" parent="Characters"]
 margin_top = 3.0
@@ -95,6 +96,7 @@ dialogue_colour = Color( 0.207843, 0.12549, 0.392157, 1 )
 dialogue_background = Color( 0.796078, 0.745098, 0.623529, 1 )
 dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
+image_side = -1
 
 [node name="Zaxyss" type="Control" parent="Characters"]
 margin_top = 3.0
@@ -110,6 +112,7 @@ dialogue_colour = Color( 0.8, 0.407843, 0.654902, 1 )
 dialogue_background = Color( 0.207843, 0.12549, 0.392157, 1 )
 dialogue_fontname = "CuteFont-Regular.ttf"
 dialogue_fontsize = 28
+image_side = 1
 
 [node name="Thogra" type="Control" parent="Characters"]
 margin_top = 3.0
@@ -125,6 +128,7 @@ dialogue_colour = Color( 0.419608, 0.0862745, 0.0862745, 1 )
 dialogue_background = Color( 0.909804, 0.835294, 0.823529, 1 )
 dialogue_fontname = "Bevan-Regular.ttf"
 dialogue_fontsize = 28
+image_side = 1
 
 [node name="Tria303" type="Control" parent="Characters"]
 margin_top = 3.0
