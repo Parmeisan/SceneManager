@@ -157,12 +157,7 @@ func _input(event):
 func BeginScene(script_name):
 	$BG_Image.visible = false
 	$BranchOptions.visible = false
-	var num = 0
-	for opt in $BranchOptions.get_children():
-		if (num > 0): # The first one will serve as a template
-			$BranchOptions.remove_child(opt)
-		num += 1
-	visible = true
+	
 	
 	# Get our array of commands
 	if !all_scripts.has(script_name):
@@ -257,6 +252,7 @@ func BeginScene(script_name):
 	# If there's still more than one, display them
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
+		#$BranchOptions/TextureButton.visible = false;
 		$BranchOptions.visible = true
 		mode = MODES.WAITING
 	
