@@ -228,6 +228,7 @@ func BeginScene(script_name):
 				var new_button = template.duplicate()
 				new_button.get_node("Label").text = cmd.opt_text
 				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+				new_button.visible = true
 				$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
@@ -255,27 +256,30 @@ func BeginScene(script_name):
 					elif cmd.image_location == 1:
 						c.image_side = 1
 					if(c.image_side == -1):
-						$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+						$Character_Left.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					elif(c.image_side == 1):
-						$Speaker_Image2.texture = c.GetEmotionTexture(cmd.dial_emotion)
+						$Character_Right.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
 					box.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+					var box_back = c.dialogue_background
+					box_back.a8 = 224
+					$Speaker_Background.color = box_back#c.dialogue_background
 			cmd.TYPE.EVENT:
 				var theObject = get_node(cmd.target)
 				vibrating = true
 				yield(get_tree().create_timer(2), "timeout")
 				vibrating = false
-				
 
 	# Remove the template child
 	#$BranchOptions.remove_child($BranchOptions.get_child(0))
 	# If there's still more than one, display them
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
+		#$BranchOptions/TextureButton.visible = false;
 		$BranchOptions.visible = true
 		mode = MODES.WAITING
 	
@@ -290,6 +294,7 @@ func BeginScene(script_name):
 func FillCharacterArray():
 	for node in $Characters.get_children():
 		var c : SceneCharacter = node
+		print("Adding character " + c.character_abbreviation)
 		characters[c.character_abbreviation] = c
 
 func option_button_pressed(scene):

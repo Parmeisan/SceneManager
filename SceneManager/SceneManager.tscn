@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
 [ext_resource path="res://Assets/characters/treefoot_serious.png" type="Texture" id=3]
-[ext_resource path="res://Assets/characters/treefoot.png" type="Texture" id=4]
+[ext_resource path="res://Assets/characters/Space_Wizard.png" type="Texture" id=4]
 [ext_resource path="res://Assets/gui/option_button.png" type="Texture" id=5]
 [ext_resource path="res://Assets/fonts/MaidenOrange-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/characters/Jeff.png" type="Texture" id=7]
 [ext_resource path="res://Assets/characters/Jeff Angry.png" type="Texture" id=8]
+[ext_resource path="res://Assets/characters/Greg.png" type="Texture" id=9]
+[ext_resource path="res://Assets/characters/Barbarian.png" type="Texture" id=10]
+[ext_resource path="res://Assets/characters/Alien.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -21,6 +24,7 @@ default_font = SubResource( 1 )
 [node name="SceneManager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 274.0
 script = ExtResource( 1 )
 
 [node name="BG_Image" type="TextureRect" parent="."]
@@ -37,35 +41,129 @@ __meta__ = {
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
 bus = "SFX"
 
-[node name="Speaker_Image" type="Sprite" parent="."]
-position = Vector2( 20, 300 )
+[node name="Character_Left" type="Sprite" parent="."]
 centered = false
 
-[node name="Speaker_Image2" type="Sprite" parent="."]
-position = Vector2( 400, 300 )
+[node name="Character_Right" type="Sprite" parent="."]
 centered = false
+
+[node name="Speaker_Background" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 470.0
+margin_right = 1012.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 1000, 120 )
+color = Color( 0.333333, 0.133333, 0.133333, 1 )
 
 [node name="Speaker_Text" type="Label" parent="."]
-margin_left = 8.0
-margin_top = 424.0
-margin_right = 752.0
-margin_bottom = 596.0
+margin_left = 24.0
+margin_top = 482.0
+margin_right = 998.0
+margin_bottom = 578.0
+text = "Test text woo woo woo"
 autowrap = true
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Treefoot" type="Control" parent="Characters"]
+[node name="Greg" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "G"
+character_full_name = "Greg"
+neutral_image = ExtResource( 9 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.207843, 0.12549, 0.392157, 1 )
+dialogue_background = Color( 0.796078, 0.745098, 0.623529, 0.8 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="Internal Monologue" type="Control" parent="Characters"]
 margin_top = 3.0
 margin_right = 747.0
 margin_bottom = 206.0
 script = ExtResource( 2 )
 character_abbreviation = "NR"
-character_full_name = "Treefoot"
+neutral_image = ExtResource( 9 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.207843, 0.12549, 0.392157, 1 )
+dialogue_background = Color( 0.796078, 0.745098, 0.623529, 1 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="Zaxyss" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "Z"
+character_full_name = "Zaxyss"
 neutral_image = ExtResource( 4 )
 emotion_keywords = [ "serious" ]
 emotion_images = [ ExtResource( 3 ) ]
-dialogue_colour = Color( 0.796078, 0.505882, 0.333333, 1 )
-dialogue_fontname = "CaveatBrush-Regular.ttf"
+dialogue_colour = Color( 0.8, 0.407843, 0.654902, 1 )
+dialogue_background = Color( 0.207843, 0.12549, 0.392157, 1 )
+dialogue_fontname = "CuteFont-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="Thogra" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "T"
+character_full_name = "Thogra"
+neutral_image = ExtResource( 10 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.419608, 0.0862745, 0.0862745, 1 )
+dialogue_background = Color( 0.909804, 0.835294, 0.823529, 1 )
+dialogue_fontname = "Bevan-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="Tria303" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "3"
+character_full_name = "Tria 303"
+neutral_image = ExtResource( 11 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.533333, 0.807843, 0.356863, 1 )
+dialogue_background = Color( 0.0901961, 0.239216, 0.278431, 1 )
+dialogue_fontname = "Peralta-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="TEXT" type="Control" parent="Characters"]
+margin_top = 6.0
+margin_right = 747.0
+margin_bottom = 209.0
+script = ExtResource( 2 )
+character_abbreviation = "TEXT"
+character_full_name = "TEXT"
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_background = Color( 1, 1, 1, 1 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="Nobody" type="Control" parent="Characters"]
+margin_top = 6.0
+margin_right = 747.0
+margin_bottom = 209.0
+script = ExtResource( 2 )
+character_abbreviation = "0"
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_background = Color( 1, 1, 1, 1 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
 
 [node name="Jeff" type="Control" parent="Characters"]
@@ -77,15 +175,15 @@ neutral_image = ExtResource( 7 )
 emotion_keywords = [ "ANGRY" ]
 emotion_images = [ ExtResource( 8 ) ]
 dialogue_fontname = "CaveatBrush-Regular.ttf"
-image_side = -1
 
 [node name="BranchOptions" type="GridContainer" parent="."]
-margin_left = 220.0
+margin_left = 332.0
 margin_top = 200.0
-margin_right = 530.0
+margin_right = 642.0
 margin_bottom = 399.0
 
 [node name="TextureButton" type="TextureButton" parent="BranchOptions"]
+visible = false
 margin_right = 300.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 300, 40 )
