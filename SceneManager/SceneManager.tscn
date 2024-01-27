@@ -80,24 +80,16 @@ margin_top = 200.0
 margin_right = 530.0
 margin_bottom = 399.0
 
-[node name="Button" type="Button" parent="BranchOptions"]
+[node name="TextureButton" type="TextureButton" parent="BranchOptions"]
 margin_right = 300.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 300, 40 )
-text = "I AM BUTTON"
-
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 241.0
-margin_top = 206.0
-margin_right = 541.0
-margin_bottom = 246.0
 rect_min_size = Vector2( 300, 40 )
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Label" type="Label" parent="TextureButton"]
+[node name="Label" type="Label" parent="BranchOptions/TextureButton"]
 margin_right = 300.0
 margin_bottom = 40.0
 theme = SubResource( 2 )
