@@ -1,5 +1,5 @@
 JEFF: Blah
 JEFF!ANGRY: BLRARRR
 JEFF: Something else
-!JEFF!ANGRY
+JEFF!ANGRY: RARBARBL
 JEFF: Jeff is now angry
