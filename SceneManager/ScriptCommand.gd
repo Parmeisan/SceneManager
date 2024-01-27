@@ -1,12 +1,14 @@
 extends Node
 class_name ScriptCommand
 
-enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, WAIT, EVENT, INVALID }
+enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, HIDE, OPTION, WAIT, EVENT, INVALID }
 var command_type : int
 
 # Text parsing
 const BANG_ASCII = 33
 const AT_ASCII = 64
+const ASCII_ZERO = 48
+const ASCII_NINE = 57
 const UPPER_ASCII_LIMIT = 90
 const LOWER_ASCII_LIMIT = 65
 
@@ -125,6 +127,19 @@ func _init(line : String):
 		var closeBracket = line.find(">")
 		target = line.substr(exclaimation + 1 , closeBracket - exclaimation -1)
 	
+	# Hide a character
+	if line.begins_with("hide@"):
+		command_type = TYPE.HIDE
+		var side = line.substr(5)
+		if side == "R":
+			image_location = IMAGE_LOCATION.RIGHT
+		elif side == "L":
+			image_location = IMAGE_LOCATION.LEFT
+		elif side == "C":
+			image_location = IMAGE_LOCATION.CENTER
+		else:
+			image_location = IMAGE_LOCATION.UNDEFINED
+			
 	# Dialogue - two types
 	if line.begins_with("\""):
 		command_type = TYPE.DIALOGUE
@@ -139,7 +154,14 @@ func _init(line : String):
 		# Check for valid ascii characters
 		while(i < colon):
 			var asc = ord(line[i])
-			if(!(asc >= LOWER_ASCII_LIMIT && UPPER_ASCII_LIMIT <= 90) && !(asc == BANG_ASCII) &&!(asc == AT_ASCII)):
+			var valid = false
+			if asc >= LOWER_ASCII_LIMIT && asc <= UPPER_ASCII_LIMIT:
+				valid = true
+			elif asc >= ASCII_ZERO && asc <= ASCII_NINE:
+				valid = true
+			elif asc == BANG_ASCII || asc == AT_ASCII:
+				valid = true
+			if !valid:
 				dialog = false
 				i = colon + 1
 			i = i + 1

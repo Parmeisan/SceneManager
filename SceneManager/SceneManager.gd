@@ -245,6 +245,14 @@ func BeginScene(script_name):
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
+			cmd.TYPE.HIDE:
+				match cmd.image_location:
+					cmd.IMAGE_LOCATION.LEFT:
+						$Character_Left.texture = null
+					cmd.IMAGE_LOCATION.RIGHT:
+						$Character_Right.texture = null
+					#cmd.IMAGE_LOCATION.CENTER:
+					#	$Character_Center.texture = null
 			cmd.TYPE.DIALOGUE:
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
@@ -263,7 +271,6 @@ func BeginScene(script_name):
 					elif c.image_side == cmd.IMAGE_LOCATION.RIGHT:
 						$Character_Right.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					#elif cmd.image_location == cmd.IMAGE_LOCATION.CENTER:
-					#	c.image_side = cmd.image_location
 					#	$Character_Center.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
