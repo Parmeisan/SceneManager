@@ -1,0 +1,7 @@
+NR:The God of the Wild has entrusted me with a mission. Travel his great roots throughout what remains of the forest.
+NR:Find the corrupting artifacts that the followers of the God of Industry left behind.
+-Herkjek
+NR:And when we sacrifice these vile things, we will be that much closer to rising again.
+Greg:Hey Barb!
+-Say Hello => intro
+-Destroy with fire => intro

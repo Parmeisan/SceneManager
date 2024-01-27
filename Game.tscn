@@ -6,6 +6,8 @@
 [sub_resource type="Theme" id=1]
 
 [node name="SceneExplorer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="SceneList" type="ColorRect" parent="."]
@@ -93,3 +95,5 @@ text = ">"
 flat = true
 
 [node name="SceneManager" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
