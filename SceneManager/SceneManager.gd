@@ -250,7 +250,7 @@ func BeginScene(script_name):
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 
 	# Remove the template child
-	$BranchOptions.remove_child($BranchOptions.get_child(0))
+	#$BranchOptions.remove_child($BranchOptions.get_child(0))
 	# If there's still more than one, display them
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
