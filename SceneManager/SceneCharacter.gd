@@ -20,13 +20,11 @@ var emotions = {}
 func _ready():
 	var size = min(emotion_keywords.size(), emotion_images.size())
 	var i = 0
-	while i < size:
-		emotions[emotion_keywords[i]] = emotion_images[i]
-		i += 1
 
 func GetEmotionTexture(e : String):
-	if emotion_images.has(e):
-		return emotion_images[e]
+	if emotion_keywords.has(e):
+		var pos = emotion_keywords.find(e, 0)
+		return emotion_images[pos]
 	else:
 		return neutral_image
 

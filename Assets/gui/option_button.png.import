@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/treefoot.png-b2ad0d9f9689c639889cc68e4f98e9c6.stex"
+path="res://.import/option_button.png-7dac72e84349869004704c8acf3d5c78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/characters/treefoot.png"
-dest_files=[ "res://.import/treefoot.png-b2ad0d9f9689c639889cc68e4f98e9c6.stex" ]
+source_file="res://Assets/gui/option_button.png"
+dest_files=[ "res://.import/option_button.png-7dac72e84349869004704c8acf3d5c78.stex" ]
 
 [params]
 
