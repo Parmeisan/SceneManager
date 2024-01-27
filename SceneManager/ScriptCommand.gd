@@ -109,4 +109,8 @@ func _init(line : String):
 			command_type = TYPE.DIALOGUE
 		dial_character = line.substr(0, colon).strip_edges()
 		dial_line = line.substr(colon + 1)
-		dial_emotion = "neutral" # TODO
+		dial_emotion = "neutral"
+		var exclaimation = line.find("!")
+		if(exclaimation >= 0):
+			dial_emotion = line.substr(exclaimation + 1, colon - exclaimation - 1)
+			dial_character = line.substr(0, exclaimation)
