@@ -117,12 +117,13 @@ emotion_images = [ ExtResource( 8 ) ]
 dialogue_fontname = "CaveatBrush-Regular.ttf"
 
 [node name="BranchOptions" type="GridContainer" parent="."]
-margin_left = 220.0
+margin_left = 332.0
 margin_top = 200.0
-margin_right = 530.0
+margin_right = 642.0
 margin_bottom = 399.0
 
 [node name="TextureButton" type="TextureButton" parent="BranchOptions"]
+visible = false
 margin_right = 300.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 300, 40 )
