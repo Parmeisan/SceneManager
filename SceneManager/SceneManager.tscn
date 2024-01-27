@@ -34,15 +34,21 @@ margin_right = 744.0
 margin_bottom = 596.0
 autowrap = true
 
+[node name="BranchOptions" type="GridContainer" parent="."]
+margin_right = 749.0
+margin_bottom = 216.0
+
+[node name="Button" type="Button" parent="BranchOptions"]
+margin_right = 12.0
+margin_bottom = 20.0
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Treefoot" type="Control" parent="Characters"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 character_abbreviation = "NR"
 character_full_name = "Treefoot"
 neutral_image = ExtResource( 4 )

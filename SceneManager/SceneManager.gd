@@ -175,7 +175,6 @@ func BeginScene(script_name):
 		mode = MODES.RUNNING
 		match cmd.command_type:
 			# Play audio of some kind.
-			# .wavs play once through the SFX player, .oggs loop through the music player
 			cmd.TYPE.AUDIO:
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
@@ -205,7 +204,17 @@ func BeginScene(script_name):
 					cmd.OPERATION.MINUS:
 						value -= cmd.var_value
 				SetVar(cmd.var_name, value)
+			# Display options for the player
+			# We will get these over multiple lines, we add each of them as we receive them,
+			# but they will all be hidden until we reach the end of the file
+			cmd.OPTION:
+				var template = $BranchOptions.get_child(0);
+				var new_button = template.duplicate()
+				new_button.text = cmd.opt_text
+				$BranchOptions.add_child(template.duplicate())
+				pass
 			cmd.TYPE.WAIT:
+				
 				var seconds = float(cmd.wait_seconds)
 				# Wait on a loop; the loop may be ended early from elsewhere
 				# DO NOT PUT THIS INSIDE A FUNCTION
