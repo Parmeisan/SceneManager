@@ -212,7 +212,7 @@ func BeginScene(script_name):
 			cmd.TYPE.OPTION:
 				var template = $BranchOptions.get_child(0);
 				var new_button = template.duplicate()
-				new_button.text = cmd.opt_text
+				#new_button.text = cmd.opt_text
 				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
 				$BranchOptions.add_child(new_button)
 				
