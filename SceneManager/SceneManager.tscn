@@ -13,6 +13,8 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="Theme" id=2]
 default_font = SubResource( 1 )
+/colors/Black = Color( 0, 0, 0, 1 )
+/fonts/Font = SubResource( 1 )
 
 [node name="SceneManager" type="Control"]
 anchor_right = 1.0
@@ -74,27 +76,28 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureButton" type="TextureButton" parent="BranchOptions"]
+[node name="Button" type="Button" parent="BranchOptions"]
 margin_right = 300.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 300, 40 )
+text = "I AM BUTTON"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 241.0
+margin_top = 206.0
+margin_right = 541.0
+margin_bottom = 246.0
 rect_min_size = Vector2( 300, 40 )
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Label" type="Label" parent="BranchOptions/TextureButton"]
+[node name="Label" type="Label" parent="TextureButton"]
 margin_right = 300.0
 margin_bottom = 40.0
 theme = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I AM BUTTON TOO"
 align = 1
 valign = 1
-
-[node name="Button" type="Button" parent="BranchOptions"]
-visible = false
-margin_top = 44.0
-margin_right = 300.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 300, 40 )
-text = "I AM BUTTON"
