@@ -157,7 +157,12 @@ func _input(event):
 func BeginScene(script_name):
 	$BG_Image.visible = false
 	$BranchOptions.visible = false
-	
+	var num = 0
+	for opt in $BranchOptions.get_children():
+		if (num > 0): # The first one will serve as a template
+			$BranchOptions.remove_child(opt)
+		num += 1
+	visible = true
 	
 	# Get our array of commands
 	if !all_scripts.has(script_name):
@@ -214,6 +219,7 @@ func BeginScene(script_name):
 				var new_button = template.duplicate()
 				new_button.get_node("Label").text = cmd.opt_text
 				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+				new_button.visible = true
 				$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
