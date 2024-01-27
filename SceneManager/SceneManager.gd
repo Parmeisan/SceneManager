@@ -241,7 +241,7 @@ func BeginScene(script_name):
 				# This is quick-and-dirty, we'll want some scaffolding around this
 				if characters.has(cmd.dial_character):
 					var c : SceneCharacter = characters[cmd.dial_character]
-					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					$Character_Left.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
