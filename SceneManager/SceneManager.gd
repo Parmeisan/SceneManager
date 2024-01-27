@@ -19,7 +19,7 @@ var mode = MODES.INIT
 var variables = {}
 var all_scripts = {}
 var characters = {}
-var playing = false;
+var playing = false
 
 func _ready():
 	visible = false
@@ -156,10 +156,17 @@ func _input(event):
 # The main one
 func BeginScene(script_name):
 	$BG_Image.visible = false
+	$BranchOptions.visible = false
+	var num = 0
+	for opt in $BranchOptions.get_children():
+		if (num > 0): # The first one will serve as a template
+			$BranchOptions.remove_child(opt)
+		num += 1
 	visible = true
 	
 	# Get our array of commands
 	if !all_scripts.has(script_name):
+		print(all_scripts)
 		LoadScript(script_name)
 	var commands = all_scripts[script_name]
 
@@ -175,7 +182,6 @@ func BeginScene(script_name):
 		mode = MODES.RUNNING
 		match cmd.command_type:
 			# Play audio of some kind.
-			# .wavs play once through the SFX player, .oggs loop through the music player
 			cmd.TYPE.AUDIO:
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
@@ -205,6 +211,15 @@ func BeginScene(script_name):
 					cmd.OPERATION.MINUS:
 						value -= cmd.var_value
 				SetVar(cmd.var_name, value)
+			# Display options for the player
+			# We will get these over multiple lines, we add each of them as we receive them,
+			# but they will all be hidden until we reach the end of the file
+			cmd.TYPE.OPTION:
+				var template = $BranchOptions.get_child(0);
+				var new_button = template.duplicate()
+				new_button.get_node("Label").text = cmd.opt_text
+				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+				$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
 				# Wait on a loop; the loop may be ended early from elsewhere
@@ -234,9 +249,18 @@ func BeginScene(script_name):
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 
-	print("==== Finished! ====")
-	visible = false
-	mode = MODES.READY
+	# Remove the template child
+	#$BranchOptions.remove_child($BranchOptions.get_child(0))
+	# If there's still more than one, display them
+	if $BranchOptions.get_child_count() > 1:
+		print("==== Options ====")
+		$BranchOptions.visible = true
+		mode = MODES.WAITING
+	
+	else:
+		print("==== Finished! ====")
+		visible = false
+		mode = MODES.READY
 
 
 # === Loading and retrieving characters / emotions ================================================
@@ -246,6 +270,9 @@ func FillCharacterArray():
 		var c : SceneCharacter = node
 		characters[c.character_abbreviation] = c
 
+func option_button_pressed(scene):
+	print("going to scene" + scene)
+	BeginScene(scene)
 #
 #func GetCharacter(abbr : String):
 #	pass

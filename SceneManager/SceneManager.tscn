@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
 [ext_resource path="res://Assets/characters/treefoot_serious.png" type="Texture" id=3]
 [ext_resource path="res://Assets/characters/treefoot.png" type="Texture" id=4]
+[ext_resource path="res://Assets/gui/option_button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/fonts/MaidenOrange-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/characters/Jeff.png" type="Texture" id=7]
+[ext_resource path="res://Assets/characters/Jeff Angry.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+/colors/Black = Color( 0, 0, 0, 1 )
+/fonts/Font = SubResource( 1 )
 
 [node name="SceneManager" type="Control"]
 anchor_right = 1.0
@@ -16,7 +29,7 @@ margin_bottom = 600.0
 expand = true
 stretch_mode = 5
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="Music_Looper" type="AudioStreamPlayer" parent="."]
@@ -29,20 +42,19 @@ position = Vector2( 20, 300 )
 centered = false
 
 [node name="Speaker_Text" type="Label" parent="."]
+margin_left = 8.0
 margin_top = 424.0
-margin_right = 744.0
+margin_right = 752.0
 margin_bottom = 596.0
 autowrap = true
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Treefoot" type="Control" parent="Characters"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 character_abbreviation = "NR"
 character_full_name = "Treefoot"
 neutral_image = ExtResource( 4 )
@@ -51,3 +63,37 @@ emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.796078, 0.505882, 0.333333, 1 )
 dialogue_fontname = "CaveatBrush-Regular.ttf"
 dialogue_fontsize = 28
+
+[node name="Jeff" type="Control" parent="Characters"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+character_abbreviation = "JEFF"
+neutral_image = ExtResource( 7 )
+emotion_keywords = [ "ANGRY" ]
+emotion_images = [ ExtResource( 8 ) ]
+dialogue_fontname = "CaveatBrush-Regular.ttf"
+
+[node name="BranchOptions" type="GridContainer" parent="."]
+margin_left = 220.0
+margin_top = 200.0
+margin_right = 530.0
+margin_bottom = 399.0
+
+[node name="TextureButton" type="TextureButton" parent="BranchOptions"]
+margin_right = 300.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 300, 40 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="BranchOptions/TextureButton"]
+margin_right = 300.0
+margin_bottom = 40.0
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I AM BUTTON TOO"
+align = 1
+valign = 1

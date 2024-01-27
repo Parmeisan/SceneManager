@@ -1,7 +1,7 @@
 extends Node
 class_name ScriptCommand
 
-enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, WAIT, INVALID }
+enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, WAIT, INVALID }
 var command_type : int
 
 var original_line
@@ -13,6 +13,9 @@ var dial_character
 var dial_mood
 var dial_line
 var dial_emotion
+# For options
+var opt_text
+var opt_destination
 # For waiting
 var wait_seconds : float
 const WAIT_FOREVER = -1
@@ -39,6 +42,16 @@ func _init(line : String):
 	if line.begins_with("["):
 		command_type = TYPE.NONE
 		return
+		
+	# Options
+	var arrow_posn = line.find_last("=>")
+	if arrow_posn > 0:
+		command_type = TYPE.OPTION
+		opt_text = line.substr(0, arrow_posn)
+		if opt_text.begins_with("-"):
+			opt_text = opt_text.substr(1)
+		opt_text = opt_text.strip_edges()
+		opt_destination = line.substr(arrow_posn + 2).strip_edges()
 		
 	# Wait -- this one has to be before looking for a file
 	if line.begins_with("..."):
@@ -94,7 +107,12 @@ func _init(line : String):
 		error_message = "Invalid value used with variable: " + var_value
 		return
 	
-	# Dialogue
+	# Dialogue - two types
+	if line.begins_with("\""):
+		command_type = TYPE.DIALOGUE
+		dial_character = "NR"
+		dial_line = line.substr(1, line.length() - 2)
+		dial_emotion = "neutral"
 	var colon = line.find(":")
 	if colon >= 0:
 		var i = 0;
@@ -109,4 +127,8 @@ func _init(line : String):
 			command_type = TYPE.DIALOGUE
 		dial_character = line.substr(0, colon).strip_edges()
 		dial_line = line.substr(colon + 1)
-		dial_emotion = "neutral" # TODO
+		dial_emotion = "neutral"
+		var exclaimation = line.find("!")
+		if(exclaimation >= 0):
+			dial_emotion = line.substr(exclaimation + 1, colon - exclaimation - 1)
+			dial_character = line.substr(0, exclaimation)
