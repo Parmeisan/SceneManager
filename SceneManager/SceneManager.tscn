@@ -29,13 +29,11 @@ position = Vector2( 20, 300 )
 centered = false
 
 [node name="Speaker_Text" type="Label" parent="."]
+margin_left = 8.0
 margin_top = 424.0
-margin_right = 744.0
+margin_right = 752.0
 margin_bottom = 596.0
 autowrap = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -54,16 +52,10 @@ dialogue_fontname = "CaveatBrush-Regular.ttf"
 dialogue_fontsize = 28
 
 [node name="BranchOptions" type="GridContainer" parent="."]
-anchor_left = 0.321333
-anchor_top = 0.343333
-anchor_right = 0.321333
-anchor_bottom = 0.343333
-margin_right = 300.0
-margin_bottom = 200.0
-rect_pivot_offset = Vector2( 150, 200 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+margin_left = 220.0
+margin_top = 200.0
+margin_right = 530.0
+margin_bottom = 399.0
 
 [node name="Button" type="Button" parent="BranchOptions"]
 margin_right = 300.0
