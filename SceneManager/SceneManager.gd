@@ -21,8 +21,12 @@ var all_scripts = {}
 var characters = {}
 var playing = false
 
+#Associated with shake effect
+var centerPoint
 var thisIsNothing = 0
 var vibrating = false
+var vibratingObject
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	visible = false
@@ -32,8 +36,10 @@ func _ready():
 
 func _physics_process(delta):
 	if vibrating:
-		thisIsNothing = thisIsNothing + 1
-		print(str(thisIsNothing))
+		var xShake = rng.randi_range(-10,10)
+		var yShake = rng.randi_range(-10,10)
+		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
+		
 
 
 func debug(s):
@@ -269,10 +275,14 @@ func BeginScene(script_name):
 					box_back.a8 = 224
 					$Speaker_Background.color = box_back#c.dialogue_background
 			cmd.TYPE.EVENT:
-				var theObject = get_node(cmd.target)
-				vibrating = true
-				yield(get_tree().create_timer(2), "timeout")
-				vibrating = false
+				if(cmd.event == "SHAKE"):
+					vibratingObject = get_node(cmd.target)
+					var original_position = vibratingObject.position
+					centerPoint = original_position
+					vibrating = true
+					yield(get_tree().create_timer(2), "timeout")
+					vibrating = false
+					vibratingObject.position = original_position
 
 	# Remove the template child
 	#$BranchOptions.remove_child($BranchOptions.get_child(0))
