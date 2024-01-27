@@ -9,6 +9,7 @@ export (Array, String) var emotion_keywords
 export (Array, Texture) var emotion_images
 export var dialogue_colour : Color
 export var dialogue_shadow : Color
+export var dialogue_background : Color
 export var dialogue_fontname : String
 export var dialogue_fontsize : int
 export var image_side : int

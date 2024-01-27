@@ -219,6 +219,7 @@ func BeginScene(script_name):
 				var new_button = template.duplicate()
 				new_button.get_node("Label").text = cmd.opt_text
 				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+				new_button.visible = true
 				$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
@@ -248,12 +249,16 @@ func BeginScene(script_name):
 					box.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+					var box_back = c.dialogue_background
+					box_back.a8 = 224
+					$Speaker_Background.color = box_back#c.dialogue_background
 
 	# Remove the template child
 	#$BranchOptions.remove_child($BranchOptions.get_child(0))
 	# If there's still more than one, display them
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
+		#$BranchOptions/TextureButton.visible = false;
 		$BranchOptions.visible = true
 		mode = MODES.WAITING
 	
@@ -268,6 +273,7 @@ func BeginScene(script_name):
 func FillCharacterArray():
 	for node in $Characters.get_children():
 		var c : SceneCharacter = node
+		print("Adding character " + c.character_abbreviation)
 		characters[c.character_abbreviation] = c
 
 func option_button_pressed(scene):
