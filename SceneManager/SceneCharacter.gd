@@ -11,6 +11,7 @@ export var dialogue_colour : Color
 export var dialogue_shadow : Color
 export var dialogue_fontname : String
 export var dialogue_fontsize : int
+export var image_side : int
 
 # It would be nice to have a dictionary of textures accessible by the keyword
 # Hopefully the number of keywords and images above are the same...

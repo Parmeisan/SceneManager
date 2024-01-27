@@ -107,7 +107,12 @@ func _init(line : String):
 		error_message = "Invalid value used with variable: " + var_value
 		return
 	
-	# Dialogue
+	# Dialogue - two types
+	if line.begins_with("\""):
+		command_type = TYPE.DIALOGUE
+		dial_character = "NR"
+		dial_line = line.substr(1, line.length() - 2)
+		dial_emotion = "neutral"
 	var colon = line.find(":")
 	if colon >= 0:
 		var i = 0;
