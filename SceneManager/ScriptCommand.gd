@@ -126,6 +126,12 @@ func _init(line : String):
 		event = line.substr(1, exclaimation - 1)
 		var closeBracket = line.find(">")
 		target = line.substr(exclaimation + 1 , closeBracket - exclaimation -1)
+		if event == "SHOW":
+			exclaimation = target.find("!")
+			var at = target.find("@")
+			dial_character = target.substr(0, exclaimation)
+			dial_emotion = target.substr(exclaimation + 1, at - exclaimation - 1)
+			target = target.substr(at +1, target.length() - at - 1)
 	
 	# Hide a character
 	if line.begins_with("hide@"):

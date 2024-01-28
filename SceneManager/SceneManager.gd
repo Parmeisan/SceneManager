@@ -23,7 +23,6 @@ var playing = false
 
 #Associated with shake effect
 var centerPoint
-var thisIsNothing = 0
 var vibrating = false
 var vibratingObject
 var rng = RandomNumberGenerator.new()
@@ -296,6 +295,10 @@ func BeginScene(script_name):
 					yield(get_tree().create_timer(0.5), "timeout")
 					vibrating = false
 					vibratingObject.position = original_position
+				if(cmd.event == "SHOW"):
+					var character = characters[cmd.dial_character]
+					var image = character.GetEmotionTexture(cmd.dial_emotion)
+					get_node(cmd.target).texture = image
 
 	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:
