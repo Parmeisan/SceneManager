@@ -47,8 +47,7 @@ func _ready():
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
-	
-	#BeginScene("Title")
+	BeginScene("Title")
 
 func _physics_process(delta):
 	if vibrating:
