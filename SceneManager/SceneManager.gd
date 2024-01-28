@@ -185,9 +185,6 @@ static func GetAudio(folder, file, ext):
 	var afile = File.new()
 	if afile.open(fname, File.READ) == OK:
 		var bytes = afile.get_buffer(afile.get_len())
-		for n in 60:
-			bytes.remove(80)
-		bytes.resize(bytes.size()-80)
 		stream.data = bytes
 	else:
 		print ("Error reading sound file " + fname)
