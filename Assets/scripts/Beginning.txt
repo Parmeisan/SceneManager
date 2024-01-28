@@ -40,7 +40,7 @@ GREG_HOW.wav
 "This time, there are fewer fires than usual. Maybe a good sign."
 G: "IT here. Where's your emergency?
 [Add Thogra portrait]
-THOGRA_CRAFTY_WIZARD.wav
+THOGRA_FIEND.wav
 T: "Ah, the crafty wizard. It is I, Thogra of Outbound. I am loath to summon you, but I fear I had no choice."
 GREG_YEAHYEAH.wav
 G: "I'm not too happy to be here either, buddy. What's going on?"

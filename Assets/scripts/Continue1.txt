@@ -21,8 +21,13 @@ T: "Silence, wizard! Or you too will face my wrath!"
 [CG 2]
 hide@R
 hide@L
+hide@Speaker_Background
+hide@Speaker_Text
+hide@Nametag_Background
+hide@Nametag_text
 ComputerSmash.wav
 Axe_It_Screen.png
+...1.5
 N0G: Before I can stop him, he raises his battleaxe and splits through the tower on his desk.
 Barbarian_Background.png
 GREG_COSMOS.wav

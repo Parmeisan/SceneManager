@@ -147,6 +147,7 @@ func _init(line : String):
 			image_location = IMAGE_LOCATION.CENTER
 		else:
 			image_location = IMAGE_LOCATION.UNDEFINED
+			target = side
 			
 	# Dialogue - two types
 	if line.begins_with("\""):
