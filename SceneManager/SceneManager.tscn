@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/characters/Barbarian.png" type="Texture" id=10]
 [ext_resource path="res://Assets/characters/Alien.png" type="Texture" id=11]
 [ext_resource path="res://Assets/characters/SquirrelBoss.png" type="Texture" id=12]
+[ext_resource path="res://Assets/images/Logo Only.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -37,6 +38,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Game_Title" type="Sprite" parent="."]
+position = Vector2( 512, 0 )
+texture = ExtResource( 13 )
+
 [node name="Music_Looper" type="AudioStreamPlayer" parent="."]
 
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
@@ -49,6 +54,7 @@ centered = false
 centered = false
 
 [node name="Speaker_Background" type="ColorRect" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.8 )
 anchor_bottom = 1.0
 margin_left = 12.0
@@ -63,10 +69,10 @@ margin_left = 24.0
 margin_top = 482.0
 margin_right = 998.0
 margin_bottom = 578.0
-text = "Test text woo woo woo"
 autowrap = true
 
 [node name="Nametag_Background" type="ColorRect" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.8 )
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -83,7 +89,6 @@ margin_top = 440.0
 margin_right = 146.0
 margin_bottom = 470.0
 rect_scale = Vector2( 0.792113, 0.858631 )
-text = "No	m"
 align = 1
 valign = 1
 autowrap = true
@@ -249,10 +254,10 @@ emotion_images = [ ExtResource( 8 ) ]
 dialogue_fontname = "CaveatBrush-Regular.ttf"
 
 [node name="BranchOptions" type="GridContainer" parent="."]
-margin_left = 332.0
-margin_top = 200.0
-margin_right = 642.0
-margin_bottom = 399.0
+margin_left = 357.0
+margin_top = 420.0
+margin_right = 667.0
+margin_bottom = 619.0
 
 [node name="TextureButton" type="TextureButton" parent="BranchOptions"]
 visible = false
