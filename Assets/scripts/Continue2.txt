@@ -1,5 +1,5 @@
 OfficeAmbienceLoop.ogg
-Space_Background.png
+Alien_Background.png
 "Never attribute to malice what can be attributed to incompetence. I sigh and shake my head."
 G: "Okay, so a portal was summoned. Let me try and see if we can reverse-engineer this. Can you show me what happened just before?"
 "If I'm prepared, I can undo it without sucking half the office into the fifth dimension."
