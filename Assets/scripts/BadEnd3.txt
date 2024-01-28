@@ -1,10 +1,10 @@
 Squirrel_Background.png
-OfficeAmbienceLoop.ogg
 <SHOW!B!neutral@Character_Right>
 "I don't say anything."
 "I just keep working, concentrating. This is my job. Garbage job is better than nothing."
 "I find the source. It's easy when you can compare to the origin they want the money sent to. Good old virus-maker greed."
 G: "Good. Just a few seconds and you should be clean."
+SQUIRREL_LAUGH.wav
 B: "Watch your mouth. I'm always clean."
 G: "Not what I meant."
 B: "Tch. It doesn't matter."
@@ -14,6 +14,7 @@ G: "As a glorified antivirus."
 [Screen fades to white and then back again]
 G: "Got it. Your arm should work now."
 "The boss flexes her robot arm and moves it around a bit."
+SQUIRREL_SQUIRRELBOSS.wav
 B: "Perfect. Run along now."
 G: "Sure, ma'am."
 [Remove Boss portrait]
@@ -24,6 +25,7 @@ hide@R
 B: "Wait one second."
 "I freeze. Slowly turn around."
 B: "I appreciate the help."
+SQUIRREL_LAUGH.wav
 B: "But you've seen a little too much, Geoff."
 [Black screen, no portraits]
 Black_Background.png

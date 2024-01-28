@@ -1,7 +1,7 @@
 Squirrel_Background.png
-OfficeAmbienceLoop.ogg
 <SHOW!B!neutral@Character_Right>
 G: "I have to say."
+SQUIRREL_LAUGH.wav
 B: "What? Less talking, more fixing, Geoff."
 "I want to back out. Say this isn't my circus. But for years now, it's been her circus, and I'm the world's most apathetic monkey."
 "Time to throw turds."
@@ -10,13 +10,17 @@ G: "You're pretty obvious, boss."
 "I step back out of her immediate bubble. The squirrel in front of me starts to seethe, the cute little veneer that was already full of cracks boiling up with rage."
 B: "What?"
 G: "Being from the future to kill humans. Zaxyss figured you out ages ago. It's just that everyone else was too worn down to care."
+SQUIRREL_CURSEYOU.wav
+<SHAKE!Character_Right>
 B: "Oversized vermin! I've poured work into this company's direction for years! Do you even know how much is going into humanity's downfall? Do you even see why?"
 B: "How many squirrels from the future have infiltrated upper management because the average wealthy company president is so incompetent that no one will even notice?"
+SQUIRREL_LAUGH.wav
 B: "How you and your ilk have been tricked into serving the beings who will cause your downfall, pitted against one another, wizard against barbarian, alien versus sewer monster, giant versus fly?!"
 G: "Most of those aren't even humans to begin with."
 B: "Silence! In the future, it will be only squirrels! And none shall ever have to fear being chased out of somebody's yard again!"
 B: "Now taste my power!"
 "She clicks a button."
+SQUIRREL_UMM.wav
 "Nothing. She clicks it again. And again."
 B: "You...!"
 G: "You could have waited until I was done to be obviously evil, and then this wouldn't have happened."
@@ -33,6 +37,7 @@ G: "The universe has aligned through me!"
 G: "I curse you to the Wasteland of Hades!"
 [Screen fades to white. Remove Boss portrait.]
 White_Background.png
+SQUIRREL_NOOO.wav
 B: "No...!"
 hide@R
 [Screen fades back to Boss's Office.]

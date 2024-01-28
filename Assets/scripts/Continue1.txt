@@ -1,5 +1,4 @@
 Barbarian_Background.png
-OfficeAmbienceLoop.ogg
 <SHOW!T!neutral@Character_Right>
 "I take a deep breath."
 G: "It's a scam, Thogra. People just send these emails to trick people into giving them money."
