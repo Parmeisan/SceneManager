@@ -27,6 +27,10 @@ var vibrating = false
 var vibratingObject
 var rng = RandomNumberGenerator.new()
 
+#Associated with Title slide
+var title_slide = false
+var title_progress = 0
+
 func _ready():
 	visible = false
 	LoadAllScripts()
@@ -38,6 +42,17 @@ func _physics_process(delta):
 		var xShake = rng.randi_range(-10,10)
 		var yShake = rng.randi_range(-10,10)
 		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
+	if title_slide:
+		#two seconds
+		title_progress = title_progress + delta/2
+		$Game_Title.position = Vector2(512, 300.0 * title_progress)
+		
+
+		if(title_progress >= 1):
+			title_progress = 1
+			title_slide = false
+
+
 
 func debug(s):
 	if debug_mode:
@@ -261,6 +276,7 @@ func BeginScene(script_name):
 			cmd.TYPE.DIALOGUE:
 				$Nametag_Background.visible = false
 				$Nametag_text.visible = false
+				$Speaker_Background.visible = true
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
 				# This is quick-and-dirty, we'll want some scaffolding around this
@@ -312,6 +328,8 @@ func BeginScene(script_name):
 					var character = characters[cmd.dial_character]
 					var image = character.GetEmotionTexture(cmd.dial_emotion)
 					get_node(cmd.target).texture = image
+				if(cmd.event == "TITLE"):
+					title_slide = true
 
 	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:
