@@ -22,6 +22,7 @@ var characters = {}
 var playing = false
 
 #Associated with shake effect
+var vibrate_time = 0.0;
 var centerPoint
 var vibrating = false
 var vibratingObject
@@ -42,6 +43,11 @@ func _physics_process(delta):
 		var xShake = rng.randi_range(-10,10)
 		var yShake = rng.randi_range(-10,10)
 		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
+		vibrate_time = vibrate_time + delta
+		if(vibrate_time > 1.0):
+			vibrate_time = 0
+			vibratingObject.position = centerPoint
+			vibrating = false
 	if title_slide:
 		#two seconds
 		title_progress = title_progress + delta/2
@@ -51,8 +57,6 @@ func _physics_process(delta):
 		if(title_progress >= 1):
 			title_progress = 1
 			title_slide = false
-
-
 
 func debug(s):
 	if debug_mode:
@@ -321,9 +325,6 @@ func BeginScene(script_name):
 					var original_position = vibratingObject.position
 					centerPoint = original_position
 					vibrating = true
-					yield(get_tree().create_timer(0.5), "timeout")
-					vibrating = false
-					vibratingObject.position = original_position
 				if(cmd.event == "SHOW"):
 					var character = characters[cmd.dial_character]
 					var image = character.GetEmotionTexture(cmd.dial_emotion)
