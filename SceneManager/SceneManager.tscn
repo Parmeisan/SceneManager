@@ -149,7 +149,7 @@ emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.419608, 0.0862745, 0.0862745, 1 )
 dialogue_background = Color( 0.909804, 0.835294, 0.823529, 1 )
 dialogue_fontname = "Bevan-Regular.ttf"
-dialogue_fontsize = 28
+dialogue_fontsize = 21
 image_side = 1
 
 [node name="Tria303" type="Control" parent="Characters"]
