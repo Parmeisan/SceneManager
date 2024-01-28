@@ -30,4 +30,6 @@ hide@R
 "My body slams against the door."
 G: "Nghhh..."
 "This job sucks."
-TEXT: BAD END: #Squirrelboss
+TEXT: Greg was not able to resolve the support ticket.
+Bad_Ending_3.png
+-Retry=>Continue2

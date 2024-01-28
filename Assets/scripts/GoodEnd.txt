@@ -48,3 +48,5 @@ hide@L
 "They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now."
 "...Wait, now I have to represent the company, don't I?"
 TEXT: END: Entered the Age of Greg
+[Win.png]
+-Replay=>Beginning
