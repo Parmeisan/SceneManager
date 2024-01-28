@@ -10,3 +10,4 @@ export_presets.cfg
 .mono/
 data_*/
 *.cache
+addons/sound_manager/SoundManager.json

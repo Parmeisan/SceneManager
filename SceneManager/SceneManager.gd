@@ -189,7 +189,7 @@ static func GetAudio(folder, file, ext):
 	else:
 		print ("Error reading sound file " + fname)
 	afile.close()
-	return stream
+	return fname
 
 # === Running scripts from our array of ScriptCommands ============================================
 
@@ -251,15 +251,14 @@ func BeginScene(script_name):
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
 					# Ensure that we have 16-bit (can downgrade in Audacity)
-					player = $SFX_Player
-					playing = true;
+					SoundManager.play_se("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
 				elif cmd.file_ext == "ogg":
-					player = $Music_Looper
-				if player != null:
-					player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
-					player.stop()
-					player.play()
-					player.volume_db = float(8)
+					SoundManager.play_bgm("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
+				#if player != null:
+					#player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
+					#player.stop()
+					#player.play()
+					#player.volume_db = float(8)
 			# Set a background
 			cmd.TYPE.BACKGROUND:
 				$BG_Image.visible = true

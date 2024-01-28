@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bad_Ending_3.png-0980c7a00fd417fe1f7d885ab05a3bc3.stex"
+path="res://.import/icon.png-9184c917ae1432a53633fd28a90ce6a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/Bad_Ending_3.png"
-dest_files=[ "res://.import/Bad_Ending_3.png-0980c7a00fd417fe1f7d885ab05a3bc3.stex" ]
+source_file="res://addons/icon.png"
+dest_files=[ "res://.import/icon.png-9184c917ae1432a53633fd28a90ce6a4.stex" ]
 
 [params]
 

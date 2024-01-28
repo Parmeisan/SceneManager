@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bad_Ending_3.png-0980c7a00fd417fe1f7d885ab05a3bc3.stex"
+path="res://.import/icon.png-5680e0d378f47e6cf374fc646d6055c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/Bad_Ending_3.png"
-dest_files=[ "res://.import/Bad_Ending_3.png-0980c7a00fd417fe1f7d885ab05a3bc3.stex" ]
+source_file="res://addons/sound_manager/icon.png"
+dest_files=[ "res://.import/icon.png-5680e0d378f47e6cf374fc646d6055c2.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
