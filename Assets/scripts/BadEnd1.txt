@@ -20,4 +20,6 @@ Black_Background.png
 "I know it wasn't me who made the call. But I still caused it. Maybe this is what I deserve."
 "The boss seemed pretty happy, though... Whatever. Not my problem."
 "I was barely surviving before. Now it's literal."
+TEXT: Greg was not able to resolve the support ticket.
 TEXT: BAD END: Dear Beloved Friend
+-Retry=>Beginning
