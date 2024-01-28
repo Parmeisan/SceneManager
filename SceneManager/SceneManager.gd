@@ -157,6 +157,9 @@ static func GetAudio(folder, file, ext):
 	var afile = File.new()
 	if afile.open(fname, File.READ) == OK:
 		var bytes = afile.get_buffer(afile.get_len())
+		for n in 60:
+			bytes.remove(80)
+		bytes.resize(bytes.size()-80)
 		stream.data = bytes
 	else:
 		print ("Error reading sound file " + fname)
@@ -275,13 +278,17 @@ func BeginScene(script_name):
 					waited += incr_size
 				mode = MODES.RUNNING
 			cmd.TYPE.HIDE:
-				match cmd.image_location:
-					cmd.IMAGE_LOCATION.LEFT:
-						$Character_Left.texture = null
-					cmd.IMAGE_LOCATION.RIGHT:
-						$Character_Right.texture = null
-					#cmd.IMAGE_LOCATION.CENTER:
-					#	$Character_Center.texture = null
+				if cmd.image_location != null and cmd.image_location != cmd.IMAGE_LOCATION.UNDEFINED:
+					match cmd.image_location:
+						cmd.IMAGE_LOCATION.LEFT:
+							$Character_Left.texture = null
+						cmd.IMAGE_LOCATION.RIGHT:
+							$Character_Right.texture = null
+						#cmd.IMAGE_LOCATION.CENTER:
+						#	$Character_Center.texture = null
+				if cmd.target != null:
+					print("Hiding " + cmd.target)
+					get_node(cmd.target).visible = false
 			cmd.TYPE.DIALOGUE:
 				$Nametag_Background.visible = false
 				$Nametag_text.visible = false
@@ -298,6 +305,8 @@ func BeginScene(script_name):
 					   (c != $Characters/NobodyRight) &&
 					   (c != $Characters/TEXT) && 
 					   (c != $Characters/Monologue)):
+						 $Speaker_Background.visible = true
+						 $Speaker_Text.visible = true
 						 $Nametag_Background.visible = true
 						 $Nametag_text.visible = true
 						 $Nametag_text.text = c.character_full_name

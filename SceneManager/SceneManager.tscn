@@ -217,6 +217,19 @@ dialogue_background = Color( 1, 1, 1, 1 )
 dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
 
+[node name="HR" type="Control" parent="Characters"]
+margin_top = 6.0
+margin_right = 747.0
+margin_bottom = 209.0
+script = ExtResource( 2 )
+character_abbreviation = "HR"
+character_full_name = "HR"
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_background = Color( 1, 1, 1, 1 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
+dialogue_fontsize = 28
+
 [node name="NobodyLeft" type="Control" parent="Characters"]
 margin_top = 6.0
 margin_right = 747.0
