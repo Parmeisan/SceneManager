@@ -80,17 +80,17 @@ margin_top = 440.0
 margin_right = 1020.0
 margin_bottom = -40.0
 rect_min_size = Vector2( 1000, 120 )
-rect_scale = Vector2( 0.1, 0.25 )
+rect_scale = Vector2( 0.205, 0.25 )
 color = Color( 0.333333, 0.133333, 0.133333, 1 )
 
 [node name="Nametag_text" type="Label" parent="."]
 margin_left = 22.0
 margin_top = 440.0
-margin_right = 146.0
+margin_right = 227.225
 margin_bottom = 470.0
 rect_scale = Vector2( 0.792113, 0.858631 )
 align = 1
-valign = 1
+valign = 2
 autowrap = true
 
 [node name="Characters" type="Node2D" parent="."]
