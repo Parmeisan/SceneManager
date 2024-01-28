@@ -44,4 +44,4 @@ N0G: "Nghhh..."
 N0G: "This job sucks."
 TEXT: Greg was not able to resolve the support ticket.
 Bad_Ending_3.png
--Retry=>Continue2
+-Retry=>Continue2Resume
