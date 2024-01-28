@@ -47,7 +47,7 @@ centered = false
 [node name="Character_Right" type="Sprite" parent="."]
 centered = false
 
-[node name="Speaker_Background2" type="ColorRect" parent="."]
+[node name="Speaker_Background" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0.8 )
 anchor_bottom = 1.0
 margin_left = 12.0
@@ -69,20 +69,20 @@ autowrap = true
 modulate = Color( 1, 1, 1, 0.8 )
 anchor_bottom = 1.0
 margin_left = 20.0
-margin_top = 448.0
+margin_top = 440.0
 margin_right = 1020.0
-margin_bottom = -32.0
+margin_bottom = -40.0
 rect_min_size = Vector2( 1000, 120 )
-rect_scale = Vector2( 0.083, 0.213 )
+rect_scale = Vector2( 0.1, 0.25 )
 color = Color( 0.333333, 0.133333, 0.133333, 1 )
 
 [node name="Nametag_text" type="Label" parent="."]
-margin_left = 25.075
-margin_top = 451.0
-margin_right = 115.075
-margin_bottom = 476.0
+margin_left = 22.0
+margin_top = 440.0
+margin_right = 146.0
+margin_bottom = 470.0
 rect_scale = Vector2( 0.792113, 0.858631 )
-text = "Nom"
+text = "No	m"
 align = 1
 valign = 1
 autowrap = true
