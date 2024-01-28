@@ -22,9 +22,20 @@ B: "How you and your ilk have been tricked into serving the beings who will caus
 G: "Most of those aren't even humans to begin with."
 B: "Silence! In the future, it will be only squirrels! And none shall ever have to fear being chased out of somebody's yard again!"
 B: "Now taste my power!"
-"She clicks a button."
+[CG3]
+hide@R
+hide@L
+hide@Speaker_Background
+hide@Speaker_Text
+hide@Nametag_Background
+hide@Nametag_text
+Squirrel_Fight_Screen.png
+...1.5
+N0G: She clicks a button.
 SQUIRREL_UMM.wav
-"Nothing. She clicks it again. And again."
+N0G: Nothing. She clicks it again. And again.
+Squirrel_Background.png
+<SHOW!G!neutral@Character_Left>
 B: "You...!"
 GREG_TAKETHAT.wav
 G: "You could have waited until I was done to be obviously evil, and then this wouldn't have happened."
