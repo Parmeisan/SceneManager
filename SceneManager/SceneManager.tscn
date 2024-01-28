@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/characters/Greg.png" type="Texture" id=9]
 [ext_resource path="res://Assets/characters/Barbarian.png" type="Texture" id=10]
 [ext_resource path="res://Assets/characters/Alien.png" type="Texture" id=11]
+[ext_resource path="res://Assets/characters/SquirrelBoss.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -65,6 +66,28 @@ margin_bottom = 578.0
 text = "Test text woo woo woo"
 autowrap = true
 
+[node name="Nametag_Background" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 440.0
+margin_right = 1020.0
+margin_bottom = -40.0
+rect_min_size = Vector2( 1000, 120 )
+rect_scale = Vector2( 0.1, 0.25 )
+color = Color( 0.333333, 0.133333, 0.133333, 1 )
+
+[node name="Nametag_text" type="Label" parent="."]
+margin_left = 22.0
+margin_top = 440.0
+margin_right = 146.0
+margin_bottom = 470.0
+rect_scale = Vector2( 0.792113, 0.858631 )
+text = "No	m"
+align = 1
+valign = 1
+autowrap = true
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Greg" type="Control" parent="Characters"]
@@ -75,6 +98,20 @@ script = ExtResource( 2 )
 character_abbreviation = "G"
 character_full_name = "Greg"
 neutral_image = ExtResource( 9 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.207843, 0.12549, 0.392157, 1 )
+dialogue_background = Color( 0.796078, 0.745098, 0.623529, 0.8 )
+dialogue_fontname = "MaidenOrange-Regular.ttf"
+dialogue_fontsize = 28
+image_side = -1
+
+[node name="NoGreg" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "N0G"
 emotion_keywords = [ "serious" ]
 emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.207843, 0.12549, 0.392157, 1 )
@@ -127,7 +164,7 @@ emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.419608, 0.0862745, 0.0862745, 1 )
 dialogue_background = Color( 0.909804, 0.835294, 0.823529, 1 )
 dialogue_fontname = "Bevan-Regular.ttf"
-dialogue_fontsize = 28
+dialogue_fontsize = 21
 image_side = 1
 
 [node name="Tria303" type="Control" parent="Characters"]
@@ -143,6 +180,22 @@ emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.533333, 0.807843, 0.356863, 1 )
 dialogue_background = Color( 0.0901961, 0.239216, 0.278431, 1 )
 dialogue_fontname = "Peralta-Regular.ttf"
+dialogue_fontsize = 28
+image_side = 1
+
+[node name="SquirrelBoss" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "B"
+character_full_name = "Squirrel Boss"
+neutral_image = ExtResource( 12 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.847059, 0.596078, 0.145098, 1 )
+dialogue_background = Color( 0.662745, 0.662745, 0.694118, 1 )
+dialogue_fontname = "DancingScript-VariableFont_wght.ttf"
 dialogue_fontsize = 28
 image_side = 1
 

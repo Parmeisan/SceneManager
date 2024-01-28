@@ -122,8 +122,8 @@ func _init(line : String):
 	
 	if line.begins_with("<"):
 		command_type = TYPE.EVENT
-		var exclaimation = line.find("!")
-		event = line.substr(1, exclaimation - 1)
+		var exclamation = line.find("!")
+		event = line.substr(1, exclamation - 1)
 		var closeBracket = line.find(">")
 		target = line.substr(exclaimation + 1 , closeBracket - exclaimation -1)
 		if event == "SHOW":
