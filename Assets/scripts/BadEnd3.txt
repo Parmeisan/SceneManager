@@ -1,0 +1,33 @@
+"I don't say anything."
+"I just keep working, concentrating. This is my job. Garbage job is better than nothing."
+"I find the source. It's easy when you can compare to the origin they want the money sent to. Good old virus-maker greed."
+G: "Good. Just a few seconds and you should be clean."
+B: "Watch your mouth. I'm always clean."
+G: "Not what I meant."
+B: "Tch. It doesn't matter."
+"At least she shut up. I take a breath."
+G: "I channel the energy of the stars around us, burning within us, reaching ever higher, building on the wisdom of the ages..."
+G: "As a glorified antivirus."
+[Screen fades to white and then back again]
+G: "Got it. Your arm should work now."
+"The boss flexes her robot arm and moves it around a bit."
+B: "Perfect. Run along now."
+G: "Sure, ma'am."
+[Remove Boss portrait]
+hide@R
+"I turn to leave the office."
+"My hand almost touches the doorknob."
+[Re-add Boss portrait]
+B: "Wait one second."
+"I freeze. Slowly turn around."
+B: "I appreciate the help."
+B: "But you've seen a little too much, Geoff."
+[Black screen, no portraits]
+Black_Background.png
+hide@L
+hide@R
+"The last thing I see is the flash of a laser from the arm I fixed."
+"My body slams against the door."
+G: "Nghhh..."
+"This job sucks."
+TEXT: BAD END: #Squirrelboss

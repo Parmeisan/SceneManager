@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/characters/Greg.png" type="Texture" id=9]
 [ext_resource path="res://Assets/characters/Barbarian.png" type="Texture" id=10]
 [ext_resource path="res://Assets/characters/Alien.png" type="Texture" id=11]
+[ext_resource path="res://Assets/characters/SquirrelBoss.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -143,6 +144,22 @@ emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.533333, 0.807843, 0.356863, 1 )
 dialogue_background = Color( 0.0901961, 0.239216, 0.278431, 1 )
 dialogue_fontname = "Peralta-Regular.ttf"
+dialogue_fontsize = 28
+image_side = 1
+
+[node name="SquirrelBoss" type="Control" parent="Characters"]
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+character_abbreviation = "B"
+character_full_name = "Squirrel Boss"
+neutral_image = ExtResource( 12 )
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.847059, 0.596078, 0.145098, 1 )
+dialogue_background = Color( 0.662745, 0.662745, 0.694118, 1 )
+dialogue_fontname = "DancingScript-VariableFont_wght.ttf"
 dialogue_fontsize = 28
 image_side = 1
 

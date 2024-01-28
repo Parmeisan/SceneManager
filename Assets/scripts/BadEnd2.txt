@@ -1,0 +1,29 @@
+OfficeAmbienceLoop.ogg
+Space_Background.png
+G: "Tell me the truth this time. What regular computer use summons a portal?"
+3: "I told you, I don't know what happened! I was just typing, like this!"
+"She types. And types. Fingers flying across the keys in quick patterns. Soon enough, I have to start using magic just to keep track."
+"And in front of us, where the computer is hanging in the fifth dimension, the portal reemerges."
+"I feel a force pulling me. Pulling everything."
+"I cast a quick anchoring spell so it won't take me in."
+"But -"
+3: "Noooo!"
+[Remove Tria 303 portrait]
+hide@R
+G: "Close!"
+"I manage to shut the portal again."
+"There's no more force pulling anything in."
+"But Tria 303 was sucked through the portal."
+G: "What a pain..."
+"The whole office is staring at me. Glaring at me."
+"And before I can do anything, somebody taps me on the shoulder."
+HR: "Ahem."
+[Black screen, no portraits]
+Black_Background.png
+hide@L
+hide@R
+"Somebody called Metahuman Resources on me for 'unfair treatment.'"
+"I guess they had a point, but the four-hour lecture and docking my pay were excessive."
+"And then I had to go rescue both the payroll worker and her computer."
+"At this rate I'll need to put off my retirement... I'll be stuck here forever."
+TEXT: BAD END: When You (Don't) Believe

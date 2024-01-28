@@ -12,7 +12,8 @@ G: "I'm... not going to get into this."
 "I just back off and walk out as Thogra screams into his headset."
 [Black screen]
 Black_Background.png
-0: 
+hide@L
+hide@R
 "In the coming days, we all got called into a meeting."
 "The Mondarian prince actually showed up to head office in a chariot with an army to declare war on AstonishCorp."
 "We all got drafted to fight back, but it was no use..."
