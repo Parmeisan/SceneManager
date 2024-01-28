@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TRIA303_I_DONT_KNOW.wav-945316e670c96cba0dfa23e599d47810.sample"
+
+[deps]
+
+source_file="res://Assets/audio/TRIA303_I_DONT_KNOW.wav"
+dest_files=[ "res://.import/TRIA303_I_DONT_KNOW.wav-945316e670c96cba0dfa23e599d47810.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
