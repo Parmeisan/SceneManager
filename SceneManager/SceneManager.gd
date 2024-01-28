@@ -47,6 +47,8 @@ func _ready():
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
+	
+	#BeginScene("Title")
 
 func _physics_process(delta):
 	if vibrating:
@@ -218,6 +220,8 @@ func BeginScene(script_name):
 	$BranchOptions.visible = false
 	$Character_Left.texture = null
 	$Character_Right.texture = null
+	$Game_Title.position = Vector2(0,0)
+	title_slide = false
 	var num = 0
 	for opt in $BranchOptions.get_children():
 		if (num > 0): # The first one will serve as a template
