@@ -132,6 +132,8 @@ func _init(line : String):
 			dial_character = target.substr(0, exclamation)
 			dial_emotion = target.substr(exclamation + 1, at - exclamation - 1)
 			target = target.substr(at +1, target.length() - at - 1)
+		if event == "TITLE":
+			event = "TITLE"
 	
 	# Hide a character
 	if line.begins_with("hide@"):
