@@ -26,4 +26,6 @@ hide@R
 "I guess they had a point, but the four-hour lecture and docking my pay were excessive."
 "And then I had to go rescue both the payroll worker and her computer."
 "At this rate I'll need to put off my retirement... I'll be stuck here forever."
-TEXT: BAD END: When You (Don't) Believe
+TEXT: Greg was not able to resolve the support ticket.
+Bad_Ending_2.png
+-Retry=>Continue1

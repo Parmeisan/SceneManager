@@ -49,3 +49,5 @@ N0G: "But here I am. Sitting on a throne of plastic casing and fried metals."
 N0G: "They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now."
 N0G: "...Wait, now I have to represent the company, don't I?"
 TEXT: END: Entered the Age of Greg
+[Win.png]
+-Replay=>Beginning
