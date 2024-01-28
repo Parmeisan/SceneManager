@@ -44,6 +44,7 @@ G: "Just don't overload the computer again."
 "I chug the rest of my coffee and retreat to the IT haven."
 [Background: IT Office. Portraits: Greg]
 Space_Background.png
+<SLIDE!LEFT@Character_Left#2>
 hide@R
 "Huh. Zaxyss is gone. Probably off working on one of the other support tickets."
 "At least I don't have to listen to him plotting to lay an ancient curse under the building or poison the coffee the next time Corporate Filing Services screws up."
@@ -51,6 +52,7 @@ hide@R
 "There's an issue with her mech suit? Well, better I fix it than Zaxyss grab it when he comes back and mess everything up."
 [Background: Boss's Office. Portraits: Greg, Boss]
 Squirrel_Background.png
+<SLIDE!LEFT@Character_Left#2>
 "There she is. Small, mysterious, and all too happy to remind you she pays your salary."
 MalwareArm.wav
 "She seems pretty absorbed in grumbling at her robot arm."

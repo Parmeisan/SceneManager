@@ -38,6 +38,7 @@ G: "Okay, so one ticket for a replacement PC..."
 [Background: IT Office. Portraits: Greg, Zaxyss]
 OfficeAmbienceLoop.ogg
 Space_Background.png
+<SLIDE!LEFT@Character_Left#2>
 hide@R
 ZAXYSS_HEH.wav
 Z: "That was quick, for dealing with those barbarous outbounders."
@@ -73,6 +74,7 @@ G: "You do that."
 [Background: Generic Cubicles, Alien variant. Portraits: Greg]
 Alien_Background.png
 hide@R
+<SLIDE!LEFT@Character_Left#2>
 "Payroll is usually easier to deal with. We don't get too many complaints from there. But when we get them, sometimes they get... esoteric."
 "I walk in past the workers typing away at their screens."
 GREG_HEH.wav

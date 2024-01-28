@@ -33,6 +33,7 @@ G: "Those guys again? I'll take it... Can't be worse than what we've already dea
 "Of course, it can always be worse, but there's something to be said for the bare minimum of optimism. I grab the ticket and walk out."
 [Background: Generic Cubicles, Barbarian variant. Portraits: Greg]
 Barbarian_Background.png
+<SLIDE!LEFT@Character_Left#2>
 hide@R
 GREG_HOW.wav
 "Dealing with internal customers like IT has to is bad enough. External customers who actually call you and want to talk to you are worse. So anyone who actually takes a job where YOU have to call THEM has to be a certain kind of person."

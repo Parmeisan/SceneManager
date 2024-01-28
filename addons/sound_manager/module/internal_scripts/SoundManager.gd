@@ -638,7 +638,7 @@ func play(sound_type : String, sound : String, from_position : float = 1.0, volu
 	if Instantiated_Nodes.has(sound_path):
 		sound_index = Instantiated_Nodes.find(sound_path)
 		audiostream = Audiostreams[sound_index]
-		if audiostream.get_bus() != Audio_Busses[sound_type]:
+		if audiostream != null and audiostream.get_bus() != Audio_Busses[sound_type]:
 			audiostream.set_bus(Audio_Busses[sound_type])
 		if debug:
 			print_debug("Node preinstantiated " + sound_path)
