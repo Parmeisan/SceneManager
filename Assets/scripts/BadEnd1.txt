@@ -3,7 +3,7 @@ Barbarian_Background.png
 G: "I don't... really think you should give him our money."
 GREG_NOTNOW.wav
 G: "Actually, don't. It's a bad idea."
-THOGRA_CRAFTY_WIZARD.wav
+THOGRA_FORGLORY.wav
 T: "I see... Truly you are wise."
 "I blink. Usually these guys are harder to reason with."
 G: "You do?"
