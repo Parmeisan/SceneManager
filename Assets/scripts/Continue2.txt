@@ -24,7 +24,7 @@ hide@Speaker_Background
 hide@Speaker_Text
 hide@Nametag_Background
 hide@Nametag_text
-ComputerSmash.wav
+ComputerWarp.wav
 Vortex_Screen.png
 ...1.5
 N0G: Okay, I would. But it's cheaper and easier to just use this nearby box of RJ45 cables.
