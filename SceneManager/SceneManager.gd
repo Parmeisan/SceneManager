@@ -22,10 +22,15 @@ var characters = {}
 var playing = false
 
 #Associated with shake effect
+var vibrate_time = 0.0;
 var centerPoint
 var vibrating = false
 var vibratingObject
 var rng = RandomNumberGenerator.new()
+
+#Associated with Title slide
+var title_slide = false
+var title_progress = 0
 
 func _ready():
 	visible = false
@@ -38,6 +43,20 @@ func _physics_process(delta):
 		var xShake = rng.randi_range(-10,10)
 		var yShake = rng.randi_range(-10,10)
 		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
+		vibrate_time = vibrate_time + delta
+		if(vibrate_time > 1.0):
+			vibrate_time = 0
+			vibratingObject.position = centerPoint
+			vibrating = false
+	if title_slide:
+		#two seconds
+		title_progress = title_progress + delta/2
+		$Game_Title.position = Vector2(512, 300.0 * title_progress)
+		
+
+		if(title_progress >= 1):
+			title_progress = 1
+			title_slide = false
 
 func debug(s):
 	if debug_mode:
@@ -199,6 +218,7 @@ func BeginScene(script_name):
 			cmd.TYPE.AUDIO:
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
+					# Ensure that we have 16-bit (can downgrade in Audacity)
 					player = $SFX_Player
 					playing = true;
 				elif cmd.file_ext == "ogg":
@@ -207,7 +227,7 @@ func BeginScene(script_name):
 					player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
 					player.stop()
 					player.play()
-					player.volume_db = float(-8)
+					player.volume_db = float(8)
 			# Set a background
 			cmd.TYPE.BACKGROUND:
 				$BG_Image.visible = true
@@ -261,6 +281,7 @@ func BeginScene(script_name):
 			cmd.TYPE.DIALOGUE:
 				$Nametag_Background.visible = false
 				$Nametag_text.visible = false
+				$Speaker_Background.visible = true
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
 				# This is quick-and-dirty, we'll want some scaffolding around this
@@ -305,13 +326,12 @@ func BeginScene(script_name):
 					var original_position = vibratingObject.position
 					centerPoint = original_position
 					vibrating = true
-					yield(get_tree().create_timer(0.5), "timeout")
-					vibrating = false
-					vibratingObject.position = original_position
 				if(cmd.event == "SHOW"):
 					var character = characters[cmd.dial_character]
 					var image = character.GetEmotionTexture(cmd.dial_emotion)
 					get_node(cmd.target).texture = image
+				if(cmd.event == "TITLE"):
+					title_slide = true
 
 	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:

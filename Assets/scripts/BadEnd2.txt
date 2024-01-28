@@ -1,12 +1,14 @@
-OfficeAmbienceLoop.ogg
-Space_Background.png
+Alien_Background.png
+<SHOW!3!neutral@Character_Right>
 G: "Tell me the truth this time. What regular computer use summons a portal?"
+TRIA303_I_DONT_KNOW.wav
 3: "I told you, I don't know what happened! I was just typing, like this!"
 "She types. And types. Fingers flying across the keys in quick patterns. Soon enough, I have to start using magic just to keep track."
 "And in front of us, where the computer is hanging in the fifth dimension, the portal reemerges."
 "I feel a force pulling me. Pulling everything."
 "I cast a quick anchoring spell so it won't take me in."
 "But -"
+TRIA303_NOOO.wav
 3: "Noooo!"
 [Remove Tria 303 portrait]
 hide@R
@@ -22,8 +24,10 @@ HR: "Ahem."
 Black_Background.png
 hide@L
 hide@R
-"Somebody called Metahuman Resources on me for 'unfair treatment.'"
-"I guess they had a point, but the four-hour lecture and docking my pay were excessive."
-"And then I had to go rescue both the payroll worker and her computer."
-"At this rate I'll need to put off my retirement... I'll be stuck here forever."
-TEXT: BAD END: When You (Don't) Believe
+N0G: Somebody called Metahuman Resources on me for 'unfair treatment.'
+N0G: I guess they had a point, but the four-hour lecture and docking my pay were excessive.
+N0G: And then I had to go rescue both the payroll worker and her computer.
+N0G: At this rate I'll need to put off my retirement... I'll be stuck here forever.
+TEXT: Greg was not able to resolve the support ticket.
+Bad_Ending_2.png
+-Retry=>Continue1

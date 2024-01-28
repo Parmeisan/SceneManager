@@ -125,13 +125,15 @@ func _init(line : String):
 		var exclamation = line.find("!")
 		event = line.substr(1, exclamation - 1)
 		var closeBracket = line.find(">")
-		target = line.substr(exclaimation + 1 , closeBracket - exclaimation -1)
+		target = line.substr(exclamation + 1 , closeBracket - exclamation -1)
 		if event == "SHOW":
-			exclaimation = target.find("!")
+			exclamation = target.find("!")
 			var at = target.find("@")
-			dial_character = target.substr(0, exclaimation)
-			dial_emotion = target.substr(exclaimation + 1, at - exclaimation - 1)
+			dial_character = target.substr(0, exclamation)
+			dial_emotion = target.substr(exclamation + 1, at - exclamation - 1)
 			target = target.substr(at +1, target.length() - at - 1)
+		if event == "TITLE":
+			event = "TITLE"
 	
 	# Hide a character
 	if line.begins_with("hide@"):
