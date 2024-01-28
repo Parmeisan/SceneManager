@@ -28,7 +28,8 @@ ComputerWarp.wav
 Vortex_Screen.png
 ...1.5
 N0G: Okay, I would. But it's cheaper and easier to just use this nearby box of RJ45 cables.
-"They unfurl, reach into the dimension, and snap around the equipment. I raise my arm, and the cables strain and haul out the tower and monitor."
+N0G: They unfurl, reach into the dimension, and snap around the equipment. I raise my arm, and the cables strain and haul out the tower and monitor.
+Alien_Background.png
 G: "Now hit escape!"
 TRIA303_UMM.wav
 3: "Okay?"

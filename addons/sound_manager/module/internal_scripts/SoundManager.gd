@@ -638,8 +638,9 @@ func play(sound_type : String, sound : String, from_position : float = 1.0, volu
 	if Instantiated_Nodes.has(sound_path):
 		sound_index = Instantiated_Nodes.find(sound_path)
 		audiostream = Audiostreams[sound_index]
-		if audiostream != null and audiostream.get_bus() != Audio_Busses[sound_type]:
-			audiostream.set_bus(Audio_Busses[sound_type])
+		if is_instance_valid(audiostream):
+			if audiostream.get_bus() != Audio_Busses[sound_type]:
+				audiostream.set_bus(Audio_Busses[sound_type])
 		if debug:
 			print_debug("Node preinstantiated " + sound_path)
 	else:
@@ -672,17 +673,17 @@ func play(sound_type : String, sound : String, from_position : float = 1.0, volu
 		audiostream = Audiostreams[sound_index]
 		audiostream.set_stream(Stream)
 	
-	audiostream.set_volume_db(volume)
-	audiostream.set_pitch_scale(pitch)
+	if is_instance_valid(audiostream):
+		audiostream.set_volume_db(volume)
+		audiostream.set_pitch_scale(pitch)	
 	
-	
-	audiostream.play(from_position)
-	if audiostream.get_script() != null:
-		audiostream.set_sound_name(sound)
-	if sound_index < sounds_playing.size():
-		sounds_playing[sound_index] = sound_path
-	else:
-		sounds_playing.append(sound_path)
+		audiostream.play(from_position)
+		if audiostream.get_script() != null:
+			audiostream.set_sound_name(sound)
+		if sound_index < sounds_playing.size():
+			sounds_playing[sound_index] = sound_path
+		else:
+			sounds_playing.append(sound_path)
 
 
 # Adds a new AudioStreamPlayer
