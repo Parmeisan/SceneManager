@@ -42,12 +42,13 @@ hide@L
 N0G: "And that's how it happened."
 N0G: "Things were... complicated for a while at the office after that. Zaxyss was smug about being right, of course. I gave him the credit for figuring the boss out anyway, even though it was obvious to anyone who paid attention. That way, he wouldn't try to poison me to usurp my title."
 [CG 4]
-N0G: "Because, yeah. I have a title better than 'worn-down IT guy' now. Thogra insisted I was the new boss by virtue of trial by combat, and when a barbarian actually vouches for a wizard for once in his life, I guess the rest of the office listens."
-N0G: "Tria 303 called in some Triangulan lawyers to work all the paper out. I guess even the office airhead is useful for something. If this is the worst AstonishCorp has from now on, things might be okay."
-N0G: "I'm still tired. You can't just undo that many decades of burnout. Otherwise I would've figured things out when the boss lived more than the normal 5 to 10 years for a squirrel."
-N0G: "But here I am. Sitting on a throne of plastic casing and fried metals."
-N0G: "They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now."
-N0G: "...Wait, now I have to represent the company, don't I?"
+N0G: Because, yeah. I have a title better than 'worn-down IT guy' now. Thogra insisted I was the new boss by virtue of trial by combat, and when a barbarian actually vouches for a wizard for once in his life, I guess the rest of the office listens.
+N0G: Tria 303 called in some Triangulan lawyers to work all the paper out. I guess even the office airhead is useful for something. If this is the worst AstonishCorp has from now on, things might be okay.
+N0G: I'm still tired. You can't just undo that many decades of burnout. Otherwise I would've figured things out when the boss lived more than the normal 5 to 10 years for a squirrel.
+N0G: But here I am. Sitting on a throne of plastic casing and fried metals.
+N0G: They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now.
+N0G: ...Wait, now I have to represent the company, don't I?
 TEXT: END: Entered the Age of Greg
+80s_Synthwave.wav
 [Win.png]
 -Replay=>Beginning

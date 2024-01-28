@@ -49,6 +49,7 @@ B: "Of course. Whatever it is, I should hope you have a way to clear this off my
 G: "Looks like it's started to spread. What have you done so far since it started happening? Walk me through it."
 B: "Do not command me, insolent space wizard! Your magic will not save you when... (cough) Yes, well. I turned it off and on again."
 "I try not to let her see my eyes rolling. I just open up the panel on her robot arm."
+MalwareArm.wav
 "Where did she get a mech suit like this, anyway? She always said she was from the blandest place on Earth. Possibly actually Bland, but she doesn't sound Australian to me."
 "Wait. There's an engraving here under the panel."
 "A copyright notice from something called the Sciurii Time Invasion Force? In the year 6972?"
@@ -56,6 +57,7 @@ B: "Do not command me, insolent space wizard! Your magic will not save you when.
 "Anyway, whatever, I need to keep messing with this to see if I can salvage the suit. I start keying things in and mumble some spells to try and source the virus."
 G: "Just a minute. If I can find where this came from, I can try to undo it."
 B: "Don't try, do! And be quick about it. This is far too humiliating to continue."
+MalwareArm.wav
 B: "If I keep depending on humanity, I'll never be able to destroy them!"
 G: "..."
 B: "..."
