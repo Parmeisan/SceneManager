@@ -2,7 +2,7 @@ Barbarian_Background.png
 <SHOW!T!neutral@Character_Right>
 G: "I don't... really think you should give him our money."
 G: "Actually, don't. It's a bad idea."
-THOGRA_CRAFY_WIZARD.wav
+THOGRA_CRAFTY_WIZARD.wav
 T: "I see... Truly you are wise."
 "I blink. Usually these guys are harder to reason with."
 G: "You do?"
@@ -26,6 +26,6 @@ N0G: "Repairing war equipment isn't my forte."
 N0G: "I know it wasn't me who made the call. But I still caused it. Maybe this is what I deserve."
 N0G: "The boss seemed pretty happy, though... Whatever. Not my problem."
 N0G: "I was barely surviving before. Now it's literal."
-TEXT: Greg was not able to resolve the support ticket.
 Bad_Ending_1.png
+TEXT: Greg was not able to resolve the support ticket.
 -Retry=>Beginning
