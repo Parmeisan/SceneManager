@@ -1,7 +1,7 @@
 Barbarian_Background.png
 <SHOW!T!neutral@Character_Right>
 G: "I don't... really think you should give him our money."
-GREG_WAIT.wav
+GREG_NOTNOW.wav
 G: "Actually, don't. It's a bad idea."
 THOGRA_CRAFTY_WIZARD.wav
 T: "I see... Truly you are wise."
@@ -23,13 +23,14 @@ G: "I'm... not going to get into this."
 Black_Background.png
 hide@R
 N0G: In the coming days, we all got called into a meeting.
+GREG_HOW.wav
 N0G: The Mondarian prince actually showed up to head office in a chariot with an army to declare war on AstonishCorp.
 N0G: We all got drafted to fight back, but it was no use...
-GREG_UGH.wav
 N0G: Repairing war equipment isn't my forte.
+GREG_UGH.wav
 N0G: I know it wasn't me who made the call. But I still caused it. Maybe this is what I deserve.
 N0G: The boss seemed pretty happy, though... Whatever. Not my problem.
-GREG_GK.wav
+GREG_UGH.wav
 N0G: I was barely surviving before. Now it's literal.
 Bad_Ending_1.png
 TEXT: Greg was not able to resolve the support ticket.

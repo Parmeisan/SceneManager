@@ -21,6 +21,7 @@ T: "Silence, wizard! Or you too will face my wrath!"
 [CG 2]
 ComputerSmash.wav
 "Before I can stop him, he raises his battleaxe and splits through the tower on his desk."
+GREG_COSMOS.wav
 "I mutter a quick spell to shield me from the sparks flying from the cubicle."
 GREG_SIGH.wav
 G: "Okay, so one ticket for a replacement PC..."
@@ -63,10 +64,9 @@ G: "You do that."
 [Background: Generic Cubicles, Alien variant. Portraits: Greg]
 Alien_Background.png
 hide@R
-GREG_HEH.wav
 "Payroll is usually easier to deal with. We don't get too many complaints from there. But when we get them, sometimes they get... esoteric."
 "I walk in past the workers typing away at their screens."
-GREG_HOW.wav
+GREG_HEH.wav
 "Well, most of them have screens. One of them is sitting with a keyboard and mouse, but the monitor and tower are just... gone."
 [Add Tria 303 portrait]
 TRIA303_AH.wav
@@ -89,7 +89,7 @@ TRIA303_I_DONT_KNOW.wav
 GREG_SIGH.wav
 "I breathe in and out."
 G: "And that's why I'm asking, so I can help you."
-TRIA303_PRIMATIVE.wav
+TRIA303_CAME_IN_PEACE.wav
 3: "This is regular computer use in the Triangulum galaxy. I transferred here to share peace and advancement with you humans, yet your clunky machines confound me."
 GREG_GK.wav
 "How does somebody summon an interdimensional portal with a spreadsheet?"

@@ -3,11 +3,10 @@ OfficeAmbienceLoop.ogg
 [CG 1]
 GREG_SIGH.wav
 "Ugh... another day at AstonishCorp."
-GREG_UGH.wav
 "Waking up when the crack of dawn shines through my mystical orb, dragging myself to the office, and preparing for a long day of suffering."
+GREG_UGH.wav
 "But I'm not special. No IT wizard likes their job."
 "Sure, you come in bright and hopeful and excited to help people with their problems, doing something in your field. But sooner or later, the sheer entitled idiocy of the other employees becomes worse than any customer."
-GREG_GK.wav
 "And before long, you end up like me... or at least like my co-worker over here."
 [Background: IT Office. Portraits: Greg, Zaxyss]
 <SHOW!Z!neutral@Character_Right>
@@ -27,7 +26,7 @@ G: "When you get to be around here long enough, you start to lose all that ambit
 Z: "A waste of our abilities, just as this job is..."
 ZAXYSS_TICKET.wav
 Z: "Regardless of all that. We have a new support ticket from Outbound Calls."
-GREG_UGH.wav
+GREG_YEAHYEAH.wav
 G: "Those guys again? I'll take it... Can't be worse than what we've already dealt with."
 [Portrait of Zaxyss hidden]
 "Of course, it can always be worse, but there's something to be said for the bare minimum of optimism. I grab the ticket and walk out."
@@ -54,9 +53,9 @@ GREG_GK.wav
 THOGRA_YES.wav
 T: "The light is restored! As expected of a wizard of your caliber."
 G: "Yeah, sure... Wait a second."
-GREG_WAIT.wav
 "An email on the screen catches my eye. Generic greetings, clunky grammar, promises that make my stomach drop."
 "Not here. Not with these morons."
+GREG_WAIT.wav
 G: "What's that?"
 THOGRA_FORGLORY.wav
 T: "Ah, you have noticed! I have been visited by great fortune today! A missive of deep importance from Mondaria!"

@@ -269,8 +269,8 @@ func BeginScene(script_name):
 					# MODES.WAITING may be set to false outside this function
 					if playing and !($SFX_Player.playing):
 						playing = false;
-						Continue()
-						break
+						#Continue()
+						#break
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
