@@ -11,6 +11,7 @@ const ASCII_ZERO = 48
 const ASCII_NINE = 57
 const UPPER_ASCII_LIMIT = 90
 const LOWER_ASCII_LIMIT = 65
+const POUND_ASCII = 35
 
 var original_line
 # For audio and background
@@ -37,6 +38,8 @@ var var_value
 # For events
 var event
 var target
+var direction
+var duration
 
 # Checking for validity, errors, etc
 var error_message
@@ -134,6 +137,14 @@ func _init(line : String):
 			target = target.substr(at +1, target.length() - at - 1)
 		if event == "TITLE":
 			event = "TITLE"
+		if event == "SLIDE":
+			var at = line.find("@")
+			var lc = line.find(">")
+			var pound = line.find("#")
+			direction = line.substr(exclamation + 1, at - exclamation - 1)
+			target = line.substr(at + 1, pound - at -1)
+			duration = line.substr(pound + 1, lc - pound - 1)
+			
 	
 	# Hide a character
 	if line.begins_with("hide@"):
@@ -168,6 +179,8 @@ func _init(line : String):
 			elif asc >= ASCII_ZERO && asc <= ASCII_NINE:
 				valid = true
 			elif asc == BANG_ASCII || asc == AT_ASCII:
+				valid = true
+			elif asc == POUND_ASCII:
 				valid = true
 			if !valid:
 				dialog = false

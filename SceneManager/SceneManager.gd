@@ -32,6 +32,16 @@ var rng = RandomNumberGenerator.new()
 var title_slide = false
 var title_progress = 0
 
+#associated with generic slide
+var slide = false
+var slideDuration
+var slidFor = 0.0
+var slideObject
+var slideDirection
+var displacementVector
+var displacementFactor = 1.0
+var homePosition
+
 func _ready():
 	visible = false
 	LoadAllScripts()
@@ -52,11 +62,29 @@ func _physics_process(delta):
 		#two seconds
 		title_progress = title_progress + delta/2
 		$Game_Title.position = Vector2(512, 300.0 * title_progress)
-		
-
 		if(title_progress >= 1):
 			title_progress = 1
 			title_slide = false
+	
+	if slide:
+		slideObject.position = homePosition + displacementVector * displacementFactor
+		slidFor = slidFor + delta
+		displacementFactor = 1.0 - (slidFor / slideDuration)
+		if(slidFor >= slideDuration):
+			slide = false
+			slideObject.position = homePosition
+			slidFor = 0
+			displacementFactor = 1.0
+
+func displace(dir):
+	if dir == "RIGHT":
+		displacementVector = Vector2(512,0)
+	if dir == "LEFT":
+		displacementVector = Vector2(-512,0)
+	if dir == "TOP":
+		displacementVector = Vector2(0,300)
+	if dir == "BOTTOM":
+		displacementVector = Vector2(0,300)
 
 func debug(s):
 	if debug_mode:
@@ -265,8 +293,8 @@ func BeginScene(script_name):
 					# MODES.WAITING may be set to false outside this function
 					if playing and !($SFX_Player.playing):
 						playing = false;
-						Continue()
-						break
+						#Continue()
+						#break
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
@@ -332,6 +360,16 @@ func BeginScene(script_name):
 					get_node(cmd.target).texture = image
 				if(cmd.event == "TITLE"):
 					title_slide = true
+				if(cmd.event == "SLIDE"):
+					if(slide):
+						slideObject.position = homePosition					
+					slideObject = get_node(cmd.target)
+					slideDuration = float(cmd.duration)
+					slideDirection = cmd.direction
+					homePosition = slideObject.position
+					displace(slideDirection)
+					slideObject.position = slideObject.position + displacementVector
+					slide = true
 
 	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:

@@ -1,14 +1,15 @@
 Space_Background.png
 OfficeAmbienceLoop.ogg
 [CG 1]
+<SLIDE!LEFT@Character_Left#2>
 "Ugh... another day at AstonishCorp."
 "Waking up when the crack of dawn shines through my mystical orb, dragging myself to the office, and preparing for a long day of suffering."
 "But I'm not special. No IT wizard likes their job."
 "Sure, you come in bright and hopeful and excited to help people with their problems, doing something in your field. But sooner or later, the sheer entitled idiocy of the other employees becomes worse than any customer."
 "And before long, you end up like me... or at least like my co-worker over here."
 [Background: IT Office. Portraits: Greg, Zaxyss]
+<SLIDE!RIGHT@Character_Right#2>
 <SHOW!Z!neutral@Character_Right>
-<SHAKE!Character_Right>
 ZAXYSS_CURSE.wav
 Z: "These accursed claims! An entire department moving their computers without contacting us. The gall to then ask to replace the monitors they dropped and broke! Each day proves further we must summon a dark obelisk to plunge them into the fiery abyss!"
 G: "Some days I'm tempted, Zaxyss..."
