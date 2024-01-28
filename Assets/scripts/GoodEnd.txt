@@ -1,4 +1,6 @@
 Squirrel_Background.png
+OfficeAmbienceLoop.ogg
+<SHOW!B!neutral@Character_Right>
 G: "I have to say."
 B: "What? Less talking, more fixing, Geoff."
 "I want to back out. Say this isn't my circus. But for years now, it's been her circus, and I'm the world's most apathetic monkey."
@@ -48,4 +50,6 @@ N0G: "I'm still tired. You can't just undo that many decades of burnout. Otherwi
 N0G: "But here I am. Sitting on a throne of plastic casing and fried metals."
 N0G: "They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now."
 N0G: "...Wait, now I have to represent the company, don't I?"
+[Win.png]
 TEXT: END: Entered the Age of Greg
+-Replay=>Beginning

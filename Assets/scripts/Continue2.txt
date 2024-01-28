@@ -1,5 +1,6 @@
-OfficeAmbienceLoop.ogg
 Alien_Background.png
+OfficeAmbienceLoop.ogg
+<SHOW!3!neutral@Character_Right>
 "Never attribute to malice what can be attributed to incompetence. I sigh and shake my head."
 G: "Okay, so a portal was summoned. Let me try and see if we can reverse-engineer this. Can you show me what happened just before?"
 "If I'm prepared, I can undo it without sucking half the office into the fifth dimension."
@@ -23,6 +24,7 @@ G: "Now hit escape!"
 G: "No, that's delete! Escape is on the other side!"
 3: "Oh, that one!"
 [Background: Generic Cubicles, Alien variant. Portraits: Greg, Tria 303]
+ComputerWarp.wav
 "The portal closes. The computer sinks back into its spot. I send the cables to retreat back to their box."
 G: "At least that's over with."
 3: "Thank you. It looks like everything works... I think."

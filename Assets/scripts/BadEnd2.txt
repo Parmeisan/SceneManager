@@ -1,5 +1,6 @@
+Alien_Background.png
 OfficeAmbienceLoop.ogg
-Space_Background.png
+<SHOW!3!neutral@Character_Right>
 G: "Tell me the truth this time. What regular computer use summons a portal?"
 3: "I told you, I don't know what happened! I was just typing, like this!"
 "She types. And types. Fingers flying across the keys in quick patterns. Soon enough, I have to start using magic just to keep track."

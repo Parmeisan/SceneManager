@@ -1,5 +1,6 @@
 Barbarian_Background.png
 OfficeAmbienceLoop.ogg
+<SHOW!T!neutral@Character_Right>
 "I take a deep breath."
 G: "It's a scam, Thogra. People just send these emails to trick people into giving them money."
 <SHAKE!Character_Right>
@@ -7,13 +8,13 @@ T: "You say they have no intention of honouring their promise to return the gift
 G: "Yeah. Happens all the time."
 "He growls, mulling this over."
 "At least I think he's thinking about it."
-<SHOW!T!neutral@Character_Right>
 <SHAKE!Character_Right>
 T: "How dare they not respect the agreement of honourable warriors! I shall tolerate this deceitful machine no more!"
 G: "An email isn't the fault of the computer, you know -"
 <SHAKE!Character_Right>
 T: "Silence, wizard! Or you too will face my wrath!"
 [CG 2]
+ComputerSmash.wav
 "Before I can stop him, he raises his battleaxe and splits through the tower on his desk."
 "I mutter a quick spell to shield me from the sparks flying from the cubicle."
 G: "Okay, so one ticket for a replacement PC..."

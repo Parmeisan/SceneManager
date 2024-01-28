@@ -1,4 +1,6 @@
 Barbarian_Background.png
+OfficeAmbienceLoop.ogg
+<SHOW!T!neutral@Character_Right>
 G: "I don't... really think you should give him our money."
 G: "Actually, don't. It's a bad idea."
 T: "I see... Truly you are wise."

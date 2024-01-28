@@ -199,6 +199,7 @@ func BeginScene(script_name):
 			cmd.TYPE.AUDIO:
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
+					# Ensure that we have 16-bit (can downgrade in Audacity)
 					player = $SFX_Player
 					playing = true;
 				elif cmd.file_ext == "ogg":
@@ -207,7 +208,7 @@ func BeginScene(script_name):
 					player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
 					player.stop()
 					player.play()
-					player.volume_db = float(-8)
+					player.volume_db = float(8)
 			# Set a background
 			cmd.TYPE.BACKGROUND:
 				$BG_Image.visible = true

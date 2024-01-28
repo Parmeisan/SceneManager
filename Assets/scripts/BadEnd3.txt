@@ -1,4 +1,6 @@
 Squirrel_Background.png
+OfficeAmbienceLoop.ogg
+<SHOW!B!neutral@Character_Right>
 "I don't say anything."
 "I just keep working, concentrating. This is my job. Garbage job is better than nothing."
 "I find the source. It's easy when you can compare to the origin they want the money sent to. Good old virus-maker greed."
