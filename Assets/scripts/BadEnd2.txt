@@ -37,4 +37,4 @@ GREG_UGH.wav
 N0G: At this rate I'll need to put off my retirement... I'll be stuck here forever.
 TEXT: Greg was not able to resolve the support ticket.
 Bad_Ending_2.png
--Retry=>Continue1
+-Retry=>Continue1Resume

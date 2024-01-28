@@ -1,0 +1,11 @@
+Squirrel_Background.png
+<SHOW!G!neutral@Character_Left>
+<SHOW!B!neutral@Character_Right>
+"The last thing I want is to have more trouble."
+"But the last thing I want is to get killed and/or subjugated because my boss is a squirrel in a robo-suit who came from the future to destroy us."
+"But the last thing I want is for Zaxyss to find out he was right and gloat about it."
+GREG_GK.wav
+"What is the last thing I want? Wait, what is the first thing I want?"
+G: "I..."
+-Mind my own business=>BadEnd3
+-Press the boss=>GoodEnd

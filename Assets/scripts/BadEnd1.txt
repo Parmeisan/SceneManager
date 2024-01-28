@@ -34,4 +34,4 @@ GREG_UGH.wav
 N0G: I was barely surviving before. Now it's literal.
 Bad_Ending_1.png
 TEXT: Greg was not able to resolve the support ticket.
--Retry=>Beginning
+-Retry=>BeginningResume
