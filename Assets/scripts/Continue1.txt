@@ -56,6 +56,7 @@ hide@R
 "I walk in past the workers typing away at their screens."
 "Well, most of them have screens. One of them is sitting with a keyboard and mouse, but the monitor and tower are just... gone."
 [Add Tria 303 portrait]
+TRIA303_AH.wav
 3: "Greetings, information technologist Greg."
 "I don't remember giving my name when I took the ticket. Payroll just always seems to know everyone."
 G: "That's me. Tria 303, right? You said something about a connectivity issue."
@@ -64,11 +65,14 @@ G: "That's me. Tria 303, right? You said something about a connectivity issue."
 "Just as I'm about to bring it up, I see the outline of a monitor and tower, with the other end of the wires connecting to the keyboard and mouse."
 "It's fading back into reality."
 "Or it looks like it will, but then it starts disappearing again."
+TRIA303_PRIMATIVE.wav
 3: "This has been happening for half an hour. Your primitive PCs cannot withstand contact with the outside before they begin to lose touch with reality."
 G: "How did you manage to get your computer stuck in the fifth dimension?"
+TRIA303_I_DONT_KNOW.wav
 3: "You claim to be the expert!"
 "I breathe in and out."
 G: "And that's why I'm asking, so I can help you."
+TRIA303_PRIMATIVE.wav
 3: "This is regular computer use in the Triangulum galaxy. I transferred here to share peace and advancement with you humans, yet your clunky machines confound me."
 "How does somebody summon an interdimensional portal with a spreadsheet?"
 -Take her at her word=>Continue2
