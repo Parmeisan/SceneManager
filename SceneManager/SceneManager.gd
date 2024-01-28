@@ -39,8 +39,6 @@ func _physics_process(delta):
 		var xShake = rng.randi_range(-10,10)
 		var yShake = rng.randi_range(-10,10)
 		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
-		
-
 
 func debug(s):
 	if debug_mode:
@@ -172,6 +170,8 @@ func _input(event):
 func BeginScene(script_name):
 	$BG_Image.visible = false
 	$BranchOptions.visible = false
+	$Character_Left.texture = null
+	$Character_Right.texture = null
 	var num = 0
 	for opt in $BranchOptions.get_children():
 		if (num > 0): # The first one will serve as a template
