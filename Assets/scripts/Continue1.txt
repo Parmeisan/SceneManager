@@ -7,6 +7,7 @@ T: "You say they have no intention of honouring their promise to return the gift
 G: "Yeah. Happens all the time."
 "He growls, mulling this over."
 "At least I think he's thinking about it."
+<SHOW!T!neutral@Character_Right>
 <SHAKE!Character_Right>
 T: "How dare they not respect the agreement of honourable warriors! I shall tolerate this deceitful machine no more!"
 G: "An email isn't the fault of the computer, you know -"

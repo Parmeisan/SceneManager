@@ -9,6 +9,7 @@ Space_Background.png
 [Background: IT Office. Portraits: Greg, Zaxyss]
 OfficeAmbienceLoop.ogg
 Space_Background.png
+<SHOW!Z!neutral@Character_Right>
 <SHAKE!Character_Right>
 Z: "These accursed claims! An entire department moving their computers without contacting us. The gall to then ask to replace the monitors they dropped and broke! Each day proves further we must summon a dark obelisk to plunge them into the fiery abyss!"
 G: "Some days I'm tempted, Zaxyss..."
@@ -32,8 +33,8 @@ G: "IT here. Where's your emergency?
 [Add Thogra portrait]
 T: "Ah, the crafty wizard. It is I, Thogra of Outbound. I am loath to summon you, but I fear I had no choice."
 G: "I'm not too happy to be here either, buddy. What's going on?"
-T: "The window into the connected realm has gone dark. What sorcery is this?"
 <SHAKE!Character_Right>
+T: "The window into the connected realm has gone dark. What sorcery is this?"
 "I look to his computer."
 "The monitor is turned off. I look it over, note the HDMI cable is loose, and plug it back in."
 T: "The light is restored! As expected of a wizard of your caliber."
