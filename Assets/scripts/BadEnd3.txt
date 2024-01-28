@@ -31,10 +31,11 @@ B: "But you've seen a little too much, Geoff."
 Black_Background.png
 hide@L
 hide@R
-"The last thing I see is the flash of a laser from the arm I fixed."
-"My body slams against the door."
-G: "Nghhh..."
-"This job sucks."
+MalwareArm.wav
+N0G: The last thing I see is the flash of a laser from the arm I fixed.
+N0G: My body slams against the door.
+N0G: "Nghhh..."
+N0G: "This job sucks."
 TEXT: Greg was not able to resolve the support ticket.
 Bad_Ending_3.png
 -Retry=>Continue2

@@ -24,10 +24,10 @@ HR: "Ahem."
 Black_Background.png
 hide@L
 hide@R
-"Somebody called Metahuman Resources on me for 'unfair treatment.'"
-"I guess they had a point, but the four-hour lecture and docking my pay were excessive."
-"And then I had to go rescue both the payroll worker and her computer."
-"At this rate I'll need to put off my retirement... I'll be stuck here forever."
+N0G: Somebody called Metahuman Resources on me for 'unfair treatment.'
+N0G: I guess they had a point, but the four-hour lecture and docking my pay were excessive.
+N0G: And then I had to go rescue both the payroll worker and her computer.
+N0G: At this rate I'll need to put off my retirement... I'll be stuck here forever.
 TEXT: Greg was not able to resolve the support ticket.
 Bad_Ending_2.png
 -Retry=>Continue1

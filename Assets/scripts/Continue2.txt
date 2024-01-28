@@ -43,6 +43,7 @@ hide@R
 [Background: Boss's Office. Portraits: Greg, Boss]
 Squirrel_Background.png
 "There she is. Small, mysterious, and all too happy to remind you she pays your salary."
+MalwareArm.wav
 "She seems pretty absorbed in grumbling at her robot arm."
 SQUIRREL_CURSEYOU.wav
 B: "No, I will NOT pay you 1,000 gold to unlock functionality! This is why I despise the pathetic creatures scrabbling in vain to keep their rule over this era!"
@@ -57,6 +58,7 @@ G: "Looks like it's started to spread. What have you done so far since it starte
 SQUIRREL_CURSEYOU.wav
 B: "Do not command me, insolent space wizard! Your magic will not save you when... (cough) Yes, well. I turned it off and on again."
 "I try not to let her see my eyes rolling. I just open up the panel on her robot arm."
+MalwareArm.wav
 "Where did she get a mech suit like this, anyway? She always said she was from the blandest place on Earth. Possibly actually Bland, but she doesn't sound Australian to me."
 "Wait. There's an engraving here under the panel."
 "A copyright notice from something called the Sciurii Time Invasion Force? In the year 6972?"
@@ -65,6 +67,7 @@ B: "Do not command me, insolent space wizard! Your magic will not save you when.
 G: "Just a minute. If I can find where this came from, I can try to undo it."
 SQUIRREL_NOOO.wav
 B: "Don't try, do! And be quick about it. This is far too humiliating to continue."
+MalwareArm.wav
 B: "If I keep depending on humanity, I'll never be able to destroy them!"
 G: "..."
 SQUIRREL_UMM.wav

@@ -19,13 +19,13 @@ G: "I'm... not going to get into this."
 [Black screen]
 Black_Background.png
 hide@R
-N0G: "In the coming days, we all got called into a meeting."
-N0G: "The Mondarian prince actually showed up to head office in a chariot with an army to declare war on AstonishCorp."
-N0G: "We all got drafted to fight back, but it was no use..."
-N0G: "Repairing war equipment isn't my forte."
-N0G: "I know it wasn't me who made the call. But I still caused it. Maybe this is what I deserve."
-N0G: "The boss seemed pretty happy, though... Whatever. Not my problem."
-N0G: "I was barely surviving before. Now it's literal."
+N0G: In the coming days, we all got called into a meeting.
+N0G: The Mondarian prince actually showed up to head office in a chariot with an army to declare war on AstonishCorp.
+N0G: We all got drafted to fight back, but it was no use...
+N0G: Repairing war equipment isn't my forte.
+N0G: I know it wasn't me who made the call. But I still caused it. Maybe this is what I deserve.
+N0G: The boss seemed pretty happy, though... Whatever. Not my problem.
+N0G: I was barely surviving before. Now it's literal.
 Bad_Ending_1.png
 TEXT: Greg was not able to resolve the support ticket.
 -Retry=>Beginning
