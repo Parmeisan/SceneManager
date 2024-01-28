@@ -260,6 +260,8 @@ func BeginScene(script_name):
 					#cmd.IMAGE_LOCATION.CENTER:
 					#	$Character_Center.texture = null
 			cmd.TYPE.DIALOGUE:
+				$Nametag_Background.visible = false
+				$Nametag_text.visible = false
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
 				# This is quick-and-dirty, we'll want some scaffolding around this
@@ -268,6 +270,13 @@ func BeginScene(script_name):
 					print(characters)
 				else:
 					var c : SceneCharacter = characters[cmd.dial_character]
+					if ((c != $Characters/NobodyLeft) &&
+					   (c != $Characters/NobodyRight) &&
+					   (c != $Characters/TEXT) && 
+					   (c != $Characters/Monologue)):
+						 $Nametag_Background.visible = true
+						 $Nametag_text.visible = true
+						 $Nametag_text.text = c.character_full_name
 					# Override the previous location?
 					if cmd.image_location != cmd.IMAGE_LOCATION.UNDEFINED:
 						c.image_side = cmd.image_location
@@ -281,12 +290,16 @@ func BeginScene(script_name):
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
+					$Nametag_text.set("custom_fonts/font", font)
 					box.set("custom_colors/font_color", c.dialogue_colour)
+					$Nametag_text.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+						$Nametag_text.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 					var box_back = c.dialogue_background
 					box_back.a8 = 224
 					$Speaker_Background.color = box_back
+					$Nametag_Background.color = box_back
 			cmd.TYPE.EVENT:
 				if(cmd.event == "SHAKE"):
 					vibratingObject = get_node(cmd.target)
