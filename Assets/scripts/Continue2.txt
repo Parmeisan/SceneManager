@@ -43,6 +43,7 @@ hide@R
 [Background: Boss's Office. Portraits: Greg, Boss]
 Squirrel_Background.png
 "There she is. Small, mysterious, and all too happy to remind you she pays your salary."
+MalwareArm.wav
 "She seems pretty absorbed in grumbling at her robot arm."
 SQUIRREL_CURSEYOU.wav
 B: "No, I will NOT pay you 1,000 gold to unlock functionality! This is why I despise the pathetic creatures scrabbling in vain to keep their rule over this era!"

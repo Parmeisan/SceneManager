@@ -1,5 +1,5 @@
 Space_Background.png
-[Title card]
+OfficeAmbienceLoop.ogg
 [CG 1]
 "Ugh... another day at AstonishCorp."
 "Waking up when the crack of dawn shines through my mystical orb, dragging myself to the office, and preparing for a long day of suffering."
@@ -7,8 +7,6 @@ Space_Background.png
 "Sure, you come in bright and hopeful and excited to help people with their problems, doing something in your field. But sooner or later, the sheer entitled idiocy of the other employees becomes worse than any customer."
 "And before long, you end up like me... or at least like my co-worker over here."
 [Background: IT Office. Portraits: Greg, Zaxyss]
-OfficeAmbienceLoop.ogg
-Space_Background.png
 <SHOW!Z!neutral@Character_Right>
 <SHAKE!Character_Right>
 ZAXYSS_CURSE.wav
