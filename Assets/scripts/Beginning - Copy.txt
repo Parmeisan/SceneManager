@@ -1,0 +1,48 @@
+Intro.png
+[Title card]
+[CG 1]
+"Ugh... another day at AstonishCorp."
+"Waking up when the crack of dawn shines through my mystical orb, dragging myself to the office, and preparing for a long day of suffering."
+"But I'm not special. No IT wizard likes their job."
+"Sure, you come in bright and hopeful and excited to help people with their problems, doing something in your field. But sooner or later, the sheer entitled idiocy of the other employees becomes worse than any customer."
+"And before long, you end up like me... or at least like my co-worker over here."
+[Background: IT Office. Portraits: Greg, Zaxyss]
+OfficeAmbienceLoop.ogg
+Space_Background.png
+<SHAKE!Character_Left>
+Z: "These accursed claims! An entire department moving their computers without contacting us. The gall to then ask to replace the monitors they dropped and broke! Each day proves further we must summon a dark obelisk to plunge them into the fiery abyss!"
+G: "Some days I'm tempted, Zaxyss..."
+Z: "Some but not all?! AstonishCorp is a strange and terrible labyrinth, each department more unearthly than the last! And the CEO is the worst of them all!"
+Z: "Enlighten me, o Greg. Why do you, my senior, stay your hand when faced with these buffoons?"
+G: "Even space wizards have to deal with capitalism. Garbage job is better than nothing."
+G: "I started out like you. Excited at first, then angry. I wanted to throw curses too. Spent whatever nights I wasn't already wiped out trying to craft a spell to send the boss to the Wasteland of Hades. Never used it."
+G: "When you get to be around here long enough, you start to lose all that ambition. I'm just trying to live day to day now. Only 2,647,759 minutes until retirement."
+Z: "A waste of our abilities, just as this job is... Regardless of all that. We have a new support ticket from Outbound Calls."
+G: "Those guys again? I'll take it... Can't be worse than what we've already dealt with."
+[Portrait of Zaxyss hidden]
+"Of course, it can always be worse, but there's something to be said for the bare minimum of optimism. I grab the ticket and walk out."
+[Background: Generic Cubicles, Barbarian variant. Portraits: Greg]
+0: 
+Barbarian_Background.png
+"Dealing with internal customers like IT has to is bad enough. External customers who actually call you and want to talk to you are worse. So anyone who actually takes a job where YOU have to call THEM has to be a certain kind of person."
+"So I'm not hopeful walking into Outbound Calls."
+"You can hear those people all the way down the hall, declaring things like 'You are honour-bound to follow our purchasing contract or we shall send our armies to your door!' And usually smell them roasting meat over whatever broken equipment they called you to replace."
+"This time, there are fewer fires than usual. Maybe a good sign."
+G: "IT here. Where's your emergency?
+[Add Thogra portrait]
+T: "Ah, the crafty wizard. It is I, Thogra of Outbound. I am loath to summon you, but I fear I had no choice."
+G: "I'm not too happy to be here either, buddy. What's going on?"
+T: "The window into the connected realm has gone dark. What sorcery is this?"
+"I look to his computer."
+"The monitor is turned off. I look it over, note the HDMI cable is loose, and plug it back in."
+T: "The light is restored! As expected of a wizard of your caliber."
+G: "Yeah, sure... Wait a second."
+"An email on the screen catches my eye. Generic greetings, clunky grammar, promises that make my stomach drop."
+"Not here. Not with these morons."
+G: "What's that?"
+T: "Ah, you have noticed! I have been visited by great fortune today! A missive of deep importance from Mondaria!"
+T: "Their heir apparent has approached our office for aid! He claims our gold will help him to overthrow his uncle before the fiend can dispose of his father, the king."
+"I groan. Textbook Mondarian prince email."
+"But Thogra here seems pretty convinced."
+-Try to explain it gently.=>BadEnd1
+-Tell the truth bluntly.=>Continue1
