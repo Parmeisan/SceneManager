@@ -23,15 +23,19 @@ G: "Okay, so one ticket for a replacement PC..."
 OfficeAmbienceLoop.ogg
 Space_Background.png
 hide@R
+ZAXYSS_HEH.wav
 Z: "That was quick, for dealing with those barbarous outbounders."
 G: "Yeah, well, we'll need another computer set up in there. Again."
 G: "Any new tickets come in?"
+ZAXYSS_HEH.wav
 Z: "A number of them, but that matters not. I know, I know you have warned me, but the habits of the leadership of AstonishCorp cannot be anything but an ill portent for our future!"
 G: "Sure. What'd the boss do now?"
 Z: "That rodent does not deserve the title of boss! Just this morning, as I went to the water cooler, I passed her office and heard her communing with mysterious forces."
 G: "On the phone again, huh?"
+ZAXYSS_DOYOUNOTSEE.wav
 Z: "Yes, about a mission of hers! What kind of business call talks about a mission from the future?"
 G: "For all we know, she's calling in another motivational speaker. Whatever it is, it's above my pay grade."
+ZAXYSS_HEH.wav
 Z: "And what of her mumbling last week in the elevator about the folly of humanity?"
 G: "Have you seen the average customer?"
 Z: "...Well, yes. But I cannot hold her above suspicion."
@@ -40,8 +44,10 @@ Z: "...Well, yes. But I cannot hold her above suspicion."
 "So, yeah, either malicious or incompetent. Or both."
 G: "Anyway, those support tickets?"
 Z: "Right, right."
+ZAXYSS_TICKET.wav
 "He summons an array of IT support tickets. I grab the oldest-looking one from today."
 G: "Payroll, huh? I'll take it."
+ZAXYSS_CURSE.wav
 Z: "I see. And I shall prepare for our inevitable showdown!"
 G: "You do that."
 [Background: Generic Cubicles, Alien variant. Portraits: Greg]
