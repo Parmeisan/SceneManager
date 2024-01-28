@@ -1,8 +1,16 @@
 extends Node
 class_name ScriptCommand
 
-enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, OPTION, WAIT, INVALID }
+enum TYPE { NONE, AUDIO, BACKGROUND, MOOD, VARIABLE, DIALOGUE, HIDE, OPTION, WAIT, EVENT, INVALID }
 var command_type : int
+
+# Text parsing
+const BANG_ASCII = 33
+const AT_ASCII = 64
+const ASCII_ZERO = 48
+const ASCII_NINE = 57
+const UPPER_ASCII_LIMIT = 90
+const LOWER_ASCII_LIMIT = 65
 
 var original_line
 # For audio and background
@@ -13,6 +21,8 @@ var dial_character
 var dial_mood
 var dial_line
 var dial_emotion
+enum IMAGE_LOCATION { LEFT = -1, CENTER, RIGHT, UNDEFINED = -99 }
+var image_location = IMAGE_LOCATION.UNDEFINED
 # For options
 var opt_text
 var opt_destination
@@ -24,6 +34,9 @@ enum OPERATION { PLUS, MINUS, EQUALS, INVALID }
 var var_name
 var var_operation : int = OPERATION.INVALID
 var var_value
+# For events
+var event
+var target
 
 # Checking for validity, errors, etc
 var error_message
@@ -107,6 +120,32 @@ func _init(line : String):
 		error_message = "Invalid value used with variable: " + var_value
 		return
 	
+	if line.begins_with("<"):
+		command_type = TYPE.EVENT
+		var exclaimation = line.find("!")
+		event = line.substr(1, exclaimation - 1)
+		var closeBracket = line.find(">")
+		target = line.substr(exclaimation + 1 , closeBracket - exclaimation -1)
+		if event == "SHOW":
+			exclaimation = target.find("!")
+			var at = target.find("@")
+			dial_character = target.substr(0, exclaimation)
+			dial_emotion = target.substr(exclaimation + 1, at - exclaimation - 1)
+			target = target.substr(at +1, target.length() - at - 1)
+	
+	# Hide a character
+	if line.begins_with("hide@"):
+		command_type = TYPE.HIDE
+		var side = line.substr(5)
+		if side == "R":
+			image_location = IMAGE_LOCATION.RIGHT
+		elif side == "L":
+			image_location = IMAGE_LOCATION.LEFT
+		elif side == "C":
+			image_location = IMAGE_LOCATION.CENTER
+		else:
+			image_location = IMAGE_LOCATION.UNDEFINED
+			
 	# Dialogue - two types
 	if line.begins_with("\""):
 		command_type = TYPE.DIALOGUE
@@ -114,21 +153,41 @@ func _init(line : String):
 		dial_line = line.substr(1, line.length() - 2)
 		dial_emotion = "neutral"
 	var colon = line.find(":")
+	var at = line.find("@")
 	if colon >= 0:
-		var i = 0;
-		var dialog = true;
+		var i = 0
+		var dialog = true
+		# Check for valid ascii characters
 		while(i < colon):
 			var asc = ord(line[i])
-			if(!(asc >= 65 && asc <= 90) && !(asc == 33)):
-				dialog = false;
-				i = colon + 1;
-			i = i + 1;
+			var valid = false
+			if asc >= LOWER_ASCII_LIMIT && asc <= UPPER_ASCII_LIMIT:
+				valid = true
+			elif asc >= ASCII_ZERO && asc <= ASCII_NINE:
+				valid = true
+			elif asc == BANG_ASCII || asc == AT_ASCII:
+				valid = true
+			if !valid:
+				dialog = false
+				i = colon + 1
+			i = i + 1
 		if dialog:
 			command_type = TYPE.DIALOGUE
 		dial_character = line.substr(0, colon).strip_edges()
 		dial_line = line.substr(colon + 1)
 		dial_emotion = "neutral"
-		var exclaimation = line.find("!")
-		if(exclaimation >= 0):
-			dial_emotion = line.substr(exclaimation + 1, colon - exclaimation - 1)
-			dial_character = line.substr(0, exclaimation)
+		# Emotions are denoted by !
+		var exclamation = line.find("!")
+		if (exclamation >= 0 and exclamation < colon):
+			var erb = colon -1
+			if(at >= 0):
+				erb = min(at -1, erb)
+			dial_emotion = line.substr(exclamation + 1, erb - exclamation)
+			dial_character = line.substr(0, exclamation)
+	# Character sides are denoted by @
+	if at >= 0:
+		var location = line.substr(at+1, 1)
+		if location == "R":
+			image_location = 1
+		elif location == "L":
+			image_location = -1

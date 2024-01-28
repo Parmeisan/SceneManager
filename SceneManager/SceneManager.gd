@@ -21,11 +21,23 @@ var all_scripts = {}
 var characters = {}
 var playing = false
 
+#Associated with shake effect
+var centerPoint
+var vibrating = false
+var vibratingObject
+var rng = RandomNumberGenerator.new()
+
 func _ready():
 	visible = false
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
+
+func _physics_process(delta):
+	if vibrating:
+		var xShake = rng.randi_range(-10,10)
+		var yShake = rng.randi_range(-10,10)
+		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
 
 func debug(s):
 	if debug_mode:
@@ -157,6 +169,8 @@ func _input(event):
 func BeginScene(script_name):
 	$BG_Image.visible = false
 	$BranchOptions.visible = false
+	$Character_Left.texture = null
+	$Character_Right.texture = null
 	var num = 0
 	for opt in $BranchOptions.get_children():
 		if (num > 0): # The first one will serve as a template
@@ -219,6 +233,7 @@ func BeginScene(script_name):
 				var new_button = template.duplicate()
 				new_button.get_node("Label").text = cmd.opt_text
 				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+				new_button.visible = true
 				$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
@@ -235,23 +250,57 @@ func BeginScene(script_name):
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
+			cmd.TYPE.HIDE:
+				match cmd.image_location:
+					cmd.IMAGE_LOCATION.LEFT:
+						$Character_Left.texture = null
+					cmd.IMAGE_LOCATION.RIGHT:
+						$Character_Right.texture = null
+					#cmd.IMAGE_LOCATION.CENTER:
+					#	$Character_Center.texture = null
 			cmd.TYPE.DIALOGUE:
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
 				# This is quick-and-dirty, we'll want some scaffolding around this
-				if characters.has(cmd.dial_character):
+				if !characters.has(cmd.dial_character):
+					print("Failed to find " + cmd.dial_character)
+					print(characters)
+				else:
 					var c : SceneCharacter = characters[cmd.dial_character]
-					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					# Override the previous location?
+					if cmd.image_location != cmd.IMAGE_LOCATION.UNDEFINED:
+						c.image_side = cmd.image_location
+					# Display on appropriate side
+					if c.image_side == cmd.IMAGE_LOCATION.LEFT:
+						$Character_Left.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					elif c.image_side == cmd.IMAGE_LOCATION.RIGHT:
+						$Character_Right.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					#elif cmd.image_location == cmd.IMAGE_LOCATION.CENTER:
+					#	$Character_Center.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
 					box.set("custom_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+					var box_back = c.dialogue_background
+					box_back.a8 = 224
+					$Speaker_Background.color = box_back
+			cmd.TYPE.EVENT:
+				if(cmd.event == "SHAKE"):
+					vibratingObject = get_node(cmd.target)
+					var original_position = vibratingObject.position
+					centerPoint = original_position
+					vibrating = true
+					yield(get_tree().create_timer(0.5), "timeout")
+					vibrating = false
+					vibratingObject.position = original_position
+				if(cmd.event == "SHOW"):
+					var character = characters[cmd.dial_character]
+					var image = character.GetEmotionTexture(cmd.dial_emotion)
+					get_node(cmd.target).texture = image
 
-	# Remove the template child
-	#$BranchOptions.remove_child($BranchOptions.get_child(0))
-	# If there's still more than one, display them
+	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
 		$BranchOptions.visible = true
@@ -268,6 +317,7 @@ func BeginScene(script_name):
 func FillCharacterArray():
 	for node in $Characters.get_children():
 		var c : SceneCharacter = node
+		print("Adding character " + c.character_abbreviation)
 		characters[c.character_abbreviation] = c
 
 func option_button_pressed(scene):

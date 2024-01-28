@@ -1,0 +1,65 @@
+Barbarian_Background.png
+OfficeAmbienceLoop.ogg
+"I take a deep breath."
+G: "It's a scam, Thogra. People just send these emails to trick people into giving them money."
+T: "You say they have no intention of honouring their promise to return the gift threefold once the would-be usurper is slain?"
+G: "Yeah. Happens all the time."
+"He growls, mulling this over."
+"At least I think he's thinking about it."
+T: "How dare they not respect the agreement of honourable warriors! I shall tolerate this deceitful machine no more!"
+G: "An email isn't the fault of the computer, you know -"
+T: "Silence, wizard! Or you too will face my wrath!"
+[CG 2]
+"Before I can stop him, he raises his battleaxe and splits through the tower on his desk."
+"I mutter a quick spell to shield me from the sparks flying from the cubicle."
+G: "Okay, so one ticket for a replacement PC..."
+"I'm just gonna back out."
+[Background: IT Office. Portraits: Greg, Zaxyss]
+OfficeAmbienceLoop.ogg
+Space_Background.png
+hide@R
+Z: "That was quick, for dealing with those barbarous outbounders."
+G: "Yeah, well, we'll need another computer set up in there. Again."
+G: "Any new tickets come in?"
+Z: "A number of them, but that matters not. I know, I know you have warned me, but the habits of the leadership of AstonishCorp cannot be anything but an ill portent for our future!"
+G: "Sure. What'd the boss do now?"
+Z: "That rodent does not deserve the title of boss! Just this morning, as I went to the water cooler, I passed her office and heard her communing with mysterious forces."
+G: "On the phone again, huh?"
+Z: "Yes, about a mission of hers! What kind of business call talks about a mission from the future?"
+G: "For all we know, she's calling in another motivational speaker. Whatever it is, it's above my pay grade."
+Z: "And what of her mumbling last week in the elevator about the folly of humanity?"
+G: "Have you seen the average customer?"
+Z: "...Well, yes. But I cannot hold her above suspicion."
+"Honestly, I kind of get it. But like I said, going down these theories is above my pay grade. The boss might just normally suck."
+"When I started here, these people didn't even know what version-tracking software was. Each build of the product was just put on a new USB drive. We still have buckets of USB drives sitting around here somewhere."
+"So, yeah, either malicious or incompetent. Or both."
+G: "Anyway, those support tickets?"
+Z: "Right, right."
+"He summons an array of IT support tickets. I grab the oldest-looking one from today."
+G: "Payroll, huh? I'll take it."
+Z: "I see. And I shall prepare for our inevitable showdown!"
+G: "You do that."
+[Background: Generic Cubicles, Alien variant. Portraits: Greg]
+Alien_Background.png
+hide@R
+"Payroll is usually easier to deal with. We don't get too many complaints from there. But when we get them, sometimes they get... esoteric."
+"I walk in past the workers typing away at their screens."
+"Well, most of them have screens. One of them is sitting with a keyboard and mouse, but the monitor and tower are just... gone."
+[Add Tria 303 portrait]
+3: "Greetings, information technologist Greg."
+"I don't remember giving my name when I took the ticket. Payroll just always seems to know everyone."
+G: "That's me. Tria 303, right? You said something about a connectivity issue."
+"It looks like a lot more than that if her peripherals aren't plugged into anything."
+"No, wait. Now that I look at it, the wires fade out after a certain point, reaching into something that isn't there."
+"Just as I'm about to bring it up, I see the outline of a monitor and tower, with the other end of the wires connecting to the keyboard and mouse."
+"It's fading back into reality."
+"Or it looks like it will, but then it starts disappearing again."
+3: "This has been happening for half an hour. Your primitive PCs cannot withstand contact with the outside before they begin to lose touch with reality."
+G: "How did you manage to get your computer stuck in the fifth dimension?"
+3: "You claim to be the expert!"
+"I breathe in and out."
+G: "And that's why I'm asking, so I can help you."
+3: "This is regular computer use in the Triangulum galaxy. I transferred here to share peace and advancement with you humans, yet your clunky machines confound me."
+"How does somebody summon an interdimensional portal with a spreadsheet?"
+-Take her at her word=>Continue2
+-Looks suspicious=>BadEnd2
