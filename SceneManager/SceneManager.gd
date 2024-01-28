@@ -293,7 +293,7 @@ func BeginScene(script_name):
 					var original_position = vibratingObject.position
 					centerPoint = original_position
 					vibrating = true
-					yield(get_tree().create_timer(2), "timeout")
+					yield(get_tree().create_timer(0.5), "timeout")
 					vibrating = false
 					vibratingObject.position = original_position
 
