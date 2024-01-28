@@ -68,7 +68,7 @@ N0G: But here I am. Sitting on a throne of plastic casing and fried metals.
 N0G: They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now.
 GREG_SIGH.wav
 N0G: ...2,646,639 minutes left to go.
-[Win.png]
+Win Screen.png
 80s_Synthwave.wav
 TEXT: END: Entered the Age of Greg
--Replay=>Beginning
+-Replay=>Title
