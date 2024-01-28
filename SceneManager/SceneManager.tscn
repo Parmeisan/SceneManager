@@ -105,7 +105,7 @@ dialogue_fontname = "MaidenOrange-Regular.ttf"
 dialogue_fontsize = 28
 image_side = -1
 
-[node name="Internal Monologue" type="Control" parent="Characters"]
+[node name="Monologue" type="Control" parent="Characters"]
 margin_top = 3.0
 margin_right = 747.0
 margin_bottom = 206.0

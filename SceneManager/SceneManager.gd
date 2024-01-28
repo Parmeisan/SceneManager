@@ -21,8 +21,12 @@ var all_scripts = {}
 var characters = {}
 var playing = false
 
+#Associated with shake effect
+var centerPoint
 var thisIsNothing = 0
 var vibrating = false
+var vibratingObject
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	visible = false
@@ -32,8 +36,10 @@ func _ready():
 
 func _physics_process(delta):
 	if vibrating:
-		thisIsNothing = thisIsNothing + 1
-		print(str(thisIsNothing))
+		var xShake = rng.randi_range(-10,10)
+		var yShake = rng.randi_range(-10,10)
+		vibratingObject.position = Vector2(centerPoint.x + xShake, centerPoint.y +yShake)
+		
 
 
 func debug(s):
@@ -245,20 +251,33 @@ func BeginScene(script_name):
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
+			cmd.TYPE.HIDE:
+				match cmd.image_location:
+					cmd.IMAGE_LOCATION.LEFT:
+						$Character_Left.texture = null
+					cmd.IMAGE_LOCATION.RIGHT:
+						$Character_Right.texture = null
+					#cmd.IMAGE_LOCATION.CENTER:
+					#	$Character_Center.texture = null
 			cmd.TYPE.DIALOGUE:
 				var box = get_node("Speaker_Text")
 				box.text = cmd.dial_line
 				# This is quick-and-dirty, we'll want some scaffolding around this
-				if characters.has(cmd.dial_character):
+				if !characters.has(cmd.dial_character):
+					print("Failed to find " + cmd.dial_character)
+					print(characters)
+				else:
 					var c : SceneCharacter = characters[cmd.dial_character]
-					if cmd.image_location == -1:
-						c.image_side = -1
-					elif cmd.image_location == 1:
-						c.image_side = 1
-					if(c.image_side == -1):
+					# Override the previous location?
+					if cmd.image_location != cmd.IMAGE_LOCATION.UNDEFINED:
+						c.image_side = cmd.image_location
+					# Display on appropriate side
+					if c.image_side == cmd.IMAGE_LOCATION.LEFT:
 						$Character_Left.texture = c.GetEmotionTexture(cmd.dial_emotion)
-					elif(c.image_side == 1):
+					elif c.image_side == cmd.IMAGE_LOCATION.RIGHT:
 						$Character_Right.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					#elif cmd.image_location == cmd.IMAGE_LOCATION.CENTER:
+					#	$Character_Center.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)
@@ -267,19 +286,20 @@ func BeginScene(script_name):
 						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
 					var box_back = c.dialogue_background
 					box_back.a8 = 224
-					$Speaker_Background.color = box_back#c.dialogue_background
+					$Speaker_Background.color = box_back
 			cmd.TYPE.EVENT:
-				var theObject = get_node(cmd.target)
-				vibrating = true
-				yield(get_tree().create_timer(2), "timeout")
-				vibrating = false
+				if(cmd.event == "SHAKE"):
+					vibratingObject = get_node(cmd.target)
+					var original_position = vibratingObject.position
+					centerPoint = original_position
+					vibrating = true
+					yield(get_tree().create_timer(0.5), "timeout")
+					vibrating = false
+					vibratingObject.position = original_position
 
-	# Remove the template child
-	#$BranchOptions.remove_child($BranchOptions.get_child(0))
-	# If there's still more than one, display them
+	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:
 		print("==== Options ====")
-		#$BranchOptions/TextureButton.visible = false;
 		$BranchOptions.visible = true
 		mode = MODES.WAITING
 	
