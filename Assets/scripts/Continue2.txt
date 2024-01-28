@@ -1,15 +1,17 @@
-OfficeAmbienceLoop.ogg
 Alien_Background.png
+<SHOW!3!neutral@Character_Right>
 "Never attribute to malice what can be attributed to incompetence. I sigh and shake my head."
 G: "Okay, so a portal was summoned. Let me try and see if we can reverse-engineer this. Can you show me what happened just before?"
 "If I'm prepared, I can undo it without sucking half the office into the fifth dimension."
 "She ponders this and nods."
+TRIA303_AH.wav
 3: "I was attempting a write a pivot table to double my RAM, to better manage direct deposit."
 "I have no words."
 "She does a series of keystrokes fast enough that I have trouble keeping track without magic, and I start to feel a pull forward."
 "The portal opens wide. The computer tower and monitor are floating in front of us in a colourful void. A void that's tugging at everyone and everything at the office."
 "A pencil flies past me at high speed."
 "I shout an anchoring spell. The office stays still. I had the time to prepare, so everyone in the room should be safe."
+TRIA303_CAME_IN_PEACE.wav
 3: "It... isn't safe to reach into there, theoretically."
 G: "More than theoretically."
 "I take a deep breath."
@@ -19,10 +21,13 @@ G: "More than theoretically."
 "Okay, I would. But it's cheaper and easier to just use this nearby box of RJ45 cables."
 "They unfurl, reach into the dimension, and snap around the equipment. I raise my arm, and the cables strain and haul out the tower and monitor."
 G: "Now hit escape!"
+TRIA303_UMM.wav
 3: "Okay?"
 G: "No, that's delete! Escape is on the other side!"
+TRIA303_AH.wav
 3: "Oh, that one!"
 [Background: Generic Cubicles, Alien variant. Portraits: Greg, Tria 303]
+ComputerWarp.wav
 "The portal closes. The computer sinks back into its spot. I send the cables to retreat back to their box."
 G: "At least that's over with."
 3: "Thank you. It looks like everything works... I think."
@@ -39,14 +44,17 @@ hide@R
 Squirrel_Background.png
 "There she is. Small, mysterious, and all too happy to remind you she pays your salary."
 "She seems pretty absorbed in grumbling at her robot arm."
+SQUIRREL_CURSEYOU.wav
 B: "No, I will NOT pay you 1,000 gold to unlock functionality! This is why I despise the pathetic creatures scrabbling in vain to keep their rule over this era!"
 G: "Oh, so it's ransomware again."
 "She stands up straight."
+SQUIRREL_UMM.wav
 B: "Oh! I didn't see you there. Geoff, was it? From IT?"
 G: "Greg."
 B: "Of course. Whatever it is, I should hope you have a way to clear this off my mech suit before it spreads. The one arm's locked in place."
 "I approach her to look over the arm. I try not to look too annoyed, but I also don't care enough to succeed."
 G: "Looks like it's started to spread. What have you done so far since it started happening? Walk me through it."
+SQUIRREL_CURSEYOU.wav
 B: "Do not command me, insolent space wizard! Your magic will not save you when... (cough) Yes, well. I turned it off and on again."
 "I try not to let her see my eyes rolling. I just open up the panel on her robot arm."
 "Where did she get a mech suit like this, anyway? She always said she was from the blandest place on Earth. Possibly actually Bland, but she doesn't sound Australian to me."
@@ -55,9 +63,11 @@ B: "Do not command me, insolent space wizard! Your magic will not save you when.
 "Huh. Subtle."
 "Anyway, whatever, I need to keep messing with this to see if I can salvage the suit. I start keying things in and mumble some spells to try and source the virus."
 G: "Just a minute. If I can find where this came from, I can try to undo it."
+SQUIRREL_NOOO.wav
 B: "Don't try, do! And be quick about it. This is far too humiliating to continue."
 B: "If I keep depending on humanity, I'll never be able to destroy them!"
 G: "..."
+SQUIRREL_UMM.wav
 B: "..."
 G: "..."
 B: "..."

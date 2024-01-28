@@ -1,12 +1,14 @@
-OfficeAmbienceLoop.ogg
-Space_Background.png
+Alien_Background.png
+<SHOW!3!neutral@Character_Right>
 G: "Tell me the truth this time. What regular computer use summons a portal?"
+TRIA303_I_DONT_KNOW.wav
 3: "I told you, I don't know what happened! I was just typing, like this!"
 "She types. And types. Fingers flying across the keys in quick patterns. Soon enough, I have to start using magic just to keep track."
 "And in front of us, where the computer is hanging in the fifth dimension, the portal reemerges."
 "I feel a force pulling me. Pulling everything."
 "I cast a quick anchoring spell so it won't take me in."
 "But -"
+TRIA303_NOOO.wav
 3: "Noooo!"
 [Remove Tria 303 portrait]
 hide@R

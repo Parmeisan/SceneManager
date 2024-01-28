@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ZAXYSS_HEH.wav-f9783bf55ae1f6ddfcb382a414c94067.sample"
+
+[deps]
+
+source_file="res://Assets/audio/ZAXYSS_HEH.wav"
+dest_files=[ "res://.import/ZAXYSS_HEH.wav-f9783bf55ae1f6ddfcb382a414c94067.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
