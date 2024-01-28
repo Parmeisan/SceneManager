@@ -36,18 +36,23 @@ hide@R
 "This time, there are fewer fires than usual. Maybe a good sign."
 G: "IT here. Where's your emergency?
 [Add Thogra portrait]
+THOGRA_CRAFTY_WIZARD.wav
 T: "Ah, the crafty wizard. It is I, Thogra of Outbound. I am loath to summon you, but I fear I had no choice."
 G: "I'm not too happy to be here either, buddy. What's going on?"
 <SHAKE!Character_Right>
+THOGRA_RAWGH.wav
 T: "The window into the connected realm has gone dark. What sorcery is this?"
 "I look to his computer."
 "The monitor is turned off. I look it over, note the HDMI cable is loose, and plug it back in."
+THOGRA_CRAFTY_YES.wav
 T: "The light is restored! As expected of a wizard of your caliber."
 G: "Yeah, sure... Wait a second."
 "An email on the screen catches my eye. Generic greetings, clunky grammar, promises that make my stomach drop."
 "Not here. Not with these morons."
 G: "What's that?"
+THOGRA_FORGLORY.wav
 T: "Ah, you have noticed! I have been visited by great fortune today! A missive of deep importance from Mondaria!"
+THOGRA_FIEND.wav
 T: "Their heir apparent has approached our office for aid! He claims our gold will help him to overthrow his uncle before the fiend can dispose of his father, the king."
 "I groan. Textbook Mondarian prince email."
 "But Thogra here seems pretty convinced."
