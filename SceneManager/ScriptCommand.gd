@@ -61,11 +61,14 @@ func _init(line : String):
 		
 	# Options
 	var arrow_posn = line.find_last("=>")
-	if arrow_posn > 0:
+	if arrow_posn >= 0:
 		command_type = TYPE.OPTION
 		opt_text = line.substr(0, arrow_posn)
 		if opt_text.begins_with("-"):
 			opt_text = opt_text.substr(1)
+		else: # We'll go directly there with no button
+			opt_text = "=>"
+			opt_destination = line.substr(2)
 		opt_text = opt_text.strip_edges()
 		opt_destination = line.substr(arrow_posn + 2).strip_edges()
 		

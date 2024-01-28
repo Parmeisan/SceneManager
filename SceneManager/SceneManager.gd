@@ -281,12 +281,17 @@ func BeginScene(script_name):
 			# We will get these over multiple lines, we add each of them as we receive them,
 			# but they will all be hidden until we reach the end of the file
 			cmd.TYPE.OPTION:
-				var template = $BranchOptions.get_child(0);
-				var new_button = template.duplicate()
-				new_button.get_node("Label").text = cmd.opt_text
-				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
-				new_button.visible = true
-				$BranchOptions.add_child(new_button)
+				print("Option " + cmd.opt_text)
+				if cmd.opt_text == "=>":
+					print("Start scene " + cmd.opt_destination)
+					LoadScript(cmd.opt_destination + ".txt")
+				else:
+					var template = $BranchOptions.get_child(0);
+					var new_button = template.duplicate()
+					new_button.get_node("Label").text = cmd.opt_text
+					new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+					new_button.visible = true
+					$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
 				var seconds = float(cmd.wait_seconds)
 				# Wait on a loop; the loop may be ended early from elsewhere
