@@ -19,10 +19,14 @@ G: "An email isn't the fault of the computer, you know -"
 THOGRA_RAWGH.wav
 T: "Silence, wizard! Or you too will face my wrath!"
 [CG 2]
+hide@R
+hide@L
 ComputerSmash.wav
-"Before I can stop him, he raises his battleaxe and splits through the tower on his desk."
+Axe_It_Screen.png
+N0G: Before I can stop him, he raises his battleaxe and splits through the tower on his desk.
+Barbarian_Background.png
 GREG_COSMOS.wav
-"I mutter a quick spell to shield me from the sparks flying from the cubicle."
+N0G: I mutter a quick spell to shield me from the sparks flying from the cubicle.
 GREG_SIGH.wav
 G: "Okay, so one ticket for a replacement PC..."
 "I'm just gonna back out."
