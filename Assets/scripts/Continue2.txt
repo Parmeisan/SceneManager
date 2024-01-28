@@ -18,7 +18,16 @@ G: "More than theoretically."
 "Fly to me, strings of reality!"
 "I gather the fibers that reach through existence..."
 [CG 3]
-"Okay, I would. But it's cheaper and easier to just use this nearby box of RJ45 cables."
+hide@R
+hide@L
+hide@Speaker_Background
+hide@Speaker_Text
+hide@Nametag_Background
+hide@Nametag_text
+ComputerSmash.wav
+Vortex_Screen.png
+...1.5
+N0G: Okay, I would. But it's cheaper and easier to just use this nearby box of RJ45 cables.
 "They unfurl, reach into the dimension, and snap around the equipment. I raise my arm, and the cables strain and haul out the tower and monitor."
 G: "Now hit escape!"
 TRIA303_UMM.wav
