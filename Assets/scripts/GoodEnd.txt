@@ -1,10 +1,13 @@
 Squirrel_Background.png
 <SHOW!B!neutral@Character_Right>
+GREG_WAIT.wav
 G: "I have to say."
 SQUIRREL_LAUGH.wav
 B: "What? Less talking, more fixing, Geoff."
+GREG_SIGH.wav
 "I want to back out. Say this isn't my circus. But for years now, it's been her circus, and I'm the world's most apathetic monkey."
 "Time to throw turds."
+GREG_UGH.wav
 "I take in a breath and snap the panel shut."
 G: "You're pretty obvious, boss."
 "I step back out of her immediate bubble. The squirrel in front of me starts to seethe, the cute little veneer that was already full of cracks boiling up with rage."
@@ -19,21 +22,38 @@ B: "How you and your ilk have been tricked into serving the beings who will caus
 G: "Most of those aren't even humans to begin with."
 B: "Silence! In the future, it will be only squirrels! And none shall ever have to fear being chased out of somebody's yard again!"
 B: "Now taste my power!"
-"She clicks a button."
+[CG3]
+hide@R
+hide@L
+hide@Speaker_Background
+hide@Speaker_Text
+hide@Nametag_Background
+hide@Nametag_text
+Squirrel_Fight_Screen.png
+...1.5
+N0G: She clicks a button.
 SQUIRREL_UMM.wav
-"Nothing. She clicks it again. And again."
+N0G: Nothing. She clicks it again. And again.
+Squirrel_Background.png
+<SHOW!G!neutral@Character_Left>
 B: "You...!"
+GREG_TAKETHAT.wav
 G: "You could have waited until I was done to be obviously evil, and then this wouldn't have happened."
 "My mind races. I tap into the cosmos again."
 "I reach into myself, my core, my past. Me before I lost my ambition, drive, and ability to have a good time at work."
+GREG_GK.wav
 G: "You know, I kind of forgot what it was like to be a person. Before you crushed us into worker drones."
 "She lumbers toward me and lunges with the one hand that still works."
+GREG_TAKETHAT.wav
 "I throw what's left of my coffee at her and stumble back. I barely dodge. Breathing is hard. I should've taken those workplace wellness retreats before she replaced them with the Cowboys from Space, Inc. leadership courses that kept trying to sell us MLM merch."
 "But the energy flows into me."
 "And as I look forward..."
 "As my boss, a squirrel in a mech suit, avenger of yard pests, the one who wore me down for all those years, lets out an angry yell and tries again..."
+GREG_HEH.wav
 "I finish my spell."
+GREG_COSMOS.wav
 G: "The universe has aligned through me!"
+GREG_TAKETHAT.wav
 G: "I curse you to the Wasteland of Hades!"
 [Screen fades to white. Remove Boss portrait.]
 White_Background.png
@@ -47,15 +67,19 @@ G: "That's for all the times you made me find the any key."
 White_Background.png
 hide@L
 N0G: "And that's how it happened."
+GREG_SIGH.wav
 N0G: "Things were... complicated for a while at the office after that. Zaxyss was smug about being right, of course. I gave him the credit for figuring the boss out anyway, even though it was obvious to anyone who paid attention. That way, he wouldn't try to poison me to usurp my title."
 [CG 4]
+GREG_YEAHYEAH.wav
 N0G: Because, yeah. I have a title better than 'worn-down IT guy' now. Thogra insisted I was the new boss by virtue of trial by combat, and when a barbarian actually vouches for a wizard for once in his life, I guess the rest of the office listens.
+GREG_HEH.wav
 N0G: Tria 303 called in some Triangulan lawyers to work all the paper out. I guess even the office airhead is useful for something. If this is the worst AstonishCorp has from now on, things might be okay.
 N0G: I'm still tired. You can't just undo that many decades of burnout. Otherwise I would've figured things out when the boss lived more than the normal 5 to 10 years for a squirrel.
 N0G: But here I am. Sitting on a throne of plastic casing and fried metals.
 N0G: They keep saying we're in a new age now, but I'm just glad someone else can deal with the stupid calls now.
-N0G: ...Wait, now I have to represent the company, don't I?
-[Win.png]
+GREG_SIGH.wav
+N0G: ...2,646,639 minutes left to go.
+Win Screen.png
 80s_Synthwave.wav
 TEXT: END: Entered the Age of Greg
--Replay=>Beginning
+-Replay=>Title

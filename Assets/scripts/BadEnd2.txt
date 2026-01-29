@@ -1,21 +1,26 @@
 Alien_Background.png
 <SHOW!3!neutral@Character_Right>
+GREG_HOW.wav
 G: "Tell me the truth this time. What regular computer use summons a portal?"
 TRIA303_I_DONT_KNOW.wav
 3: "I told you, I don't know what happened! I was just typing, like this!"
 "She types. And types. Fingers flying across the keys in quick patterns. Soon enough, I have to start using magic just to keep track."
+GREG_WAIT.wav
 "And in front of us, where the computer is hanging in the fifth dimension, the portal reemerges."
 "I feel a force pulling me. Pulling everything."
+GREG_COSMOS.wav
 "I cast a quick anchoring spell so it won't take me in."
 "But -"
 TRIA303_NOOO.wav
 3: "Noooo!"
 [Remove Tria 303 portrait]
 hide@R
+GREG_NOTNOW.wav
 G: "Close!"
 "I manage to shut the portal again."
 "There's no more force pulling anything in."
 "But Tria 303 was sucked through the portal."
+GREG_UGH.wav
 G: "What a pain..."
 "The whole office is staring at me. Glaring at me."
 "And before I can do anything, somebody taps me on the shoulder."
@@ -24,10 +29,12 @@ HR: "Ahem."
 Black_Background.png
 hide@L
 hide@R
+GREG_GK.wav
 N0G: Somebody called Metahuman Resources on me for 'unfair treatment.'
 N0G: I guess they had a point, but the four-hour lecture and docking my pay were excessive.
 N0G: And then I had to go rescue both the payroll worker and her computer.
+GREG_UGH.wav
 N0G: At this rate I'll need to put off my retirement... I'll be stuck here forever.
 TEXT: Greg was not able to resolve the support ticket.
 Bad_Ending_2.png
--Retry=>Continue1
+-Retry=>Continue1Resume

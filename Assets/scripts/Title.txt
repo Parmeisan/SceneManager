@@ -1,4 +1,5 @@
 Title Screen - No Logo.png
 80s_Synthwave.wav
--Start=>Beginning
 <TITLE!>
+...3
+-Start=>Beginning

@@ -11,6 +11,7 @@ export var audio_path = "Assets/audio/"
 export var sprite_path = "Assets/characters/"
 export var font_path = "Assets/fonts/"
 export var wait_after_dialogue : bool = true
+export var startup_scene = ""
 
 # ==== Main functions & variables =================================================================
 
@@ -32,11 +33,23 @@ var rng = RandomNumberGenerator.new()
 var title_slide = false
 var title_progress = 0
 
+#associated with generic slide
+var slide = false
+var slideDuration
+var slidFor = 0.0
+var slideObject
+var slideDirection
+var displacementVector
+var displacementFactor = 1.0
+var homePosition
+
 func _ready():
 	visible = false
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
+	if startup_scene != "":
+		BeginScene(startup_scene)
 
 func _physics_process(delta):
 	if vibrating:
@@ -52,11 +65,29 @@ func _physics_process(delta):
 		#two seconds
 		title_progress = title_progress + delta/2
 		$Game_Title.position = Vector2(512, 300.0 * title_progress)
-		
-
 		if(title_progress >= 1):
 			title_progress = 1
 			title_slide = false
+	
+	if slide:
+		slideObject.position = homePosition + displacementVector * displacementFactor
+		slidFor = slidFor + delta
+		displacementFactor = 1.0 - (slidFor / slideDuration)
+		if(slidFor >= slideDuration):
+			slide = false
+			slideObject.position = homePosition
+			slidFor = 0
+			displacementFactor = 1.0
+
+func displace(dir):
+	if dir == "RIGHT":
+		displacementVector = Vector2(512,0)
+	if dir == "LEFT":
+		displacementVector = Vector2(-512,0)
+	if dir == "TOP":
+		displacementVector = Vector2(0,300)
+	if dir == "BOTTOM":
+		displacementVector = Vector2(0,300)
 
 func debug(s):
 	if debug_mode:
@@ -159,7 +190,7 @@ static func GetAudio(folder, file, ext):
 	else:
 		print ("Error reading sound file " + fname)
 	afile.close()
-	return stream
+	return fname
 
 # === Running scripts from our array of ScriptCommands ============================================
 
@@ -182,6 +213,9 @@ func _input(event):
 		Continue()
 	if event.is_action_pressed("ui_click") and visible == true:
 		Continue()
+	if event.is_action_pressed("ui_debug_scenes"):
+		visible = false
+		mode = MODES.READY
 
 
 # The main one
@@ -190,6 +224,8 @@ func BeginScene(script_name):
 	$BranchOptions.visible = false
 	$Character_Left.texture = null
 	$Character_Right.texture = null
+	$Game_Title.position = Vector2(0,0)
+	title_slide = false
 	var num = 0
 	for opt in $BranchOptions.get_children():
 		if (num > 0): # The first one will serve as a template
@@ -219,15 +255,14 @@ func BeginScene(script_name):
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
 					# Ensure that we have 16-bit (can downgrade in Audacity)
-					player = $SFX_Player
-					playing = true;
+					SoundManager.play_se("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
 				elif cmd.file_ext == "ogg":
-					player = $Music_Looper
-				if player != null:
-					player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
-					player.stop()
-					player.play()
-					player.volume_db = float(8)
+					SoundManager.play_bgm("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
+				#if player != null:
+					#player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
+					#player.stop()
+					#player.play()
+					#player.volume_db = float(8)
 			# Set a background
 			cmd.TYPE.BACKGROUND:
 				$BG_Image.visible = true
@@ -265,19 +300,23 @@ func BeginScene(script_name):
 					# MODES.WAITING may be set to false outside this function
 					if playing and !($SFX_Player.playing):
 						playing = false;
-						Continue()
-						break
+						#Continue()
+						#break
 					yield(WaitIncrement(incr_size), "timeout")
 					waited += incr_size
 				mode = MODES.RUNNING
 			cmd.TYPE.HIDE:
-				match cmd.image_location:
-					cmd.IMAGE_LOCATION.LEFT:
-						$Character_Left.texture = null
-					cmd.IMAGE_LOCATION.RIGHT:
-						$Character_Right.texture = null
-					#cmd.IMAGE_LOCATION.CENTER:
-					#	$Character_Center.texture = null
+				if cmd.image_location != null and cmd.image_location != cmd.IMAGE_LOCATION.UNDEFINED:
+					match cmd.image_location:
+						cmd.IMAGE_LOCATION.LEFT:
+							$Character_Left.texture = null
+						cmd.IMAGE_LOCATION.RIGHT:
+							$Character_Right.texture = null
+						#cmd.IMAGE_LOCATION.CENTER:
+						#	$Character_Center.texture = null
+				if cmd.target != null:
+					print("Hiding " + cmd.target)
+					get_node(cmd.target).visible = false
 			cmd.TYPE.DIALOGUE:
 				$Nametag_Background.visible = false
 				$Nametag_text.visible = false
@@ -294,6 +333,8 @@ func BeginScene(script_name):
 					   (c != $Characters/NobodyRight) &&
 					   (c != $Characters/TEXT) && 
 					   (c != $Characters/Monologue)):
+						 $Speaker_Background.visible = true
+						 $Speaker_Text.visible = true
 						 $Nametag_Background.visible = true
 						 $Nametag_text.visible = true
 						 $Nametag_text.text = c.character_full_name
@@ -332,6 +373,16 @@ func BeginScene(script_name):
 					get_node(cmd.target).texture = image
 				if(cmd.event == "TITLE"):
 					title_slide = true
+				if(cmd.event == "SLIDE"):
+					if(slide):
+						slideObject.position = homePosition					
+					slideObject = get_node(cmd.target)
+					slideDuration = float(cmd.duration)
+					slideDirection = cmd.direction
+					homePosition = slideObject.position
+					displace(slideDirection)
+					slideObject.position = slideObject.position + displacementVector
+					slide = true
 
 	# Display options, if there are any beyond than the template
 	if $BranchOptions.get_child_count() > 1:

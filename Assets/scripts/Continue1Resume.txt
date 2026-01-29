@@ -1,0 +1,7 @@
+Alien_Background.png
+<SHOW!G!neutral@Character_Left>
+3: "This is regular computer use in the Triangulum galaxy. I transferred here to share peace and advancement with you humans, yet your clunky machines confound me."
+GREG_GK.wav
+"How does somebody summon an interdimensional portal with a spreadsheet?"
+-Take her at her word=>Continue2
+-Looks suspicious=>BadEnd2

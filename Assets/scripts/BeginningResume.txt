@@ -1,0 +1,9 @@
+Space_Background.png
+OfficeAmbienceLoop.ogg
+<SHOW!G!neutral@Character_Left>
+T: "Their heir apparent has approached our office for aid! He claims our gold will help him to overthrow his uncle before the fiend can dispose of his father, the king."
+GREG_SIGH.wav
+"I groan. Textbook Mondarian prince email."
+"But Thogra here seems pretty convinced."
+-Try to explain it gently.=>BadEnd1
+-Tell the truth bluntly.=>Continue1
