@@ -98,13 +98,10 @@ func debug(s):
 func LoadAllScripts():
 	# Load in scripts
 	print("Loading all scripts at ", script_path)
-	var dir = DirAccess.open("res://" + script_path)
-	if !dir:
-		print("!!!Error opening " + script_path + "!!!")
-	else:
-		dir.get_files_at("res://" + script_path)
-		while true:
-			var fname = dir.get_next()
+	var dir = DirAccess.open("res://%s" % script_path)
+	if dir:
+		var list = DirAccess.get_files_at("res://%s" % script_path)
+		for fname in list:
 			print("Found ", fname)
 			if fname == "":
 				break
@@ -112,6 +109,8 @@ func LoadAllScripts():
 				var script_name = fname.substr(0, fname.rfind("."))
 				LoadScript(script_name)
 		dir.list_dir_end()
+	else:
+		print("!!!Error opening " + script_path + "!!!")
 
 func LoadScript(script_name):
 	print("   Loading ", script_name)
@@ -151,18 +150,16 @@ func LoadScript(script_name):
 	all_scripts[script_name] = command_array
 
 static func GetImage(folder, file, ext):
-	var img = Image.new()
 	var fname = folder + file + ext
+	# This file read stuff isn't necessary to actually read the image, however it seems useful for error handling
 	var f = FileAccess.open(fname, FileAccess.READ)
 	if f == null:
 		print ("Error reading image file %s: %s" % fname, FileAccess.get_open_error())
-	else:
-		img.load(fname)
 	f.close()
-	return img
+	return Image.load_from_file(fname)
 static func GetTexture(folder, file, ext):
 # https://godotengine.org/qa/30210/how-do-load-resource-works
-	var img =GetImage(folder, file, ext)
+	var img = GetImage(folder, file, ext)
 	var tex = ImageTexture.new()
 	tex.create_from_image(img)
 	return tex

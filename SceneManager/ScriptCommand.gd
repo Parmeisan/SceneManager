@@ -204,6 +204,6 @@ func _init(line : String):
 	if at >= 0:
 		var location = line.substr(at+1, 1)
 		if location == "R":
-			image_location = 1
+			image_location = IMAGE_LOCATION.RIGHT
 		elif location == "L":
-			image_location = -1
+			image_location = IMAGE_LOCATION.LEFT

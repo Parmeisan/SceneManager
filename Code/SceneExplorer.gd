@@ -26,8 +26,10 @@ func _ready():
 				c.TYPE.BACKGROUND:
 					img_count += 1
 					if icon.texture == null:
-						icon.texture = SceneManager.GetTexture(mgr.background_path, c.file_name, "." + c.file_ext)
-						icon.texture.size = Vector2(80, 60)
+						var img = SceneManager.GetImage(mgr.background_path, c.file_name, "." + c.file_ext)
+						img.resize(80, 60)
+						var tex = ImageTexture.new()
+						icon.texture = tex.create_from_image(img)
 				c.TYPE.AUDIO:
 					audio_count += 1
 				c.TYPE.DIALOGUE:
@@ -60,4 +62,3 @@ func scene_button_pressed(script):
 
 
 	
-
