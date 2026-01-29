@@ -33,6 +33,9 @@ margin_top = 424.0
 margin_right = 744.0
 margin_bottom = 596.0
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -40,14 +43,23 @@ autowrap = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 character_abbreviation = "NR"
 character_full_name = "Treefoot"
 neutral_image = ExtResource( 4 )
 emotion_keywords = [ "serious" ]
 emotion_images = [ ExtResource( 3 ) ]
 dialogue_colour = Color( 0.796078, 0.505882, 0.333333, 1 )
+dialogue_fontname = "CaveatBrush-Regular.ttf"
+dialogue_fontsize = 28
+
+[node name="Arborent" type="Control" parent="Characters"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+character_abbreviation = "A"
+character_full_name = "Arborent"
+emotion_keywords = [ "serious" ]
+emotion_images = [ ExtResource( 3 ) ]
+dialogue_colour = Color( 0.223529, 0.615686, 0.294118, 1 )
 dialogue_fontname = "CaveatBrush-Regular.ttf"
 dialogue_fontsize = 28

@@ -1,0 +1,19 @@
+Intro-God-War.png
+[when you have all the items and return to the tree and the big, torn-up mattress]
+NR:O Lord of the Wild, I have returned. I bring accursed items to the altar with which they offended your great roots.
+A:Yes, I see. Bring the items forward.
+[All the items leave your inventory and appear on the mattress]
+A:I will banish these things with my power... The altar and the artifacts will return to the God of Industry's realm.
+[The mattress and the items disappear]
+A:You have done well, my follower. May they think twice before spreading their influence here again.
+NR:And may your great roots spread throughout the world again.
+...3
+CREDITS:-- Created by Cult of Cake --
+CREDITS:-- Created by Cult of Cake --\nWriting: Jessie
+CREDITS:-- Created by Cult of Cake --\nComposition & Sound Effects: Tara St. Michel
+CREDITS:-- Created by Cult of Cake --\nArt: Jo Michaelis
+CREDITS:-- Created by Cult of Cake --\nProgramming: Laura Smart
+CREDITS:-- Created by Cult of Cake --\nProgramming: Wyatt
+CREDITS:-- Created by Cult of Cake --\nProgramming: Paul Smart
+CREDITS:
+...2

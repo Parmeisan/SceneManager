@@ -108,5 +108,5 @@ func _init(line : String):
 		if dialog:
 			command_type = TYPE.DIALOGUE
 		dial_character = line.substr(0, colon).strip_edges()
-		dial_line = line.substr(colon + 1)
+		dial_line = line.substr(colon + 1).strip_edges()
 		dial_emotion = "neutral" # TODO

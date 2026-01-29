@@ -137,7 +137,15 @@ func GetVar(v):
 	return variables[v]
 func SetVar(v, to):
 	variables[v] = to
-	print(variables)
+func ReplaceVars(s):
+	var result : String = s
+	# Replace variables with their values
+	for v in variables.keys():
+		result = result.replace("$" + v, variables[v])
+	# Some other replacements
+	result = result.replace("\\n", "\n")
+	result = result.replace("///", "\n")
+	return result
 
 # Wait-related functions
 func WaitIncrement(seconds):
@@ -222,7 +230,7 @@ func BeginScene(script_name):
 				mode = MODES.RUNNING
 			cmd.TYPE.DIALOGUE:
 				var box = get_node("Speaker_Text")
-				box.text = cmd.dial_line
+				box.text = ReplaceVars(cmd.dial_line)
 				# This is quick-and-dirty, we'll want some scaffolding around this
 				if characters.has(cmd.dial_character):
 					var c : SceneCharacter = characters[cmd.dial_character]

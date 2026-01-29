@@ -7,6 +7,9 @@
 
 [node name="SceneExplorer" type="Control"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SceneList" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -18,6 +21,9 @@ color = Color( 0, 0.470588, 0.470588, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GridScene" type="Control" parent="SceneList/GridContainer"]
 margin_bottom = 80.0
@@ -58,6 +64,9 @@ theme = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Images:
 Audio:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ItemDetail" type="Label" parent="SceneList/GridContainer/GridScene"]
 margin_left = 200.0
@@ -91,5 +100,8 @@ rect_scale = Vector2( 3, 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = ">"
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SceneManager" parent="." instance=ExtResource( 1 )]
