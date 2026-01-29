@@ -11,6 +11,7 @@ export var audio_path = "Assets/audio/"
 export var sprite_path = "Assets/characters/"
 export var font_path = "Assets/fonts/"
 export var wait_after_dialogue : bool = true
+export var startup_scene = ""
 
 # ==== Main functions & variables =================================================================
 
@@ -47,7 +48,8 @@ func _ready():
 	LoadAllScripts()
 	FillCharacterArray()
 	mode = MODES.READY
-	BeginScene("Title")
+	if startup_scene != "":
+		BeginScene(startup_scene)
 
 func _physics_process(delta):
 	if vibrating:
@@ -211,6 +213,9 @@ func _input(event):
 		Continue()
 	if event.is_action_pressed("ui_click") and visible == true:
 		Continue()
+	if event.is_action_pressed("ui_debug_scenes"):
+		visible = false
+		mode = MODES.READY
 
 
 # The main one

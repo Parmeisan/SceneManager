@@ -100,3 +100,4 @@ flat = true
 [node name="SceneManager" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+startup_scene = "Title"
