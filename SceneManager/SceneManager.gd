@@ -4,14 +4,14 @@ class_name SceneManager
 # ==== Configuration ==============================================================================
 
 const debug_mode = true
-const incr_size = 0.1 # time in seconds between checking for a Wait to be cancelled
-export var script_path = "Assets/scripts/"
-export var background_path = "Assets/images/"
-export var audio_path = "Assets/audio/"
-export var sprite_path = "Assets/characters/"
-export var font_path = "Assets/fonts/"
-export var wait_after_dialogue : bool = true
-export var startup_scene = ""
+const incr_size = 0.1 # time in seconds between checking for a Wait to be canceled
+@export var script_path = "Assets/scripts/"
+@export var background_path = "Assets/images/"
+@export var audio_path = "Assets/audio/"
+@export var sprite_path = "Assets/characters/"
+@export var font_path = "Assets/fonts/"
+@export var wait_after_dialogue : bool = true
+@export var startup_scene = ""
 
 # ==== Main functions & variables =================================================================
 
@@ -97,18 +97,19 @@ func debug(s):
 
 func LoadAllScripts():
 	# Load in scripts
-	print("Loading all scripts.")
-	var dir = Directory.new()
-	if dir.dir_exists(script_path):
-		print("Directory: ", script_path)
-		dir.open(script_path)
-		dir.list_dir_begin()
+	print("Loading all scripts at ", script_path)
+	var dir = DirAccess.open("res://" + script_path)
+	if !dir:
+		print("!!!Error opening " + script_path + "!!!")
+	else:
+		dir.get_files_at("res://" + script_path)
 		while true:
 			var fname = dir.get_next()
+			print("Found ", fname)
 			if fname == "":
 				break
 			if not fname.begins_with(".") and not fname.begins_with("_"):
-				var script_name = fname.substr(0, fname.find_last("."))
+				var script_name = fname.substr(0, fname.rfind("."))
 				LoadScript(script_name)
 		dir.list_dir_end()
 
@@ -118,8 +119,10 @@ func LoadScript(script_name):
 	if all_scripts.has(script_name):
 		return
 	# Open and read the file
-	var file = File.new()
-	if not file.open(script_path + "/" + script_name + ".txt", file.READ) == OK:
+	var fname = script_path + "/" + script_name + ".txt"
+	var file = FileAccess.open(fname, FileAccess.READ)
+	if file == null:
+		print ("Error opening file %s: %s" % [fname, FileAccess.get_open_error()])
 		return
 	file.seek(0)
 	# Init vars for this loop
@@ -150,11 +153,11 @@ func LoadScript(script_name):
 static func GetImage(folder, file, ext):
 	var img = Image.new()
 	var fname = folder + file + ext
-	var f = File.new()
-	if f.open(fname, f.READ) == OK:
-		img.load(fname)
+	var f = FileAccess.open(fname, FileAccess.READ)
+	if f == null:
+		print ("Error reading image file %s: %s" % fname, FileAccess.get_open_error())
 	else:
-		print ("Error reading image file " + fname)
+		img.load(fname)
 	f.close()
 	return img
 static func GetTexture(folder, file, ext):
@@ -165,30 +168,30 @@ static func GetTexture(folder, file, ext):
 	return tex
 static func GetFont(folder, file, ext):
 	var fname = folder + file + ext
-	var font = DynamicFont.new()
+	var font = FontFile.new()
 	# Report error
-	var f = File.new()
-	if f.open(fname, f.READ) == OK:
-		font.font_data = load(fname)
+	var f = FileAccess.open(fname, FileAccess.READ)
+	if f == null:
+		print ("Error reading font file %s: %s" % fname, FileAccess.get_open_error())
 	else:
-		print ("Error reading font file " + fname)
+		font.font_data = load(fname)
 	return font
 static func GetAudio(folder, file, ext):
 # https://github.com/godotengine/godot/issues/17748
 	var fname = folder + file + ext
 	var stream
 	if ext == ".ogg":
-		stream = AudioStreamOGGVorbis.new()
+		stream = AudioStreamOggVorbis.new()
 	else:
-		stream = AudioStreamSample.new()
+		stream = AudioStreamWAV.new()
 		stream.format = stream.FORMAT_16_BITS
 		stream.mix_rate = 48000
-	var afile = File.new()
-	if afile.open(fname, File.READ) == OK:
-		var bytes = afile.get_buffer(afile.get_len())
-		stream.data = bytes
+	var afile = FileAccess.open(fname, FileAccess.READ)
+	if afile == null:
+		print ("Error reading sound file %s: %s" % fname, FileAccess.get_open_error())
 	else:
-		print ("Error reading sound file " + fname)
+		var bytes = afile.get_buffer(afile.get_length())
+		stream.data = bytes
 	afile.close()
 	return fname
 
@@ -287,7 +290,7 @@ func BeginScene(script_name):
 				var template = $BranchOptions.get_child(0);
 				var new_button = template.duplicate()
 				new_button.get_node("Label").text = cmd.opt_text
-				new_button.connect("pressed", self, "option_button_pressed", [cmd.opt_destination])
+				new_button.connect("pressed", Callable(self, "option_button_pressed").bind(cmd.opt_destination))
 				new_button.visible = true
 				$BranchOptions.add_child(new_button)
 			cmd.TYPE.WAIT:
@@ -300,9 +303,9 @@ func BeginScene(script_name):
 					# MODES.WAITING may be set to false outside this function
 					if playing and !($SFX_Player.playing):
 						playing = false;
-						#Continue()
-						#break
-					yield(WaitIncrement(incr_size), "timeout")
+						Continue()
+						break
+					await WaitIncrement(incr_size).timeout
 					waited += incr_size
 				mode = MODES.RUNNING
 			cmd.TYPE.HIDE:
@@ -333,11 +336,11 @@ func BeginScene(script_name):
 					   (c != $Characters/NobodyRight) &&
 					   (c != $Characters/TEXT) && 
 					   (c != $Characters/Monologue)):
-						 $Speaker_Background.visible = true
-						 $Speaker_Text.visible = true
-						 $Nametag_Background.visible = true
-						 $Nametag_text.visible = true
-						 $Nametag_text.text = c.character_full_name
+						$Speaker_Background.visible = true
+						$Speaker_Text.visible = true
+						$Nametag_Background.visible = true
+						$Nametag_text.visible = true
+						$Nametag_text.text = c.character_full_name
 					# Override the previous location?
 					if cmd.image_location != cmd.IMAGE_LOCATION.UNDEFINED:
 						c.image_side = cmd.image_location
@@ -350,13 +353,13 @@ func BeginScene(script_name):
 					#	$Character_Center.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
-					box.set("custom_fonts/font", font)
-					$Nametag_text.set("custom_fonts/font", font)
-					box.set("custom_colors/font_color", c.dialogue_colour)
-					$Nametag_text.set("custom_colors/font_color", c.dialogue_colour)
+					box.set("theme_override_fonts/font", font)
+					$Nametag_text.set("theme_override_fonts/font", font)
+					box.set("theme_override_colors/font_color", c.dialogue_colour)
+					$Nametag_text.set("theme_override_colors/font_color", c.dialogue_colour)
 					if c.dialogue_shadow != c.dialogue_colour:
-						box.set("custom_colors/font_color_shadow", c.dialogue_shadow)
-						$Nametag_text.set("custom_colors/font_color_shadow", c.dialogue_shadow)
+						box.set("theme_override_colors/font_shadow_color", c.dialogue_shadow)
+						$Nametag_text.set("theme_override_colors/font_shadow_color", c.dialogue_shadow)
 					var box_back = c.dialogue_background
 					box_back.a8 = 224
 					$Speaker_Background.color = box_back

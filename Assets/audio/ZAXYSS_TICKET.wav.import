@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ZAXYSS_TICKET.wav-319db6b84f59145a03f009a5cac2c71e.sample"
+type="AudioStreamWAV"
+uid="uid://dxm8m7ff61ror"
+path="res://.godot/imported/ZAXYSS_TICKET.wav-319db6b84f59145a03f009a5cac2c71e.sample"
 
 [deps]
 
 source_file="res://Assets/audio/ZAXYSS_TICKET.wav"
-dest_files=[ "res://.import/ZAXYSS_TICKET.wav-319db6b84f59145a03f009a5cac2c71e.sample" ]
+dest_files=["res://.godot/imported/ZAXYSS_TICKET.wav-319db6b84f59145a03f009a5cac2c71e.sample"]
 
 [params]
 

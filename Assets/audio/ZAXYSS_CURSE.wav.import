@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ZAXYSS_CURSE.wav-218f728f4ed5a2f577002cabf51f0976.sample"
+type="AudioStreamWAV"
+uid="uid://luslpgcs61mv"
+path="res://.godot/imported/ZAXYSS_CURSE.wav-218f728f4ed5a2f577002cabf51f0976.sample"
 
 [deps]
 
 source_file="res://Assets/audio/ZAXYSS_CURSE.wav"
-dest_files=[ "res://.import/ZAXYSS_CURSE.wav-218f728f4ed5a2f577002cabf51f0976.sample" ]
+dest_files=["res://.godot/imported/ZAXYSS_CURSE.wav-218f728f4ed5a2f577002cabf51f0976.sample"]
 
 [params]
 

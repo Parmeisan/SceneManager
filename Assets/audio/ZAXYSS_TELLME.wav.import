@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ZAXYSS_TELLME.wav-0237bbcbd7a20f4005c850ce85c0b9d7.sample"
+type="AudioStreamWAV"
+uid="uid://d326lv7fa0jtq"
+path="res://.godot/imported/ZAXYSS_TELLME.wav-0237bbcbd7a20f4005c850ce85c0b9d7.sample"
 
 [deps]
 
 source_file="res://Assets/audio/ZAXYSS_TELLME.wav"
-dest_files=[ "res://.import/ZAXYSS_TELLME.wav-0237bbcbd7a20f4005c850ce85c0b9d7.sample" ]
+dest_files=["res://.godot/imported/ZAXYSS_TELLME.wav-0237bbcbd7a20f4005c850ce85c0b9d7.sample"]
 
 [params]
 

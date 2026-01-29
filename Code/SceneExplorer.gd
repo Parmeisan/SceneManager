@@ -1,8 +1,8 @@
 extends Control
 class_name SceneExplorer
 
-onready var mgr = $SceneManager
-onready var grid = $SceneList/GridContainer
+@onready var mgr = $SceneManager
+@onready var grid = $SceneList/GridContainer
 
 func _ready():
 	# First child is the invisible template; clear everything else and then start copying it
@@ -39,7 +39,7 @@ func _ready():
 					if !var_list.has(c.var_name):
 						var_list.append(c.var_name)
 		# A little more manipulation
-		var vars = PoolStringArray(var_list).join(", ")
+		var vars = ", ".join(PackedStringArray(var_list))
 		var chars = ""
 		for c in char_list.keys():
 			if chars != "":
@@ -50,7 +50,7 @@ func _ready():
 		t.get_node("ItemCounts").text = "Images: %d\nAudio: %d" % [img_count, audio_count]
 		t.get_node("ItemDetail").text = "Characters: %s\nVariables: %s" % [chars, vars]
 		# And the final touches
-		t.get_node("ButtonBG/Button").connect("pressed", self, "scene_button_pressed", [script])
+		t.get_node("ButtonBG/Button").connect("pressed", Callable(self, "scene_button_pressed").bind(script))
 		t.visible = true
 		grid.add_child(t)
 	emit_signal("draw")

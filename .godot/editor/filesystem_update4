@@ -1,0 +1,5 @@
+res://default_env.tres
+res://Game.tscn
+res://SceneManager/SceneManager.gd
+res://SceneManager/ScriptCommand.gd
+res://SceneManager/SceneCharacter.gd

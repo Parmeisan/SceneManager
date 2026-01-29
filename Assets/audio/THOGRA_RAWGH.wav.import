@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/THOGRA_RAWGH.wav-b80f507027d5b8f87a6f2d5a68b6c840.sample"
+type="AudioStreamWAV"
+uid="uid://rsncnik828cq"
+path="res://.godot/imported/THOGRA_RAWGH.wav-b80f507027d5b8f87a6f2d5a68b6c840.sample"
 
 [deps]
 
 source_file="res://Assets/audio/THOGRA_RAWGH.wav"
-dest_files=[ "res://.import/THOGRA_RAWGH.wav-b80f507027d5b8f87a6f2d5a68b6c840.sample" ]
+dest_files=["res://.godot/imported/THOGRA_RAWGH.wav-b80f507027d5b8f87a6f2d5a68b6c840.sample"]
 
 [params]
 

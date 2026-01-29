@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/THOGRA_CRAFTY_WIZARD.wav-cf46898f6bed5565110155ecce3ed221.sample"
+type="AudioStreamWAV"
+uid="uid://bv3ijdp0bnhr"
+path="res://.godot/imported/THOGRA_CRAFTY_WIZARD.wav-cf46898f6bed5565110155ecce3ed221.sample"
 
 [deps]
 
 source_file="res://Assets/audio/THOGRA_CRAFTY_WIZARD.wav"
-dest_files=[ "res://.import/THOGRA_CRAFTY_WIZARD.wav-cf46898f6bed5565110155ecce3ed221.sample" ]
+dest_files=["res://.godot/imported/THOGRA_CRAFTY_WIZARD.wav-cf46898f6bed5565110155ecce3ed221.sample"]
 
 [params]
 

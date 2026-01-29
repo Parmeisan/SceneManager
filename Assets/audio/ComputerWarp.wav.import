@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ComputerWarp.wav-9acd705e66e370dce0d2d714eba5c7ab.sample"
+type="AudioStreamWAV"
+uid="uid://c5txjrqt4llwy"
+path="res://.godot/imported/ComputerWarp.wav-9acd705e66e370dce0d2d714eba5c7ab.sample"
 
 [deps]
 
 source_file="res://Assets/audio/ComputerWarp.wav"
-dest_files=[ "res://.import/ComputerWarp.wav-9acd705e66e370dce0d2d714eba5c7ab.sample" ]
+dest_files=["res://.godot/imported/ComputerWarp.wav-9acd705e66e370dce0d2d714eba5c7ab.sample"]
 
 [params]
 

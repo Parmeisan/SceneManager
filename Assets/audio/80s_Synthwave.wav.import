@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/80s_Synthwave.wav-f9fde1ad04adbdafac5e871198e988b8.sample"
+type="AudioStreamWAV"
+uid="uid://cy7q4mp2i0hj1"
+path="res://.godot/imported/80s_Synthwave.wav-f9fde1ad04adbdafac5e871198e988b8.sample"
 
 [deps]
 
 source_file="res://Assets/audio/80s_Synthwave.wav"
-dest_files=[ "res://.import/80s_Synthwave.wav-f9fde1ad04adbdafac5e871198e988b8.sample" ]
+dest_files=["res://.godot/imported/80s_Synthwave.wav-f9fde1ad04adbdafac5e871198e988b8.sample"]
 
 [params]
 
