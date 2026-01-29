@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_TAKETHAT.wav-069205b11d8a58dd2bc0286dc876d2f4.sample"
+type="AudioStreamWAV"
+uid="uid://l0u32r7vxhhy"
+path="res://.godot/imported/GREG_TAKETHAT.wav-069205b11d8a58dd2bc0286dc876d2f4.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_TAKETHAT.wav"
-dest_files=[ "res://.import/GREG_TAKETHAT.wav-069205b11d8a58dd2bc0286dc876d2f4.sample" ]
+dest_files=["res://.godot/imported/GREG_TAKETHAT.wav-069205b11d8a58dd2bc0286dc876d2f4.sample"]
 
 [params]
 

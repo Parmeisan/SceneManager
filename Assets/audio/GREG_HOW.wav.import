@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_HOW.wav-fe093aa87d6e7dad7229e157014fd6f9.sample"
+type="AudioStreamWAV"
+uid="uid://c3262elxi36li"
+path="res://.godot/imported/GREG_HOW.wav-fe093aa87d6e7dad7229e157014fd6f9.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_HOW.wav"
-dest_files=[ "res://.import/GREG_HOW.wav-fe093aa87d6e7dad7229e157014fd6f9.sample" ]
+dest_files=["res://.godot/imported/GREG_HOW.wav-fe093aa87d6e7dad7229e157014fd6f9.sample"]
 
 [params]
 

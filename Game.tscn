@@ -112,3 +112,4 @@ flat = true
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+startup_scene = "Title"

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_UGH.wav-415ca47e83e830d26fb2e41857b53c35.sample"
+type="AudioStreamWAV"
+uid="uid://danclgjn85qsj"
+path="res://.godot/imported/GREG_UGH.wav-415ca47e83e830d26fb2e41857b53c35.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_UGH.wav"
-dest_files=[ "res://.import/GREG_UGH.wav-415ca47e83e830d26fb2e41857b53c35.sample" ]
+dest_files=["res://.godot/imported/GREG_UGH.wav-415ca47e83e830d26fb2e41857b53c35.sample"]
 
 [params]
 

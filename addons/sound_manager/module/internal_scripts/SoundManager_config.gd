@@ -2,7 +2,7 @@ class_name SoundManagerModule
 extends Node
 
 ####################################################################
-#CONFIGURATION FILE FOR THE SOUND MANAGER FOR GODOT 3
+#CONFIGURATION FILE FOR THE SOUND MANAGER FOR GODOT 4
 #			© Xecestel
 ####################################################################
 #
@@ -12,6 +12,6 @@ extends Node
 #
 ############################################
 
-export var Audio_Files_Dictionary : Dictionary = {
+@export var Audio_Files_Dictionary : Dictionary = {
 	"SoundName1" : "sound_file_name.extension",
 	}

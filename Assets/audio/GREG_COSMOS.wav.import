@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_COSMOS.wav-d42cd7bf232cd2301c696f7de02c53f6.sample"
+type="AudioStreamWAV"
+uid="uid://di7egdoyvogq0"
+path="res://.godot/imported/GREG_COSMOS.wav-d42cd7bf232cd2301c696f7de02c53f6.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_COSMOS.wav"
-dest_files=[ "res://.import/GREG_COSMOS.wav-d42cd7bf232cd2301c696f7de02c53f6.sample" ]
+dest_files=["res://.godot/imported/GREG_COSMOS.wav-d42cd7bf232cd2301c696f7de02c53f6.sample"]
 
 [params]
 

@@ -1,3 +1,8 @@
-res://SceneManager/SceneManager.gd
 res://Game.tscn
-res://Code/SceneExplorer.gd
+res://addons/sound_manager/module/internal_scripts/SoundManager.gd
+res://addons/sound_manager/plugin.gd
+res://addons/sound_manager/dock/SoundManagerDock.gd
+res://addons/sound_manager/module/internal_scripts/SoundManager_config.gd
+res://addons/sound_manager/module/internal_scripts/Sounds.gd
+res://addons/sound_manager/module/SoundManager.tscn
+res://SceneManager/SceneManager.gd

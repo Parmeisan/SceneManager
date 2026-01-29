@@ -154,7 +154,7 @@ static func GetImage(folder, file, ext):
 	# This file read stuff isn't necessary to actually read the image, however it seems useful for error handling
 	var f = FileAccess.open(fname, FileAccess.READ)
 	if f == null:
-		print ("Error reading image file %s: %s" % fname, FileAccess.get_open_error())
+		print ("Error reading image file %s: %s" % [fname, FileAccess.get_open_error()])
 	f.close()
 	return Image.load_from_file(fname)
 static func GetTexture(folder, file, ext):
@@ -169,7 +169,7 @@ static func GetFont(folder, file, ext):
 	# Report error
 	var f = FileAccess.open(fname, FileAccess.READ)
 	if f == null:
-		print ("Error reading font file %s: %s" % fname, FileAccess.get_open_error())
+		print ("Error reading font file %s: %s" % [fname, FileAccess.get_open_error()])
 	else:
 		font.font_data = load(fname)
 	return font
@@ -177,6 +177,7 @@ static func GetAudio(folder, file, ext):
 # https://github.com/godotengine/godot/issues/17748
 	var fname = folder + file + ext
 	var stream
+	# TODO: Is any of this necessary?  I hope not, because I've bypassed it below. But we should check.
 	if ext == ".ogg":
 		stream = AudioStreamOggVorbis.new()
 	else:
@@ -185,11 +186,12 @@ static func GetAudio(folder, file, ext):
 		stream.mix_rate = 48000
 	var afile = FileAccess.open(fname, FileAccess.READ)
 	if afile == null:
-		print ("Error reading sound file %s: %s" % fname, FileAccess.get_open_error())
+		print ("Error reading sound file %s: %s" % [fname, FileAccess.get_open_error()])
 	else:
-		var bytes = afile.get_buffer(afile.get_length())
-		stream.data = bytes
-	afile.close()
+		#var bytes = afile.get_buffer(afile.get_length())
+		#stream.data = bytes
+		stream = load(fname)
+		afile.close()
 	return fname
 
 # === Running scripts from our array of ScriptCommands ============================================
@@ -255,7 +257,7 @@ func BeginScene(script_name):
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
 					# Ensure that we have 16-bit (can downgrade in Audacity)
-					SoundManager.play_se("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
+					SoundManager.play_sfx("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
 				elif cmd.file_ext == "ogg":
 					SoundManager.play_bgm("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
 				#if player != null:
@@ -349,7 +351,7 @@ func BeginScene(script_name):
 					#elif cmd.image_location == cmd.IMAGE_LOCATION.CENTER:
 					#	$Character_Center.texture = c.GetEmotionTexture(cmd.dial_emotion)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
-					font.size = c.dialogue_fontsize
+					font.fixed_size = c.dialogue_fontsize
 					box.set("theme_override_fonts/font", font)
 					$Nametag_text.set("theme_override_fonts/font", font)
 					box.set("theme_override_colors/font_color", c.dialogue_colour)
