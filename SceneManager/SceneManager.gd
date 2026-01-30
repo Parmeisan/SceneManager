@@ -165,13 +165,13 @@ static func GetTexture(folder, file, ext):
 	return tex
 static func GetFont(folder, file, ext):
 	var fname = folder + file + ext
-	var font = FontFile.new()
+	var font# = FontFile.new()
 	# Report error
 	var f = FileAccess.open(fname, FileAccess.READ)
 	if f == null:
 		print ("Error reading font file %s: %s" % [fname, FileAccess.get_open_error()])
 	else:
-		font.font_data = load(fname)
+		font = load(fname)
 	return font
 static func GetAudio(folder, file, ext):
 # https://github.com/godotengine/godot/issues/17748
