@@ -5,6 +5,67 @@
 
 [sub_resource type="Theme" id="1"]
 
+[sub_resource type="FontFile" id="FontFile_xkndl"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+
 [node name="SceneExplorer" type="Control" unique_id=1964652644]
 layout_mode = 3
 anchors_preset = 15
@@ -21,17 +82,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0.470588, 0.470588, 1)
 
-[node name="GridContainer" type="GridContainer" parent="SceneList" unique_id=1996466066]
-custom_minimum_size = Vector2(0, 80)
+[node name="ScrollContainer" type="ScrollContainer" parent="SceneList" unique_id=1594535963]
+custom_minimum_size = Vector2(1024, 640)
 layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="GridScene" type="Control" parent="SceneList/GridContainer" unique_id=2030225663]
+[node name="GridContainer" type="GridContainer" parent="SceneList/ScrollContainer" unique_id=1996466066]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="Background" type="ColorRect" parent="SceneList/GridContainer/GridScene" unique_id=1019088316]
+[node name="GridScene" type="Control" parent="SceneList/ScrollContainer/GridContainer" unique_id=2030225663]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=1019088316]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -39,27 +105,28 @@ offset_right = 600.0
 offset_bottom = 80.0
 color = Color(0.235294, 0.611765, 0.658824, 1)
 
-[node name="Image" type="TextureRect" parent="SceneList/GridContainer/GridScene" unique_id=524543892]
+[node name="Image" type="TextureRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=524543892]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 95.0
 offset_bottom = 75.0
 
-[node name="Title" type="Label" parent="SceneList/GridContainer/GridScene" unique_id=401278094]
-custom_minimum_size = Vector2(300, 25)
+[node name="Title" type="Label" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=401278094]
+custom_minimum_size = Vector2(300, 20)
 layout_mode = 0
-offset_left = 100.0
-offset_top = 15.0
-offset_right = 150.0
-offset_bottom = 29.0
-scale = Vector2(1.8, 1.8)
+offset_left = 98.0
+offset_top = 9.0
+offset_right = 398.0
+offset_bottom = 39.0
 size_flags_stretch_ratio = 1.93
 theme = SubResource("1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_xkndl")
+theme_override_font_sizes/font_size = 22
 text = "Scene Title"
 
-[node name="ItemCounts" type="Label" parent="SceneList/GridContainer/GridScene" unique_id=610004494]
+[node name="ItemCounts" type="Label" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=610004494]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 100.0
@@ -68,10 +135,11 @@ offset_right = 150.0
 offset_bottom = 29.0
 theme = SubResource("1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
 text = "Images:
 Audio:"
 
-[node name="ItemDetail" type="Label" parent="SceneList/GridContainer/GridScene" unique_id=1306952120]
+[node name="ItemDetail" type="Label" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=1306952120]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 200.0
@@ -80,10 +148,11 @@ offset_right = 150.0
 offset_bottom = 29.0
 theme = SubResource("1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
 text = "Characters:
 Variables:"
 
-[node name="ButtonShadow" type="ColorRect" parent="SceneList/GridContainer/GridScene" unique_id=301730006]
+[node name="ButtonShadow" type="ColorRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=301730006]
 layout_mode = 0
 offset_left = 611.0
 offset_top = 11.0
@@ -91,7 +160,7 @@ offset_right = 681.0
 offset_bottom = 81.0
 color = Color(0.0627451, 0.282353, 0.309804, 1)
 
-[node name="ButtonBG" type="ColorRect" parent="SceneList/GridContainer/GridScene" unique_id=559888111]
+[node name="ButtonBG" type="ColorRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=559888111]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 10.0
@@ -99,12 +168,13 @@ offset_right = 679.0
 offset_bottom = 79.0
 color = Color(0.227451, 0.603922, 0.65098, 1)
 
-[node name="Button" type="Button" parent="SceneList/GridContainer/GridScene/ButtonBG" unique_id=765584996]
+[node name="Button" type="Button" parent="SceneList/ScrollContainer/GridContainer/GridScene/ButtonBG" unique_id=765584996]
 layout_mode = 0
 offset_right = 23.0
 offset_bottom = 23.0
 scale = Vector2(3, 3)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
 text = ">"
 flat = true
 
@@ -112,4 +182,3 @@ flat = true
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-startup_scene = "Title"

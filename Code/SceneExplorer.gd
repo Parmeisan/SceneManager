@@ -2,7 +2,7 @@ extends Control
 class_name SceneExplorer
 
 @onready var mgr = $SceneManager
-@onready var grid = $SceneList/GridContainer
+@onready var grid = %GridContainer
 
 func _ready():
 	# First child is the invisible template; clear everything else and then start copying it
