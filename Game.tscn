@@ -1,24 +1,11 @@
 [gd_scene format=3 uid="uid://d07xxq0owyjsl"]
 
-[ext_resource type="Script" uid="uid://w6w5k7hpn0vl" path="res://SceneManager/SceneManager.gd" id="1_lvtmh"]
-[ext_resource type="Texture2D" uid="uid://dy5kslhdxj75f" path="res://Assets/images/Logo Only.png" id="2_yyih5"]
-[ext_resource type="Script" uid="uid://cixcopuuh8tpk" path="res://SceneManager/SceneCharacter.gd" id="3_qjyg3"]
-[ext_resource type="Texture2D" uid="uid://6koq7otuc6sa" path="res://Assets/characters/Greg.png" id="4_elkpi"]
-[ext_resource type="Texture2D" uid="uid://da0i5wltq26rt" path="res://Assets/characters/treefoot_serious.png" id="5_0yprl"]
-[ext_resource type="Texture2D" uid="uid://qnqdr6ulow1r" path="res://Assets/characters/Space_Wizard.png" id="6_wuoie"]
-[ext_resource type="Texture2D" uid="uid://d3q1b70m5wrdl" path="res://Assets/characters/Barbarian.png" id="7_bvhbk"]
-[ext_resource type="Texture2D" uid="uid://dit7sgoareni" path="res://Assets/characters/Alien.png" id="8_cpsxm"]
-[ext_resource type="Texture2D" uid="uid://caydge1k2q2fu" path="res://Assets/characters/SquirrelBoss.png" id="9_hmewc"]
-[ext_resource type="Texture2D" uid="uid://ctx1vvw5pfgbe" path="res://Assets/characters/Jeff.png" id="10_7ged1"]
-[ext_resource type="Texture2D" uid="uid://c46422so416xg" path="res://Assets/characters/Jeff Angry.png" id="11_0mevm"]
-[ext_resource type="Texture2D" uid="uid://dbg64adluhgxu" path="res://Assets/gui/option_button.png" id="12_w2501"]
-[ext_resource type="FontFile" uid="uid://ia7x15mlmrqg" path="res://Assets/fonts/MaidenOrange-Regular.ttf" id="13_jsoai"]
+[ext_resource type="PackedScene" uid="uid://c7dm13tuwl4c4" path="res://SceneManager/SceneManager.tscn" id="1"]
+[ext_resource type="Script" uid="uid://d1ou3aa83i7ek" path="res://Code/SceneExplorer.gd" id="2"]
 
-[sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("13_jsoai"), ExtResource("13_jsoai")])
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
+[sub_resource type="Theme" id="1"]
+
+[sub_resource type="FontFile" id="FontFile_xkndl"]
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -33,301 +20,168 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
 
-[sub_resource type="Theme" id="2"]
-default_font = SubResource("1")
-/colors/Black = Color(0, 0, 0, 1)
-/fonts/Font = SubResource("1")
-
-[node name="SceneManager" type="Control" unique_id=995662514]
+[node name="SceneExplorer" type="Control" unique_id=1964652644]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 274.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lvtmh")
-startup_scene = "Title"
+script = ExtResource("2")
 
-[node name="BG_Image" type="TextureRect" parent="." unique_id=956105179]
+[node name="SceneList" type="ColorRect" parent="." unique_id=978960234]
+custom_minimum_size = Vector2(750, 600)
 layout_mode = 0
-offset_right = 1024.0
-offset_bottom = 600.0
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Game_Title" type="Sprite2D" parent="." unique_id=289730291]
-position = Vector2(512, 0)
-texture = ExtResource("2_yyih5")
-
-[node name="Music_Looper" type="AudioStreamPlayer" parent="." unique_id=746361474]
-
-[node name="SFX_Player" type="AudioStreamPlayer" parent="." unique_id=818482030]
-bus = &"SFX"
-
-[node name="Character_Left" type="Sprite2D" parent="." unique_id=1578710270]
-centered = false
-
-[node name="Character_Right" type="Sprite2D" parent="." unique_id=2000391008]
-centered = false
-
-[node name="Speaker_Background" type="ColorRect" parent="." unique_id=1405147047]
-visible = false
-modulate = Color(1, 1, 1, 0.8)
-custom_minimum_size = Vector2(1000, 120)
-layout_mode = 0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 470.0
-offset_right = 1012.0
-offset_bottom = -10.0
-color = Color(0.333333, 0.133333, 0.133333, 1)
+color = Color(0, 0.470588, 0.470588, 1)
 
-[node name="Speaker_Text" type="Label" parent="." unique_id=1070371824]
+[node name="ScrollContainer" type="ScrollContainer" parent="SceneList" unique_id=1594535963]
+custom_minimum_size = Vector2(800, 600)
 layout_mode = 0
-offset_left = 24.0
-offset_top = 482.0
-offset_right = 998.0
-offset_bottom = 578.0
-autowrap_mode = 2
-
-[node name="Nametag_Background" type="ColorRect" parent="." unique_id=718579555]
-visible = false
-modulate = Color(1, 1, 1, 0.8)
-custom_minimum_size = Vector2(1000, 120)
-layout_mode = 0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 440.0
-offset_right = 1020.0
-offset_bottom = -40.0
-scale = Vector2(0.205, 0.25)
-color = Color(0.333333, 0.133333, 0.133333, 1)
-
-[node name="Nametag_text" type="Label" parent="." unique_id=1545474577]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 440.0
-offset_right = 227.225
-offset_bottom = 470.0
-scale = Vector2(0.792113, 0.858631)
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Characters" type="Node2D" parent="." unique_id=12806447]
-
-[node name="Greg" type="Control" parent="Characters" unique_id=182760637]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "G"
-character_full_name = "Greg"
-neutral_image = ExtResource("4_elkpi")
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.207843, 0.12549, 0.392157, 1)
-dialogue_background = Color(0.796078, 0.745098, 0.623529, 0.8)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-image_side = -1
-
-[node name="NoGreg" type="Control" parent="Characters" unique_id=519084777]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "N0G"
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.207843, 0.12549, 0.392157, 1)
-dialogue_background = Color(0.796078, 0.745098, 0.623529, 0.8)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-image_side = -1
-
-[node name="Monologue" type="Control" parent="Characters" unique_id=860934701]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "NR"
-neutral_image = ExtResource("4_elkpi")
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.207843, 0.12549, 0.392157, 1)
-dialogue_background = Color(0.796078, 0.745098, 0.623529, 1)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-image_side = -1
-
-[node name="Zaxyss" type="Control" parent="Characters" unique_id=1070114065]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "Z"
-character_full_name = "Zaxyss"
-neutral_image = ExtResource("6_wuoie")
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.8, 0.407843, 0.654902, 1)
-dialogue_background = Color(0.207843, 0.12549, 0.392157, 1)
-dialogue_fontname = "CuteFont-Regular.ttf"
-dialogue_fontsize = 28
-image_side = 1
-
-[node name="Thogra" type="Control" parent="Characters" unique_id=1061765976]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "T"
-character_full_name = "Thogra"
-neutral_image = ExtResource("7_bvhbk")
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.419608, 0.0862745, 0.0862745, 1)
-dialogue_background = Color(0.909804, 0.835294, 0.823529, 1)
-dialogue_fontname = "belligerent.ttf"
-dialogue_fontsize = 28
-image_side = 1
-
-[node name="Tria303" type="Control" parent="Characters" unique_id=1740783288]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "3"
-character_full_name = "Tria 303"
-neutral_image = ExtResource("8_cpsxm")
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.533333, 0.807843, 0.356863, 1)
-dialogue_background = Color(0.0901961, 0.239216, 0.278431, 1)
-dialogue_fontname = "JUICE_Regular.ttf"
-dialogue_fontsize = 19
-image_side = 1
-
-[node name="SquirrelBoss" type="Control" parent="Characters" unique_id=465181898]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 3.0
-offset_right = 747.0
-offset_bottom = 206.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "B"
-character_full_name = "Squirrel Boss"
-neutral_image = ExtResource("9_hmewc")
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_colour = Color(0.545098, 0.372549, 0.2, 1)
-dialogue_background = Color(0.894118, 0.835294, 0.654902, 1)
-dialogue_fontname = "LifeSavers-Bold.ttf"
-dialogue_fontsize = 24
-image_side = 1
-
-[node name="TEXT" type="Control" parent="Characters" unique_id=1451221171]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 6.0
-offset_right = 747.0
-offset_bottom = 209.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "TEXT"
-character_full_name = "TEXT"
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_background = Color(1, 1, 1, 1)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-
-[node name="HR" type="Control" parent="Characters" unique_id=1108068288]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "HR"
-character_full_name = "HR"
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_background = Color(1, 1, 1, 1)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-
-[node name="NobodyLeft" type="Control" parent="Characters" unique_id=628187339]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 6.0
-offset_right = 747.0
-offset_bottom = 209.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "0L"
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_background = Color(1, 1, 1, 1)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-image_side = -1
-
-[node name="NobodyRight" type="Control" parent="Characters" unique_id=1475722186]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 6.0
-offset_right = 747.0
-offset_bottom = 209.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "0R"
-emotion_keywords = Array[String](["serious"])
-emotion_images = Array[Texture2D]([ExtResource("5_0yprl")])
-dialogue_background = Color(1, 1, 1, 1)
-dialogue_fontname = "MaidenOrange-Regular.ttf"
-dialogue_fontsize = 28
-image_side = 1
-
-[node name="Jeff" type="Control" parent="Characters" unique_id=1993726293]
-layout_mode = 3
-anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_qjyg3")
-character_abbreviation = "JEFF"
-neutral_image = ExtResource("10_7ged1")
-emotion_keywords = Array[String](["ANGRY"])
-emotion_images = Array[Texture2D]([ExtResource("11_0mevm")])
-dialogue_fontname = "CaveatBrush-Regular.ttf"
 
-[node name="BranchOptions" type="GridContainer" parent="." unique_id=989443343]
-layout_mode = 0
-offset_left = 357.0
-offset_top = 420.0
-offset_right = 667.0
-offset_bottom = 619.0
-
-[node name="TextureButton" type="TextureButton" parent="BranchOptions" unique_id=852512798]
-visible = false
-custom_minimum_size = Vector2(300, 40)
+[node name="GridContainer" type="GridContainer" parent="SceneList/ScrollContainer" unique_id=1996466066]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-texture_normal = ExtResource("12_w2501")
 
-[node name="Label" type="Label" parent="BranchOptions/TextureButton" unique_id=563570286]
+[node name="GridScene" type="Control" parent="SceneList/ScrollContainer/GridContainer" unique_id=2030225663]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=1019088316]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 40.0
-theme = SubResource("2")
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 600.0
+offset_bottom = 80.0
+color = Color(0.235294, 0.611765, 0.658824, 1)
+
+[node name="Image" type="TextureRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=524543892]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 95.0
+offset_bottom = 75.0
+
+[node name="Title" type="Label" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=401278094]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_left = 98.0
+offset_top = 9.0
+offset_right = 398.0
+offset_bottom = 39.0
+size_flags_stretch_ratio = 1.93
+theme = SubResource("1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "I AM BUTTON TOO"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_fonts/font = SubResource("FontFile_xkndl")
+theme_override_font_sizes/font_size = 22
+text = "Scene Title"
+
+[node name="ItemCounts" type="Label" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=610004494]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 150.0
+offset_bottom = 29.0
+theme = SubResource("1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Images:
+Audio:"
+
+[node name="ItemDetail" type="Label" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=1306952120]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 150.0
+offset_bottom = 29.0
+theme = SubResource("1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Characters:
+Variables:"
+
+[node name="ButtonShadow" type="ColorRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=301730006]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 11.0
+offset_right = 681.0
+offset_bottom = 81.0
+color = Color(0.0627451, 0.282353, 0.309804, 1)
+
+[node name="ButtonBG" type="ColorRect" parent="SceneList/ScrollContainer/GridContainer/GridScene" unique_id=559888111]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 10.0
+offset_right = 679.0
+offset_bottom = 79.0
+color = Color(0.227451, 0.603922, 0.65098, 1)
+
+[node name="Button" type="Button" parent="SceneList/ScrollContainer/GridContainer/GridScene/ButtonBG" unique_id=765584996]
+layout_mode = 0
+offset_right = 23.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = ">"
+flat = true
+
+[node name="SceneManager" parent="." unique_id=1522958350 instance=ExtResource("1")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

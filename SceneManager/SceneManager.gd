@@ -376,7 +376,7 @@ func BeginScene(script_name):
 					title_slide = true
 				if(cmd.event == "SLIDE"):
 					if(slide):
-						slideObject.position = homePosition					
+						slideObject.position = homePosition
 					slideObject = get_node(cmd.target)
 					slideDuration = float(cmd.duration)
 					slideDirection = cmd.direction
