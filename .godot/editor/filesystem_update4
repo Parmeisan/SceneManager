@@ -8,3 +8,4 @@ res://addons/sound_manager/module/SoundManager.tscn
 res://SceneManager/SceneManager.gd
 res://Code/SceneExplorer.gd
 res://SceneManager/SceneManager.tscn
+res://SceneManager/ScriptCommand.gd
