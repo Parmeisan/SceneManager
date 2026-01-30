@@ -30,6 +30,7 @@ Z: "Regardless of all that. We have a new support ticket from Outbound Calls."
 GREG_YEAHYEAH.wav
 G: "Those guys again? I'll take it... Can't be worse than what we've already dealt with."
 [Portrait of Zaxyss hidden]
+hide@R
 "Of course, it can always be worse, but there's something to be said for the bare minimum of optimism. I grab the ticket and walk out."
 [Background: Generic Cubicles, Barbarian variant. Portraits: Greg]
 Barbarian_Background.png
