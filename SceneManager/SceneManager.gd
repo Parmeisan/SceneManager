@@ -160,8 +160,7 @@ static func GetImage(folder, file, ext):
 static func GetTexture(folder, file, ext):
 # https://godotengine.org/qa/30210/how-do-load-resource-works
 	var img = GetImage(folder, file, ext)
-	var tex = ImageTexture.new()
-	tex.create_from_image(img)
+	var tex = ImageTexture.create_from_image(img)
 	return tex
 static func GetFont(folder, file, ext):
 	var fname = folder + file + ext
