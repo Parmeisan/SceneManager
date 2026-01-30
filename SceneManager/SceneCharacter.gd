@@ -1,18 +1,18 @@
 extends Control
 class_name SceneCharacter
 
-export var character_abbreviation : String
-export var character_full_name : String
-export var neutral_image : Texture
+@export var character_abbreviation : String
+@export var character_full_name : String
+@export var neutral_image : Texture2D
 #export (Array, String) var emotions
-export (Array, String) var emotion_keywords
-export (Array, Texture) var emotion_images
-export var dialogue_colour : Color
-export var dialogue_shadow : Color
-export var dialogue_background : Color
-export var dialogue_fontname : String
-export var dialogue_fontsize : int
-export var image_side : int
+@export var emotion_keywords : Array[String]
+@export var emotion_images : Array[Texture2D]
+@export var dialogue_colour : Color
+@export var dialogue_shadow : Color
+@export var dialogue_background : Color
+@export var dialogue_fontname : String
+@export var dialogue_fontsize : int
+@export var image_side : int
 
 # It would be nice to have a dictionary of textures accessible by the keyword
 # Hopefully the number of keywords and images above are the same...

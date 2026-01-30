@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_WAIT.wav-1b75b914f59117e148a5565627e3faaf.sample"
+type="AudioStreamWAV"
+uid="uid://c7a4eryv6rwww"
+path="res://.godot/imported/GREG_WAIT.wav-1b75b914f59117e148a5565627e3faaf.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_WAIT.wav"
-dest_files=[ "res://.import/GREG_WAIT.wav-1b75b914f59117e148a5565627e3faaf.sample" ]
+dest_files=["res://.godot/imported/GREG_WAIT.wav-1b75b914f59117e148a5565627e3faaf.sample"]
 
 [params]
 

@@ -1,0 +1,99 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1769720148
+default_bus_layout.tres::AudioBusLayout::-1::1769719374::0::1::::<><>::
+default_env.tres::Environment::-1::1769719374::0::1::::<><>::
+DemoScene.gd::GDScript::-1::1769719374::0::1::::<>Node2D<>::
+desktop.ini::TextFile::-1::1769709470::0::1::::<><>::
+Game.tscn::PackedScene::-1::1769719374::0::1::::<><>::res://SceneManager/SceneManager.tscn<>res://Code/SceneExplorer.gd
+HussarBold-7mRE.otf::FontFile::5698313560248636626::1677343033::1769720149::1::::<><>::
+icon.png::CompressedTexture2D::7292108393485802353::1678479119::1769720150::1::::<><>::
+todo.txt::TextFile::-1::1769709470::0::1::::<><>::
+trello.txt::TextFile::-1::1676674600::0::1::::<><>::
+::res://Assets/::1769709470
+::res://Assets/audio/::1769719332
+80s_Synthwave.wav::AudioStreamWAV::6524457617427103696::1769719332::1769720150::1::::<><>::
+ComputerSmash.wav::AudioStreamWAV::1711031396736637722::1769709470::1769720150::1::::<><>::
+ComputerWarp.wav::AudioStreamWAV::6919143335349377848::1769709470::1769720150::1::::<><>::
+MalwareArm.wav::AudioStreamWAV::1162237103138751513::1769719332::1769720150::1::::<><>::
+OfficeAmbienceLoop.ogg::AudioStreamOggVorbis::1809803055356743516::1769709470::1769720149::1::::<><>::
+SQUIRREL_CURSEYOU.wav::AudioStreamWAV::4159617045305890469::1769709470::1769720150::1::::<><>::
+SQUIRREL_LAUGH.wav::AudioStreamWAV::3830250785077166230::1769709470::1769720150::1::::<><>::
+SQUIRREL_NOOO.wav::AudioStreamWAV::9031487749525255114::1769709470::1769720150::1::::<><>::
+SQUIRREL_SQUIRRELBOSS.wav::AudioStreamWAV::5188008485238838621::1769709470::1769720150::1::::<><>::
+SQUIRREL_UMM.wav::AudioStreamWAV::3890255784814640756::1769709470::1769720150::1::::<><>::
+THOGRA_CRAFTY_WIZARD.wav::AudioStreamWAV::115255616681546731::1769709470::1769720150::1::::<><>::
+THOGRA_FIEND.wav::AudioStreamWAV::2680093970967493755::1769709470::1769720150::1::::<><>::
+THOGRA_FORGLORY.wav::AudioStreamWAV::7201305845456326857::1769709470::1769720150::1::::<><>::
+THOGRA_RAWGH.wav::AudioStreamWAV::1231162729574940288::1769709470::1769720150::1::::<><>::
+THOGRA_YES.wav::AudioStreamWAV::6985009142530547072::1769709470::1769720150::1::::<><>::
+TRIA303_AH.wav::AudioStreamWAV::6766144691045181416::1769709470::1769720150::1::::<><>::
+TRIA303_CAME_IN_PEACE.wav::AudioStreamWAV::7702851129662289871::1769709470::1769720150::1::::<><>::
+TRIA303_I_DONT_KNOW.wav::AudioStreamWAV::3558284791409352858::1769709470::1769720150::1::::<><>::
+TRIA303_NOOO.wav::AudioStreamWAV::8328923436621873565::1769709470::1769720150::1::::<><>::
+TRIA303_PRIMATIVE.wav::AudioStreamWAV::7229043618985551621::1769709470::1769720150::1::::<><>::
+ZAXYSS_CURSE.wav::AudioStreamWAV::814478181937554413::1769709470::1769720150::1::::<><>::
+ZAXYSS_DOYOUNOTSEE.wav::AudioStreamWAV::9146963373265365929::1769709470::1769720150::1::::<><>::
+ZAXYSS_HEH.wav::AudioStreamWAV::6745651988437110630::1769709470::1769720150::1::::<><>::
+ZAXYSS_TELLME.wav::AudioStreamWAV::9182190895464803234::1769709470::1769720150::1::::<><>::
+ZAXYSS_TICKET.wav::AudioStreamWAV::8800404766831789649::1769709470::1769720150::1::::<><>::
+::res://Assets/characters/::1769717861
+Alien.png::CompressedTexture2D::228293276539993114::1769709470::1769720150::1::::<><>::
+Barbarian.png::CompressedTexture2D::9159161864568513925::1769709470::1769720150::1::::<><>::
+Greg.png::CompressedTexture2D::2197378244185391760::1769709470::1769720150::1::::<><>::
+Jeff Angry.png::CompressedTexture2D::6874123999103495536::1769709470::1769720150::1::::<><>::
+Jeff.png::CompressedTexture2D::6155527366695484566::1769709470::1769720150::1::::<><>::
+Space_Wizard.png::CompressedTexture2D::1150836179987147453::1769709470::1769720150::1::::<><>::
+SquirrelBoss.png::CompressedTexture2D::4822579549974776474::1769709470::1769720150::1::::<><>::
+treefoot.png::CompressedTexture2D::1811285973785978558::1676678153::1769720149::1::::<><>::
+treefoot_serious.png::CompressedTexture2D::7211411978082379977::1676678143::1769720149::1::::<><>::
+::res://Assets/fonts/::1769717860
+belligerent-Font Monkey License.txt::TextFile::-1::1769709470::0::1::::<><>::
+belligerent.ttf::FontFile::3986282145135342897::1769709470::1769720149::1::::<><>::
+CuteFont-OFL.txt::TextFile::-1::1769709470::0::1::::<><>::
+CuteFont-Regular.ttf::FontFile::7249957924326907064::1769709470::1769720149::1::::<><>::
+JUICE-Gadisradio User License Agreement.txt::TextFile::-1::1769709470::0::1::::<><>::
+JUICE_Bold.ttf::FontFile::2385860678388911851::1769709470::1769720149::1::::<><>::
+JUICE_Bold_Italic.ttf::FontFile::566285886348608918::1769709470::1769720149::1::::<><>::
+JUICE_Italic.ttf::FontFile::7485917540465564856::1769709470::1769720149::1::::<><>::
+JUICE_Light.ttf::FontFile::2744370169825082449::1769709470::1769720149::1::::<><>::
+JUICE_Light_Italic.ttf::FontFile::3485417250943138621::1769709470::1769720149::1::::<><>::
+JUICE_Regular.ttf::FontFile::1705066719583261668::1769709470::1769720149::1::::<><>::
+LifeSavers-Bold.ttf::FontFile::4165321917534750686::1769709470::1769720149::1::::<><>::
+LifeSavers-Regular.ttf::FontFile::4735220926324330336::1769709470::1769720149::1::::<><>::
+LifeSavers-SIL Open Font License.txt::TextFile::-1::1769709470::0::1::::<><>::
+MaidenOrange-LICENSE.txt::TextFile::-1::1769709470::0::1::::<><>::
+MaidenOrange-Regular.ttf::FontFile::563496178644251386::1769709470::1769720149::1::::<><>::
+::res://Assets/gui/::1769717861
+option_button.png::CompressedTexture2D::7243771181201909074::1769709470::1769720149::1::::<><>::
+::res://Assets/images/::1769719332
+Alien_Background.png::CompressedTexture2D::5564125488728395742::1769709470::1769720150::1::::<><>::
+Bad_Ending_1.png::CompressedTexture2D::5009910887532445802::1769709470::1769720150::1::::<><>::
+Bad_Ending_2.png::CompressedTexture2D::9178135045975892531::1769709470::1769720150::1::::<><>::
+Bad_Ending_3.png::CompressedTexture2D::1098712558416251087::1769719332::1769720150::1::::<><>::
+Barbarian_Background.png::CompressedTexture2D::7880032223793605515::1769709470::1769720150::1::::<><>::
+Black_Background.png::CompressedTexture2D::8301060674424165162::1769709470::1769720150::1::::<><>::
+Intro-God-War.png::CompressedTexture2D::5512260039197875071::1675623603::1769720150::1::::<><>::
+Intro.png::CompressedTexture2D::1688359280230460809::1769709470::1769720149::1::::<><>::
+Leaf Litter Title Screen.png::CompressedTexture2D::516241334177401596::1675626859::1769720150::1::::<><>::
+Logo Only.png::CompressedTexture2D::8906365533969742681::1769709470::1769720150::1::::<><>::
+Space_Background.png::CompressedTexture2D::3112704505637787229::1769709470::1769720150::1::::<><>::
+Squirrel_Background.png::CompressedTexture2D::2751431418843646788::1769709470::1769720150::1::::<><>::
+Title Screen - Logo.png::CompressedTexture2D::2904727550672423481::1769709470::1769720150::1::::<><>::
+Title Screen - No Logo.png::CompressedTexture2D::4419585781963214511::1769709470::1769720150::1::::<><>::
+White_Background.png::CompressedTexture2D::4096607644470840654::1769709470::1769720150::1::::<><>::
+::res://Assets/scripts/::1769719332
+BadEnd1.txt::TextFile::-1::1769719332::0::1::::<><>::
+BadEnd2.txt::TextFile::-1::1769719332::0::1::::<><>::
+BadEnd3.txt::TextFile::-1::1769719332::0::1::::<><>::
+Beginning.txt::TextFile::-1::1769719332::0::1::::<><>::
+Continue1.txt::TextFile::-1::1769719332::0::1::::<><>::
+Continue2.txt::TextFile::-1::1769719332::0::1::::<><>::
+GoodEnd.txt::TextFile::-1::1769719332::0::1::::<><>::
+Title.txt::TextFile::-1::1769719332::0::1::::<><>::
+::res://Code/::1769717600
+SceneExplorer.gd::GDScript::-1::1769719374::0::1::::SceneExplorer<>Control<>::
+::res://SceneManager/::1769719332
+SceneCharacter.gd::GDScript::-1::1769719374::0::1::::SceneCharacter<>Control<>::
+SceneManager.gd::GDScript::-1::1769719374::0::1::::SceneManager<>Control<>::
+SceneManager.tscn::PackedScene::-1::1769719374::0::1::::<><>::res://SceneManager/SceneManager.gd<>res://SceneManager/SceneCharacter.gd<>res://Assets/characters/treefoot_serious.png<>res://Assets/characters/Space_Wizard.png<>res://Assets/gui/option_button.png<>res://Assets/fonts/MaidenOrange-Regular.ttf<>res://Assets/characters/Jeff.png<>res://Assets/characters/Jeff Angry.png<>res://Assets/characters/Greg.png<>res://Assets/characters/Barbarian.png<>res://Assets/characters/Alien.png<>res://Assets/characters/SquirrelBoss.png<>res://Assets/images/Logo Only.png
+ScriptCommand.gd::GDScript::-1::1769719374::0::1::::ScriptCommand<>Node<>::

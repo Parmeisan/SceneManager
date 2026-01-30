@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_NOTNOW.wav-7abdff4863bdec6801317cc1bae05501.sample"
+type="AudioStreamWAV"
+uid="uid://cvhuloa3jtx0a"
+path="res://.godot/imported/GREG_NOTNOW.wav-7abdff4863bdec6801317cc1bae05501.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_NOTNOW.wav"
-dest_files=[ "res://.import/GREG_NOTNOW.wav-7abdff4863bdec6801317cc1bae05501.sample" ]
+dest_files=["res://.godot/imported/GREG_NOTNOW.wav-7abdff4863bdec6801317cc1bae05501.sample"]
 
 [params]
 

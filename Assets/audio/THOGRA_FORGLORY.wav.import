@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/THOGRA_FORGLORY.wav-6f6119f5748134737097cc07c0398dce.sample"
+type="AudioStreamWAV"
+uid="uid://daumpqfijxp5j"
+path="res://.godot/imported/THOGRA_FORGLORY.wav-6f6119f5748134737097cc07c0398dce.sample"
 
 [deps]
 
 source_file="res://Assets/audio/THOGRA_FORGLORY.wav"
-dest_files=[ "res://.import/THOGRA_FORGLORY.wav-6f6119f5748134737097cc07c0398dce.sample" ]
+dest_files=["res://.godot/imported/THOGRA_FORGLORY.wav-6f6119f5748134737097cc07c0398dce.sample"]
 
 [params]
 

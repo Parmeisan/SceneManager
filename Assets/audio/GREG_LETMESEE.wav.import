@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_LETMESEE.wav-34d98bf036c6e36e9d76d2952395b22e.sample"
+type="AudioStreamWAV"
+uid="uid://bsxcgk2g02vah"
+path="res://.godot/imported/GREG_LETMESEE.wav-34d98bf036c6e36e9d76d2952395b22e.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_LETMESEE.wav"
-dest_files=[ "res://.import/GREG_LETMESEE.wav-34d98bf036c6e36e9d76d2952395b22e.sample" ]
+dest_files=["res://.godot/imported/GREG_LETMESEE.wav-34d98bf036c6e36e9d76d2952395b22e.sample"]
 
 [params]
 

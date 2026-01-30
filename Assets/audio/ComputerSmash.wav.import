@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ComputerSmash.wav-5468c9ecc8a7fd4d8396737735fd75a4.sample"
+type="AudioStreamWAV"
+uid="uid://ym3o4kso7j0e"
+path="res://.godot/imported/ComputerSmash.wav-5468c9ecc8a7fd4d8396737735fd75a4.sample"
 
 [deps]
 
 source_file="res://Assets/audio/ComputerSmash.wav"
-dest_files=[ "res://.import/ComputerSmash.wav-5468c9ecc8a7fd4d8396737735fd75a4.sample" ]
+dest_files=["res://.godot/imported/ComputerSmash.wav-5468c9ecc8a7fd4d8396737735fd75a4.sample"]
 
 [params]
 

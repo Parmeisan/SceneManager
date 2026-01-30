@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/SQUIRREL_UMM.wav-ea6867985ccae7ca7fa7847346fd05d3.sample"
+type="AudioStreamWAV"
+uid="uid://bvop7dy17djsu"
+path="res://.godot/imported/SQUIRREL_UMM.wav-ea6867985ccae7ca7fa7847346fd05d3.sample"
 
 [deps]
 
 source_file="res://Assets/audio/SQUIRREL_UMM.wav"
-dest_files=[ "res://.import/SQUIRREL_UMM.wav-ea6867985ccae7ca7fa7847346fd05d3.sample" ]
+dest_files=["res://.godot/imported/SQUIRREL_UMM.wav-ea6867985ccae7ca7fa7847346fd05d3.sample"]
 
 [params]
 

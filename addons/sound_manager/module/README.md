@@ -1,6 +1,6 @@
-## SOUND MANAGER MODULE FOR GODOT 3
-## Version 4.3
-## © Xecestel 2021
+## SOUND MANAGER MODULE FOR GODOT 4
+## Version 5.4
+## © Xecestel 2024
 ## Licensed Under MIT License (see below)
 
 The Sound Manager gives the users a better control over the audio of their games. Using this plugin, it is possible to play every sound of the game using just simple method calls. No more long AudioStreamPlayer lists inside your scenes nor long methods to handle the audio inside every script.  
@@ -17,10 +17,10 @@ To use this script you have to set the scene as an AutoLoad in the ProjectSettin
 Configure the script is pretty simple:
 First things first: if loading the scene from your editor throws you dependency issue with the script, just fix it clicking on the little folder icon on the left and selecting the SoundManager.gd file from you project directory.  
 
-At this point, you have to use the dictionary. It allows you to use different strings for method calls and for the file names. This way, even if your audio file is called "*se_audio_jump.ogg*", you can set it in the dictionary to call it as a simple "Jump", adding a simple row `"Jump" : "abs_path/se_audio_jump.ogg"`. This way, whenever you want to play that particular audio file, you will just have to call `SoundManager.play_se("Jump")` and the script will do the rest.  
+At this point, you have to use the dictionary. It allows you to use different strings for method calls and for the file names. This way, even if your audio file is called "*se_audio_jump.ogg*", you can set it in the dictionary to call it as a simple "Jump", adding a simple row `"Jump" : "abs_path/se_audio_jump.ogg"`. This way, whenever you want to play that particular audio file, you will just have to call `SoundManager.play_sfx("Jump")` and the script will do the rest.  
 The dictionary is located inside the SoundManager_config file. You can place it wherever you want inside your project directory.
 You can also edit the dictionary file from inside the scene editor, by working on the custom property. On the dictionary there is a placeholder key-value pair to give you an hint on the formatting expected from Godot.  
-You can also play sounds using their absolute path directly. So if you want to play, from the example above, `"se_audio_jump.ogg"` you can either call `play_se("Jump")`, `play_se("abs_path/se_audio_jump.ogg")`. If you want to populate the dictionary, or just use absolute paths it's up to you!  
+You can also play sounds using their absolute path directly. So if you want to play, from the example above, `"se_audio_jump.ogg"` you can either call `play_sfx("Jump")`, `play_sfx("abs_path/se_audio_jump.ogg")`. If you want to populate the dictionary, or just use absolute paths it's up to you!  
   
 There are also other two useful, more advanced, variables:
 - "Preload Resources". It's a boolean variable: if you set it to true the module will automatically load every audio resource from the given paths at `_ready()`. Note that this will slow down game start (especially in projects with a long list of audio files) but will make it faster to play sounds. It's completely optional.
@@ -39,41 +39,90 @@ The methods you'll probably use the most are just 11, plus some useful setters a
 **All methods of the Sound Manager are accessed from the singleton called "SoundManager".**
 
 ### Sounds Handling
-*The play method exists in 4 forms: `play_bgm`, `play_bgs`, `play_se` and `play_me`. They works at the same way*  
-- `func play(audio : String, from_position : float = 0.0, volume_db : float = -81, pitch_scale : float = -1, sound_to_override : String = "") -> void`:  
+**The play, play_from, fade_in and fade_into methods exists both in 4 forms: `play/play_bgm_from/fade_in/fade_into_bgm`, `play/play_bgm_from/fade_in/fade_into_bgs`, `play/play_bgm_from/fade_in/fade_into_sfx` and `play/play_bgm_from/fade_in/fade_into_mfx`. They work in the same way**
+- `func play(sound : String, from_position : float = 0.0, volume_db : float = -81, pitch_scale : float = -1, sound_to_override : String = "") -> void`:  
 this method lets you play the selected audio, passed as a string. If the audio is already playing, it will be restarted.  
 The `audio` argument is the sound name. It can be an absolute path or the name you gave to the sound in the Audio Files Dictionary.  
 The `from_position` argument allows you to choose where the sound is going to start playing from. It's a float value that represents the track position in seconds. Default is 0.0.  
 `volume_db` and `pitch_scale` are respectively the values for the volume (in DB) and pitch for the sound track you want to play. If left to default the Sound Manager will just use the default settings you saved for that sound type from the dock.  
 `sound_to_override` allows you to tell the module to not just play the sound, but to replace an already playing sound before doing that. If left blank, it will not do that and just play the new sound alongside the other.  
 
-- `func stop(audio : String) -> void`:  
+- `func play_bgm_from(bgm : String, direction : String, from_position : float = 0.0, volume_db : float = -81, pitch_scale : float = -1) -> void:`
+This method allows you to play a specific sound from a specific direction. The functionality is essentially the same as the basic `play` method.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.
+
+- `func fade_in(sound : String, duration : float, from_position : float = 0.0, volume_db : float = -81, pitch_scale : float = -1, sound_to_override : String = "") -> void`
+this method lets you play the selected audio with a little fade in effect. You can set the duration of the effect and the target volume with the `duration` and the `volume_db` arguments respectively. Apart from this, it basically works in the same way as the `play` method.
+
+- `func fade_into(sound : String, sound_to_overwrite : String, duration : float, from_position : float = 0.0, volume_db : float = -81, pitch_scale : float) -> void`
+this method basically fades out a sound and fades in another selected sound right after it stops. The `duration` argument relates to the duration of the entire fade-out-fade-in effect, so each effect actual duration will be half that time.
+
+- `func stop(sound : String) -> void`:  
 this method lets you stop the specified stream from playing. The argument should be the same name you used for the `play` method.
 
-- `func find_sound(audio : String) -> int`:  
+- `stop_from(sound : String, direction : String) -> void:`
+This method allows you to stop the specified sound from the specified direction. The functionality is essentially the same as the basic `stop` method.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.
+
+- `func stop_all() -> void`:
+this method lets you stop all playing sounds.
+
+- `fade_out(sound : String, duration : float) -> void`:
+this method lets you stop the specified stream with a little fade out effect. You can set the duration of the effect with the `duration` argument. Apart from this, it works in the same way as the `stop` method.
+
+- `func find_sound(sound : String) -> int`:  
 this method will return the index number of the sound you're looking for on the internal arrays used by the module. It will return -1 if the sound was not found.  
 
-- `func is_playing(audio : String) -> bool`:  
+- `func find_sound_from(sound : String, direction : String) -> bool:`
+this method will return the index number of the sound you're looking for from the specified direction array. It will return -1 if the sound was not found.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.  
+
+- `func is_playing(sound : String) -> bool`:  
 this method returns `true` if the selected stream is plaiyng and `false` if not.
 
-- `pause(sound : String) -> void`:  
-this method allows you toplaying = sound_index >= 0 pause a specified stream. Note that a paused sound is not a stopped one, so the method `is_playing` will still return `true`. 
+- `func is_playing_from(sound : String, direction : String) -> bool:`
+this method returns `true` if the given sound  is playing from the specified direction, and `false` if not.
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.  
 
-- `unpause(sound : String) -> void`:  
+- `func pause(sound : String) -> void`:  
+this method allows you to pause a specified stream. Note that a paused sound is not a stopped one, so the method `is_playing` will still return `true`. 
+
+- `func pause_from(sound : String, direction : String) -> void:`
+This method allows you to pause the specified sound from playing from the specified direction. The functionality is essentially the same as the basic `pause` method.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.
+
+- `func pause_all() -> void`:
+this method lets you pause all playing sounds.
+
+- `func unpause(sound : String) -> void`:  
 this method allows you to unpause a specified stream.
 
-- `set_paused(sound : String, paused : bool) -> void`:  
+- `func unpause_from(sound : String, direction : String) -> void:`
+This method allows you to unpause the specified sound playing from the specified direction. The functionality is essentially the same as the basic `unpause` method.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.
+
+- `func unpause_all() -> void`:
+this method lets you unpause all paused playing sounds.
+
+- `func set_paused(sound : String, paused : bool) -> void`:  
 this method allows you to set if the stream is paused or not. Note that there's no difference between `set_paused(audio, true)` and `pause(audio)`, you can use the one you prefer.
 
-- `is_paused(sound : String) -> bool`:  
+- `func set_paused_from(sound : String, direction : String) -> bool:`
+this method allows you to set if the stream is paused or not from the given direction. Note that there's no difference between `set_paused_from(audio, true)` and `pause_from(audio)`, you can use the one you prefer.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.
+
+- `func is_paused(sound : String) -> bool`:  
 this method returns `true` if the specified sound is paused.
 
+- `func is_paused_from(sound : String, direction : String) -> bool:`
+this method returns `true` if the specified sound is paused in the given direction.  
+`direction` allows you to specify the direction. It has to be a `String` and can only be either "front", "east", or "west". It's not case sensitive.
 
 ### Getters and Setters
 - `func get_playing_sounds() -> Array`:  
 this method returns an array containing the names of the currently playing soundstreams.  
   
-**The `set/get_volume_db/pitch_scale` methods exists in 4 forms respectively: `set/get_bgm/bgs/se/me_volume_db/pitch_scale`**
+**The `set/get_volume_db/pitch_scale` methods exists in 4 forms respectively: `set/get_bgm/bgs/sfx/mfx_volume_db/pitch_scale`**
 - `func set_volume_db(volume_db : float) -> void`:  
 this method allows you to change the default value for the given sound type. `volume_db` is the volume in decibels. (`set_bgm_volume_db` for bgm)
 
@@ -205,7 +254,7 @@ I'd like to thank Simón Olivo (@sarturo) for the help and support he's providin
 
 # Licenses
 Sound Manager Module
-Copyright (C) 2019-2021  Celeste Privitera
+Copyright (C) 2019-2024  Celeste Privitera
 
 This Source Code Form is subject to the terms of the MIT License. If a copy of the license was not distributed with this
 file, You can obtain one at [https://mit-license.org/](https://mit-license.org/).
@@ -347,3 +396,28 @@ You can find more informations in the LICENSE.txt file.
 ### Version 3.4.1
 - Added the method `play_deferred()` to automatically call the method `play` as deferred
 - Possibly fixed a bug that occurred while fastly playing and stopping an audio stream multiple times
+
+### Version 5.0
+- Added support for Godot Engine 4.
+- Improved code readability following the official guidelines.
+- Added support to mp3 files. #12
+- Replaced the config file name from `SoundManager.json` to `sound_manager.json` to accomodate Android devices. #15
+- Improved node pre-instantiation; Fixed some bugs.
+- Improved sound preloading logic.
+
+### Version 5.1
+- Updated sound type names to be more standardized (i.e. `SFX` instead of `SE`)
+- Added `fade_in` and `fade_out` methods
+- Fixed some bugs in the debug mode
+
+### Version 5.2
+- Added `fade_into` methods
+
+### Version 5.3
+- Added `stop_all`, `pause_all` and `unpause_all` methods.
+
+### Version 5.4
+- Added support for directional sounds.
+
+### Version 5.4.1
+- Fixed some bugs in directional sounds management.

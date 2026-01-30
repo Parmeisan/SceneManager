@@ -1,8 +1,8 @@
 extends Control
 class_name SceneExplorer
 
-onready var mgr = $SceneManager
-onready var grid = $SceneList/GridContainer
+@onready var mgr = $SceneManager
+@onready var grid = %GridContainer
 
 func _ready():
 	# First child is the invisible template; clear everything else and then start copying it
@@ -26,8 +26,10 @@ func _ready():
 				c.TYPE.BACKGROUND:
 					img_count += 1
 					if icon.texture == null:
-						icon.texture = SceneManager.GetTexture(mgr.background_path, c.file_name, "." + c.file_ext)
-						icon.texture.size = Vector2(80, 60)
+						var img = SceneManager.GetImage(mgr.background_path, c.file_name, "." + c.file_ext)
+						img.resize(80, 60)
+						var tex = ImageTexture.new()
+						icon.texture = tex.create_from_image(img)
 				c.TYPE.AUDIO:
 					audio_count += 1
 				c.TYPE.DIALOGUE:
@@ -39,7 +41,7 @@ func _ready():
 					if !var_list.has(c.var_name):
 						var_list.append(c.var_name)
 		# A little more manipulation
-		var vars = PoolStringArray(var_list).join(", ")
+		var vars = ", ".join(PackedStringArray(var_list))
 		var chars = ""
 		for c in char_list.keys():
 			if chars != "":
@@ -50,7 +52,7 @@ func _ready():
 		t.get_node("ItemCounts").text = "Images: %d\nAudio: %d" % [img_count, audio_count]
 		t.get_node("ItemDetail").text = "Characters: %s\nVariables: %s" % [chars, vars]
 		# And the final touches
-		t.get_node("ButtonBG/Button").connect("pressed", self, "scene_button_pressed", [script])
+		t.get_node("ButtonBG/Button").connect("pressed", Callable(self, "scene_button_pressed").bind(script))
 		t.visible = true
 		grid.add_child(t)
 	emit_signal("draw")
@@ -60,4 +62,3 @@ func scene_button_pressed(script):
 
 
 	
-

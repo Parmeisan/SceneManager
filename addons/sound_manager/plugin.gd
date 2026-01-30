@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 # Variables
@@ -19,14 +19,13 @@ signal signals_connected()
 # Set the Sound Manager Module scene as autoload, instance a new dock scene and configure the EditorFileDialog instance 
 func _enter_tree() -> void:
 	add_autoload_singleton("SoundManager", "res://addons/sound_manager/module/SoundManager.tscn")
-	dock = preload("res://addons/sound_manager/dock/SoundManagerDock.tscn").instance()
-	dock.set_name(dock.TITLE)
+	dock = preload("res://addons/sound_manager/dock/SoundManagerDock.tscn").instantiate()
+	dock.name = dock.TITLE
 	add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
-	connect_signals()
+	_connect_signals()
 	
 	# Check for fylesystem changes
-	get_editor_interface().get_resource_filesystem().connect("filesystem_changed", self, "_on_filesystem_changed")
-	
+	get_editor_interface().get_resource_filesystem().filesystem_changed.connect(_on_filesystem_changed)
 
 
 # Quit the Sound Manager Module scene as autoload, remove the dock scene and free the 'file_dialog' and 'dock' variables from memory
@@ -36,10 +35,10 @@ func _exit_tree() -> void:
 	dock.free()
 
 
-func connect_signals() -> void:
-	dock.connect("check_file_names_requested", self, "_on_check_file_names_requested")
-	connect("file_names_updated", dock, "_on_file_names_updated")
-	connect("signals_connected", dock, "_on_plugin_signals_connected")
+func _connect_signals() -> void:
+	dock.check_file_names_requested.connect(_on_check_file_names_requested)
+	file_names_updated.connect(dock._on_file_names_updated)
+	signals_connected.connect(dock._on_plugin_signals_connected)
 	emit_signal("signals_connected")
 
 
@@ -47,25 +46,26 @@ func connect_signals() -> void:
 #	FILE SYSTEM HANDLERS	#
 #############################
 
-func get_sound_file_names_from_path_r(path : String) -> PoolStringArray:
+func _get_sound_file_names_from_path_r(path : String) -> PackedStringArray:
 	var directory : EditorFileSystemDirectory = get_editor_interface().get_resource_filesystem().get_filesystem_path(path)
-	var file_name := get_sound_file_names_from_dir_r(directory)
+	var file_name := _get_sound_file_names_from_dir_r(directory)
 #	directory.free()
 	return file_name
 
 
-func get_sound_file_names_from_dir_r(directory : EditorFileSystemDirectory) -> PoolStringArray:
+func _get_sound_file_names_from_dir_r(directory : EditorFileSystemDirectory) -> PackedStringArray:
 	if directory == null:
-		return PoolStringArray([])
-	var file_name = get_sound_file_names_from_dir(directory)
+		return PackedStringArray([])
+	var file_name = _get_sound_file_names_from_dir(directory)
 	for i in range(0, directory.get_subdir_count()):
 		var subdir = directory.get_subdir(i)
 		if subdir.get_name() != "addons":
-			file_name += get_sound_file_names_from_dir_r(directory.get_subdir(i))
+			file_name += _get_sound_file_names_from_dir_r(directory.get_subdir(i))
 	return file_name
 
-func get_sound_file_names_from_dir(directory : EditorFileSystemDirectory) -> PoolStringArray:
-	var file_names : PoolStringArray = []
+
+func _get_sound_file_names_from_dir(directory : EditorFileSystemDirectory) -> PackedStringArray:
+	var file_names : PackedStringArray = []
 	if directory:
 		for i in range(0, directory.get_file_count()):
 			var file_name = directory.get_file(i)
@@ -78,12 +78,14 @@ func get_sound_file_names_from_dir(directory : EditorFileSystemDirectory) -> Poo
 	return file_names
 
 
-func check_file_names_from_paths() -> void:
-	var file_names = get_sound_file_names_from_path_r("res://")
+func _check_file_names_from_paths() -> void:
+	var file_names = _get_sound_file_names_from_path_r("res://")
 	emit_signal("file_names_updated", file_names)
 
+
 func _on_filesystem_changed() -> void:
-	check_file_names_from_paths()
+	_check_file_names_from_paths()
+
 
 func _on_check_file_names_requested() -> void:
-	check_file_names_from_paths()
+	_check_file_names_from_paths()

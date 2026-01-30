@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/TRIA303_I_DONT_KNOW.wav-945316e670c96cba0dfa23e599d47810.sample"
+type="AudioStreamWAV"
+uid="uid://bqxwov28ha3cw"
+path="res://.godot/imported/TRIA303_I_DONT_KNOW.wav-945316e670c96cba0dfa23e599d47810.sample"
 
 [deps]
 
 source_file="res://Assets/audio/TRIA303_I_DONT_KNOW.wav"
-dest_files=[ "res://.import/TRIA303_I_DONT_KNOW.wav-945316e670c96cba0dfa23e599d47810.sample" ]
+dest_files=["res://.godot/imported/TRIA303_I_DONT_KNOW.wav-945316e670c96cba0dfa23e599d47810.sample"]
 
 [params]
 

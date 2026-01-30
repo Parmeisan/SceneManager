@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/GREG_YEAHYEAH.wav-7c89418dfbfc932a328817d6531c3918.sample"
+type="AudioStreamWAV"
+uid="uid://c0moesxj6w2au"
+path="res://.godot/imported/GREG_YEAHYEAH.wav-7c89418dfbfc932a328817d6531c3918.sample"
 
 [deps]
 
 source_file="res://Assets/audio/GREG_YEAHYEAH.wav"
-dest_files=[ "res://.import/GREG_YEAHYEAH.wav-7c89418dfbfc932a328817d6531c3918.sample" ]
+dest_files=["res://.godot/imported/GREG_YEAHYEAH.wav-7c89418dfbfc932a328817d6531c3918.sample"]
 
 [params]
 

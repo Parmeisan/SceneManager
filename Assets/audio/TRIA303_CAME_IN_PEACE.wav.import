@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/TRIA303_CAME_IN_PEACE.wav-319ca69e26f66111d4cca5c8ca52354b.sample"
+type="AudioStreamWAV"
+uid="uid://dh0k3kuvsmd6f"
+path="res://.godot/imported/TRIA303_CAME_IN_PEACE.wav-319ca69e26f66111d4cca5c8ca52354b.sample"
 
 [deps]
 
 source_file="res://Assets/audio/TRIA303_CAME_IN_PEACE.wav"
-dest_files=[ "res://.import/TRIA303_CAME_IN_PEACE.wav-319ca69e26f66111d4cca5c8ca52354b.sample" ]
+dest_files=["res://.godot/imported/TRIA303_CAME_IN_PEACE.wav-319ca69e26f66111d4cca5c8ca52354b.sample"]
 
 [params]
 

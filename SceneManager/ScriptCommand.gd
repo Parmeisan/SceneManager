@@ -60,7 +60,7 @@ func _init(line : String):
 		return
 		
 	# Options
-	var arrow_posn = line.find_last("=>")
+	var arrow_posn = line.rfind("=>")
 	if arrow_posn > 0:
 		command_type = TYPE.OPTION
 		opt_text = line.substr(0, arrow_posn)
@@ -85,7 +85,7 @@ func _init(line : String):
 		return
 		
 	# Audio or image name
-	var period_posn = line.find_last(".")
+	var period_posn = line.rfind(".")
 	if period_posn > 0: # If it's at 0 it's not a valid file name
 		file_name = line.substr(0, period_posn)
 		file_ext = line.substr(period_posn + 1)
@@ -173,7 +173,7 @@ func _init(line : String):
 		var dialog = true
 		# Check for valid ascii characters
 		while(i < colon):
-			var asc = ord(line[i])
+			var asc = line[i].unicode_at(0)
 			var valid = false
 			if asc >= LOWER_ASCII_LIMIT && asc <= UPPER_ASCII_LIMIT:
 				valid = true
@@ -204,6 +204,6 @@ func _init(line : String):
 	if at >= 0:
 		var location = line.substr(at+1, 1)
 		if location == "R":
-			image_location = 1
+			image_location = IMAGE_LOCATION.RIGHT
 		elif location == "L":
-			image_location = -1
+			image_location = IMAGE_LOCATION.LEFT

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ZAXYSS_DOYOUNOTSEE.wav-467ba361f49b21bc3400073ba1e998f0.sample"
+type="AudioStreamWAV"
+uid="uid://d3k4fd3ek3xcj"
+path="res://.godot/imported/ZAXYSS_DOYOUNOTSEE.wav-467ba361f49b21bc3400073ba1e998f0.sample"
 
 [deps]
 
 source_file="res://Assets/audio/ZAXYSS_DOYOUNOTSEE.wav"
-dest_files=[ "res://.import/ZAXYSS_DOYOUNOTSEE.wav-467ba361f49b21bc3400073ba1e998f0.sample" ]
+dest_files=["res://.godot/imported/ZAXYSS_DOYOUNOTSEE.wav-467ba361f49b21bc3400073ba1e998f0.sample"]
 
 [params]
 

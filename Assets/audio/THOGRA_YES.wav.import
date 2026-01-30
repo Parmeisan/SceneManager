@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/THOGRA_YES.wav-e6e8454daa45b8aa4e77e764c92fd0d1.sample"
+type="AudioStreamWAV"
+uid="uid://c6rucysqg8sge"
+path="res://.godot/imported/THOGRA_YES.wav-e6e8454daa45b8aa4e77e764c92fd0d1.sample"
 
 [deps]
 
 source_file="res://Assets/audio/THOGRA_YES.wav"
-dest_files=[ "res://.import/THOGRA_YES.wav-e6e8454daa45b8aa4e77e764c92fd0d1.sample" ]
+dest_files=["res://.godot/imported/THOGRA_YES.wav-e6e8454daa45b8aa4e77e764c92fd0d1.sample"]
 
 [params]
 

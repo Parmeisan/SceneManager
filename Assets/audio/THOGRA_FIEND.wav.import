@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/THOGRA_FIEND.wav-41542cb0c2257f706de76b917d42b2e4.sample"
+type="AudioStreamWAV"
+uid="uid://begi0ydexv1yl"
+path="res://.godot/imported/THOGRA_FIEND.wav-41542cb0c2257f706de76b917d42b2e4.sample"
 
 [deps]
 
 source_file="res://Assets/audio/THOGRA_FIEND.wav"
-dest_files=[ "res://.import/THOGRA_FIEND.wav-41542cb0c2257f706de76b917d42b2e4.sample" ]
+dest_files=["res://.godot/imported/THOGRA_FIEND.wav-41542cb0c2257f706de76b917d42b2e4.sample"]
 
 [params]
 
