@@ -9,12 +9,12 @@ var facing = "RIGHT"
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
 		if event.keycode == 4194326 && event.pressed == true:
-			print("Control pressed")
 			if facing == "RIGHT":
 				$ThePunchZone.position.x = 43
 			else:
-
 				$ThePunchZone.position.x = -43
+			await get_tree().create_timer(0.1).timeout
+			POooooOONCH()
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -39,3 +39,9 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 
 	move_and_slide()
+	
+func POooooOONCH():
+	var bodies = $ThePunchZone.get_overlapping_bodies()
+	for body in bodies:
+		if body.has_method("is_punchable") && body.is_punchable():
+			body.get_punched()
