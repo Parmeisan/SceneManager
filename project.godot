@@ -19,10 +19,6 @@ run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
-[autoload]
-
-SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
-
 [display]
 
 window/size/resizable=false

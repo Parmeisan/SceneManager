@@ -2,17 +2,18 @@
 
 [ext_resource type="Script" uid="uid://w6w5k7hpn0vl" path="res://SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" uid="uid://cixcopuuh8tpk" path="res://SceneManager/SceneCharacter.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://da0i5wltq26rt" path="res://Assets/characters/treefoot_serious.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://qnqdr6ulow1r" path="res://Assets/characters/Space_Wizard.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://dbg64adluhgxu" path="res://Assets/gui/option_button.png" id="5"]
-[ext_resource type="FontFile" uid="uid://ia7x15mlmrqg" path="res://Assets/fonts/MaidenOrange-Regular.ttf" id="6"]
-[ext_resource type="Texture2D" uid="uid://ctx1vvw5pfgbe" path="res://Assets/characters/Jeff.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://c46422so416xg" path="res://Assets/characters/Jeff Angry.png" id="8"]
-[ext_resource type="Texture2D" uid="uid://6koq7otuc6sa" path="res://Assets/characters/Greg.png" id="9"]
-[ext_resource type="Texture2D" uid="uid://d3q1b70m5wrdl" path="res://Assets/characters/Barbarian.png" id="10"]
-[ext_resource type="Texture2D" uid="uid://dit7sgoareni" path="res://Assets/characters/Alien.png" id="11"]
-[ext_resource type="Texture2D" uid="uid://caydge1k2q2fu" path="res://Assets/characters/SquirrelBoss.png" id="12"]
-[ext_resource type="Texture2D" uid="uid://dy5kslhdxj75f" path="res://Assets/images/Logo Only.png" id="13"]
+[ext_resource type="PackedScene" uid="uid://cft4e1k72yhum" path="res://AudioManager/audio_manager.tscn" id="2_51u05"]
+[ext_resource type="Texture2D" uid="uid://c2k6fp5q62qvf" path="res://Assets/characters/treefoot_serious.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://wbtk6nu7y0i2" path="res://Assets/characters/Space_Wizard.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dftnbpbkyhnv7" path="res://Assets/gui/option_button.png" id="5"]
+[ext_resource type="FontFile" uid="uid://br6imui04o0nk" path="res://Assets/fonts/MaidenOrange-Regular.ttf" id="6"]
+[ext_resource type="Texture2D" uid="uid://xp5jg28lnp5p" path="res://Assets/characters/Jeff.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://4wsnnimqvplx" path="res://Assets/characters/Jeff Angry.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://20upmktl5qlq" path="res://Assets/characters/Greg.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cr3ca41ux8oer" path="res://Assets/characters/Barbarian.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://b5004cp3un1hn" path="res://Assets/characters/Alien.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://fxueo3rx56kr" path="res://Assets/characters/SquirrelBoss.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://cmq6wcg7knd5s" path="res://Assets/images/Logo Only.png" id="13"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("6"), ExtResource("6")])
@@ -45,6 +46,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 274.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
 [node name="BG_Image" type="TextureRect" parent="." unique_id=956105179]
@@ -54,14 +57,11 @@ offset_bottom = 600.0
 expand_mode = 1
 stretch_mode = 5
 
+[node name="AudioManager" parent="." unique_id=1900050100 instance=ExtResource("2_51u05")]
+
 [node name="Game_Title" type="Sprite2D" parent="." unique_id=289730291]
 position = Vector2(512, 0)
 texture = ExtResource("13")
-
-[node name="Music_Looper" type="AudioStreamPlayer" parent="." unique_id=746361474]
-
-[node name="SFX_Player" type="AudioStreamPlayer" parent="." unique_id=818482030]
-bus = &"SFX"
 
 [node name="Character_Left" type="Sprite2D" parent="." unique_id=1578710270]
 centered = false
