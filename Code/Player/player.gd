@@ -73,13 +73,20 @@ func _physics_process(delta: float) -> void:
 	if !metafloor && is_on_floor():
 		Global.landed.emit()
 		metafloor = true
-		
+	
+	var crawling = (is_on_floor() or %SpiderCeiling.is_colliding()
+		or %SpiderWallLeft.is_colliding() or %SpiderWallRight.is_colliding())
+			
 	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 	elif (currPhysics == PHYSICS.SWIM):
 		if not is_on_floor():
 			velocity += get_gravity() * delta / 3
+	elif currPhysics == PHYSICS.CRAWL:
+		if not crawling:
+			velocity += get_gravity() * delta
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -96,7 +103,16 @@ func _physics_process(delta: float) -> void:
 				facing = "RIGHT"
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if PHYSICS.CRAWL and crawling:
+		var updir := Input.get_axis("ui_up", "ui_down")
+		if updir:
+			velocity.y = updir * SPEED
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+		
+	# Die code
 	if global_position.y > 2000:
 		get_tree().quit()
 
@@ -172,6 +188,8 @@ func SwitchIfAllowed(form : FORM):
 	
 #endregion
 
+#region Animations
+
 @onready var all_sprites = [
 	%SpiderStanding,
 	%SnakeStanding, %SnakeJumping,
@@ -206,3 +224,5 @@ func UpdateSprites():
 			show_sprite(%BirdFlying)
 		FORM.JELLYFISH:
 			show_sprite(%JellyfishSwimming)
+
+#endregion
