@@ -184,7 +184,7 @@ func land():
 func custom_on_ceiling():
 	var bodies = %SpiderCeiling.get_overlapping_bodies()
 	for body in bodies:
-		if body.get_class() == "TileMap" && !stunned && (Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right")):
+		if body.get_class() == "TileMap" && !stunned && (Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right") || crawling):
 			return true
 	return false
 
