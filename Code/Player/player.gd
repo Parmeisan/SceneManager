@@ -3,8 +3,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var direction
-var facing = "RIGHT"
+enum FACING { LEFT, RIGHT, UP, DOWN } # Up and down are ONLY spider form
+var facing = FACING.RIGHT
 var metafloor = true
 
 var invincible = false
@@ -45,7 +45,7 @@ func become_stunned():
 	stunned = true;
 	crawling = false
 	await get_tree().create_timer(stunDuration).timeout
-	stunned = false;
+	stunned = false
 	
 func _input(_event: InputEvent) -> void:
 	CheckFormSwap()
@@ -53,7 +53,7 @@ func _input(_event: InputEvent) -> void:
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
 		if event.keycode == 4194326 && event.pressed == true:
-			if facing == "RIGHT":
+			if facing == FACING.RIGHT:
 				$ThePunchZone.position.x = 43
 			else:
 				$ThePunchZone.position.x = -43
@@ -102,17 +102,23 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			if(velocity.x < 0):
-				facing = "LEFT"
+				facing = FACING.LEFT
 			if(velocity.x > 0):
-				facing = "RIGHT"
+				facing = FACING.RIGHT
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		if PHYSICS.CRAWL and crawling:
-			var updir := Input.get_axis("ui_up", "ui_down")
-			if updir:
-				velocity.y = updir * SPEED
-			else:
-				velocity.y = move_toward(velocity.y, 0, SPEED)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if PHYSICS.CRAWL and crawling:
+		var updir := Input.get_axis("ui_up", "ui_down")
+		if updir:
+			velocity.y = updir * SPEED
+			if(velocity.y < 0):
+				facing = FACING.UP
+			if(velocity.y > 0):
+				facing = FACING.DOWN
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	# Die code
 	if global_position.y > 2000:
@@ -222,9 +228,25 @@ func UpdateSprites():
 				show_sprite(%SnakeJumping)
 		FORM.SPIDER:
 			show_sprite(%SpiderStanding)
+			if is_on_floor():
+				SpiderRotate(facing == FACING.LEFT, false, 0)
+			elif %SpiderCeiling.is_colliding():
+				SpiderRotate(facing == FACING.LEFT, true, 0)
+			elif %SpiderWallLeft.is_colliding():
+				SpiderRotate(facing == FACING.UP, false, 90)
+			elif %SpiderWallRight.is_colliding():
+				SpiderRotate(facing == FACING.DOWN, false, -90)
+			else:
+				if !stunned:
+					SpiderRotate(facing == FACING.LEFT, false, 0)
 		FORM.BIRD:
 			show_sprite(%BirdFlying)
 		FORM.JELLYFISH:
 			show_sprite(%JellyfishSwimming)
+
+func SpiderRotate(flip_h, flip_v, rotation):
+	%SpiderStanding.flip_h = flip_h
+	%SpiderStanding.flip_v = flip_v
+	%SpiderStanding.rotation = rotation
 
 #endregion
