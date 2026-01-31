@@ -5,9 +5,13 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var facing = "RIGHT"
+var metafloor = true
 
 func _ready():
 	FormSetup()
+	hide_sprites()
+	activate_sprites()
+	$SpiderStanding.visible = true
 	
 func _input(_event: InputEvent) -> void:
 	CheckFormSwap()
@@ -33,8 +37,14 @@ func _physics_process(delta: float) -> void:
 	elif (currPhysics == PHYSICS.JUMP):
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			hide_sprites()
+			$SpiderJumping.visible = true
 	
 	# Add the gravity.
+	if !metafloor && is_on_floor():
+		Global.landed.emit()
+		metafloor = true
+		
 	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -121,4 +131,13 @@ func CycleUntilAllowed(dir : int):
 func SwitchIfAllowed(form : FORM):
 	if (IsFormAllowed(form)):
 		currForm = form
+	
 #endregion
+
+func activate_sprites():
+	$SpiderStanding.play()
+	$SpiderJumping.play()
+
+func hide_sprites():
+	$SpiderStanding.visible = false
+	$SpiderJumping.visible = false
