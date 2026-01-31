@@ -24,7 +24,7 @@ func is_player():
 	return true
 
 func get_hit(damage: int, direction: Vector2, force: int):
-	print(	direction)
+	print(direction)
 	if !invincible:
 		velocity = direction.normalized() * force
 		become_invincible()
@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta / 3
 	elif currPhysics == PHYSICS.CRAWL:
-		if not crawling:
+		if stunned || !crawling:
 			velocity += get_gravity() * delta
 
 
@@ -103,14 +103,12 @@ func _physics_process(delta: float) -> void:
 				facing = "RIGHT"
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if PHYSICS.CRAWL and crawling:
-		var updir := Input.get_axis("ui_up", "ui_down")
-		if updir:
-			velocity.y = updir * SPEED
-		else:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
+		if PHYSICS.CRAWL and crawling:
+			var updir := Input.get_axis("ui_up", "ui_down")
+			if updir:
+				velocity.y = updir * SPEED
+			else:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	# Die code
 	if global_position.y > 2000:
