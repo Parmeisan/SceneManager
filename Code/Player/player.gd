@@ -44,4 +44,4 @@ func POooooOONCH():
 	var bodies = $ThePunchZone.get_overlapping_bodies()
 	for body in bodies:
 		if body.has_method("is_punchable") && body.is_punchable():
-			body.get_punched()
+			body.get_punched(facing)
