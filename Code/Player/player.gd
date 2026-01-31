@@ -26,7 +26,6 @@ func is_player():
 	return true
 
 func get_hit(damage: int, direction: Vector2, force: int):
-	print(direction)
 	if !invincible:
 		velocity = direction.normalized() * force
 		become_invincible()
@@ -76,11 +75,13 @@ func _physics_process(delta: float) -> void:
 	if !metafloor && is_on_floor():
 		Global.landed.emit()
 		metafloor = true
+	
 	if !crawling:
-		crawling = (is_on_floor() or %SpiderCeiling.is_colliding() or %SpiderWallLeft.is_colliding() && direction < 0 or %SpiderWallRight.is_colliding() && direction > 0)
-	if crawling:
-		if !is_on_floor() && !%SpiderCeiling.is_colliding() && !%SpiderWallLeft.is_colliding() && !%SpiderWallRight.is_colliding():
+		crawling = (is_on_floor() or custom_on_ceiling() or %SpiderWallLeft.is_colliding() && direction < 0 or %SpiderWallRight.is_colliding() && direction > 0)
+	else:
+		if !is_on_floor() && !custom_on_ceiling() && !%SpiderWallLeft.is_colliding() && !%SpiderWallRight.is_colliding():
 			crawling = false
+			
 	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -180,6 +181,13 @@ func land():
 	hide_sprites()
 	$SpiderStanding.visible = true
 
+func custom_on_ceiling():
+	var bodies = %SpiderCeiling.get_overlapping_bodies()
+	for body in bodies:
+		if body.get_class() == "TileMap" && !stunned && Input.is_action_pressed("ui_up"):
+			return true
+	return false
+
 func IsFormAllowed(form : FORM):
 	var allowedForms = [ true, true, true, true] #Global.GetVar("hasSnake"), Global.GetVar("hasSpider") ]
 	return allowedForms[form]
@@ -230,12 +238,12 @@ func UpdateSprites():
 			show_sprite(%SpiderStanding)
 			if is_on_floor():
 				SpiderRotate(facing == Global.FACING.LEFT, false, 0)
-			elif %SpiderCeiling.is_colliding():
-				SpiderRotate(facing == Global.FACING.LEFT, true, 0)
 			elif %SpiderWallLeft.is_colliding():
 				SpiderRotate(facing == Global.FACING.UP, false, 90)
 			elif %SpiderWallRight.is_colliding():
 				SpiderRotate(facing == Global.FACING.DOWN, false, -90)
+			elif custom_on_ceiling():
+				SpiderRotate(facing == Global.FACING.LEFT, true, 0)
 			else:
 				if !stunned:
 					SpiderRotate(facing == Global.FACING.LEFT, false, 0)
