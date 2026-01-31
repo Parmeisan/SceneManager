@@ -5,11 +5,24 @@
 [ext_resource type="Texture2D" uid="uid://dib4vjak403bn" path="res://Assets/characters/spider_walk2.png" id="3_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://f8dx5il5bksg" path="res://Assets/images/White_Background.png" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cbosi812n5ve5" path="res://Assets/characters/snake.png" id="4_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://jvjtbg17ul38" path="res://Assets/characters/snake_walk1.png" id="4_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://bdxb66xqclr0u" path="res://Assets/characters/snake_walk2.png" id="5_3tkgg"]
 [ext_resource type="Texture2D" uid="uid://ur71pj3mftb3" path="res://Assets/characters/bird.png" id="7_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://xavpvj7w4ufi" path="res://Assets/characters/jellyfish.png" id="8_3tkgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
 radius = 27.45906
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3kul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hp6x6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cxr5p"]
 animations = [{
@@ -29,7 +42,21 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_wi0c6")
+"texture": ExtResource("4_hp6x6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jatw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hp6x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3tkgg")
 }],
 "loop": true,
 "name": &"default",
@@ -123,7 +150,11 @@ shape = SubResource("CircleShape2D_kpjcp")
 
 [node name="Animations" type="Node2D" parent="." unique_id=1922716337]
 
-[node name="SpiderStanding" type="AnimatedSprite2D" parent="Animations" unique_id=9786302]
+[node name="SpiderStanding" type="AnimatedSprite2D" parent="Animations" unique_id=2006195252]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_r3kul")
+
+[node name="SpiderWalking" type="AnimatedSprite2D" parent="Animations" unique_id=9786302]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_cxr5p")
 frame_progress = 0.91274816
@@ -132,6 +163,10 @@ frame_progress = 0.91274816
 unique_name_in_owner = true
 visible = false
 sprite_frames = SubResource("SpriteFrames_5ncpa")
+
+[node name="SnakeWalking" type="AnimatedSprite2D" parent="Animations" unique_id=1041142884]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_jatw7")
 
 [node name="SnakeJumping" type="AnimatedSprite2D" parent="Animations" unique_id=105448691]
 unique_name_in_owner = true

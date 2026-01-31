@@ -209,8 +209,8 @@ func SwitchIfAllowed(form : FORM):
 #region Animations
 
 @onready var all_sprites = [
-	%SpiderStanding,
-	%SnakeStanding, %SnakeJumping,
+	%SpiderStanding, %SpiderWalking,
+	%SnakeStanding, %SnakeWalking, %SnakeJumping,
 	%BirdFlying,
 	%JellyfishSwimming
 ]
@@ -230,33 +230,45 @@ func show_sprite(sprite : Node):
 	
 func UpdateSprites():
 	hide_sprites()
+	var is_moving = Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")
 	match currForm:
 		FORM.SNAKE:
+			var sprite
 			if is_on_floor():
-				show_sprite(%SnakeStanding)
+				if is_moving:
+					sprite = %SnakeWalking
+				else:
+					sprite = %SnakeStanding
 			else:
-				show_sprite(%SnakeJumping)
+				sprite = %SnakeJumping
+			show_sprite(sprite)
+			SpriteRotate(sprite, facing == Global.FACING.LEFT)
 		FORM.SPIDER:
-			show_sprite(%SpiderStanding)
+			var sprite
+			if is_moving:
+				sprite = %SpiderWalking
+			else:
+				sprite = %SpiderStanding
+			show_sprite(sprite)
 			if is_on_floor():
-				SpiderRotate(facing == Global.FACING.LEFT, false, 0)
+				SpriteRotate(sprite, facing == Global.FACING.LEFT, false)
 			elif %SpiderWallLeft.is_colliding():
-				SpiderRotate(facing == Global.FACING.UP, false, 90)
+				SpriteRotate(sprite, facing == Global.FACING.UP, false, 90)
 			elif %SpiderWallRight.is_colliding():
-				SpiderRotate(facing == Global.FACING.DOWN, false, -90)
+				SpriteRotate(sprite, facing == Global.FACING.DOWN, false, -90)
 			elif custom_on_ceiling():
-				SpiderRotate(facing == Global.FACING.LEFT, true, 0)
+				SpriteRotate(sprite, facing == Global.FACING.LEFT, true)
 			else:
 				if !stunned:
-					SpiderRotate(facing == Global.FACING.LEFT, false, 0)
+					SpriteRotate(sprite, facing == Global.FACING.LEFT, false)
 		FORM.BIRD:
 			show_sprite(%BirdFlying)
 		FORM.JELLYFISH:
 			show_sprite(%JellyfishSwimming)
 
-func SpiderRotate(flip_h, flip_v, rotation):
-	%SpiderStanding.flip_h = flip_h
-	%SpiderStanding.flip_v = flip_v
-	%SpiderStanding.rotation = rotation
+func SpriteRotate(sprite : Node, flip_h : bool, flip_v : bool = false, rotation : int = 0):
+	sprite.flip_h = flip_h
+	sprite.flip_v = flip_v
+	sprite.rotation = rotation
 
 #endregion
