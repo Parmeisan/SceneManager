@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 var facing = "RIGHT"
 var metafloor = true
 
+
 func _ready():
 	FormSetup()
 	hide_sprites()
