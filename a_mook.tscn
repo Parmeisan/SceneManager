@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp5n4liitxa4p"]
 
-[ext_resource type="Script" uid="uid://djos6bv6p6e4x" path="res://a_mook.gd" id="1_t6wmc"]
+[ext_resource type="Script" uid="uid://djos6bv6p6e4x" path="res://Code/Enemies/EnemyBase.gd" id="1_t6wmc"]
 [ext_resource type="Texture2D" uid="uid://cv3jwoogextm7" path="res://Assets/images/Enemies/sprite_beast_dustfluffy_1.png" id="2_i1wbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nk0t"]
@@ -15,3 +15,15 @@ texture = ExtResource("2_i1wbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
 shape = SubResource("RectangleShape2D_2nk0t")
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=1300242030]
+
+[node name="EdgeCheckerR" type="RayCast2D" parent="Raycasts" unique_id=340186985]
+unique_name_in_owner = true
+position = Vector2(20, 15)
+target_position = Vector2(0, 13)
+
+[node name="EdgeCheckerL" type="RayCast2D" parent="Raycasts" unique_id=1103997558]
+unique_name_in_owner = true
+position = Vector2(-20, 15)
+target_position = Vector2(0, 13)
