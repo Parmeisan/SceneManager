@@ -19,8 +19,8 @@ run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
-[autoload]
 
+[autoload]
 SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
 Global="*uid://dae50w7cob14a"
 
