@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d3xksmwdntvb5"]
+
+[ext_resource type="Script" uid="uid://c5dwsndf37m8y" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bmw86cmvqm2bn" path="res://Assets/characters/Attack1.png" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://f8dx5il5bksg" path="res://Assets/images/White_Background.png" id="3_kne1u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
+radius = 27.45906
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
+size = Vector2(34, 20)
+
+[node name="Player" type="CharacterBody2D" unique_id=1625906938]
+script = ExtResource("1_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1168795556]
+shape = SubResource("CircleShape2D_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=148446849]
+texture = ExtResource("1_xhfnw")
+
+[node name="ThePunchZone" type="Area2D" parent="." unique_id=197552567]
+position = Vector2(43, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThePunchZone" unique_id=140186958]
+shape = SubResource("RectangleShape2D_xhfnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="ThePunchZone" unique_id=41963774]
+self_modulate = Color(0.3732504, 0.090004705, 0.14010507, 1)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_kne1u")

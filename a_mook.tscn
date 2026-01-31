@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bp5n4liitxa4p"]
+
+[ext_resource type="Script" uid="uid://djos6bv6p6e4x" path="res://a_mook.gd" id="1_t6wmc"]
+[ext_resource type="Texture2D" uid="uid://cv3jwoogextm7" path="res://Assets/images/Enemies/sprite_beast_dustfluffy_1.png" id="2_i1wbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nk0t"]
+size = Vector2(35, 35)
+
+[node name="AMook" type="CharacterBody2D" unique_id=1041484247]
+script = ExtResource("1_t6wmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1702546687]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_i1wbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
+shape = SubResource("RectangleShape2D_2nk0t")

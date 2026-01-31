@@ -17,7 +17,6 @@ const incr_size = 0.1 # time in seconds between checking for a Wait to be cancel
 
 enum MODES { INIT, READY, RUNNING, STOPPING, WAITING }
 var mode = MODES.INIT
-var variables = {}
 var all_scripts = {}
 var characters = {}
 var playing = false
@@ -195,13 +194,6 @@ static func GetAudio(folder, file, ext):
 
 # === Running scripts from our array of ScriptCommands ============================================
 
-# Variable functions
-func GetVar(v):
-	return variables[v]
-func SetVar(v, to):
-	variables[v] = to
-	print(variables)
-
 # Wait-related functions
 func WaitIncrement(seconds):
 	return get_tree().create_timer(seconds)
@@ -256,9 +248,9 @@ func BeginScene(script_name):
 				var player : AudioStreamPlayer
 				if cmd.file_ext == "wav":
 					# Ensure that we have 16-bit (can downgrade in Audacity)
-					SoundManager.play_sfx("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
+					$AudioManager.play_sfx("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
 				elif cmd.file_ext == "ogg":
-					SoundManager.play_bgm("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
+					$AudioManager.play_bgm("res://" + GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext))
 				#if player != null:
 					#player.stream = GetAudio(audio_path, cmd.file_name, "." + cmd.file_ext)
 					#player.stop()
@@ -270,9 +262,7 @@ func BeginScene(script_name):
 				$BG_Image.texture = GetTexture(background_path, cmd.file_name, "." + cmd.file_ext)
 			# Perform some operation on a variable
 			cmd.TYPE.VARIABLE:
-				if !variables.has(cmd.var_name):
-					variables[cmd.var_name] = 0
-				var value = GetVar(cmd.var_name)
+				var value = Global.GetVar(cmd.var_name)
 				match cmd.var_operation:
 					cmd.OPERATION.EQUALS:
 						value = cmd.var_value
@@ -280,7 +270,7 @@ func BeginScene(script_name):
 						value += cmd.var_value
 					cmd.OPERATION.MINUS:
 						value -= cmd.var_value
-				SetVar(cmd.var_name, value)
+				Global.SetVar(cmd.var_name, value)
 			# Display options for the player
 			# We will get these over multiple lines, we add each of them as we receive them,
 			# but they will all be hidden until we reach the end of the file
