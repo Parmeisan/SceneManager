@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -19,7 +18,7 @@ func _ready():
 	FormSetup()
 	hide_sprites()
 	activate_sprites()
-	$SpiderStanding.visible = true
+	show_sprite(%SpiderStanding)
 
 func is_player():
 	return true
@@ -44,6 +43,9 @@ func become_stunned():
 	stunned = true;
 	await get_tree().create_timer(stunDuration).timeout
 	stunned = false;
+	
+func _input(_event: InputEvent) -> void:
+	CheckFormSwap()
 
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
@@ -56,31 +58,28 @@ func _unhandled_input(event):
 			POooooOONCH()
 
 func _physics_process(delta: float) -> void:
-	if !metafloor && is_on_floor():
-		Global.landed.emit()
-		metafloor = true
-		 
-	CheckFormSwap()
+	
+	# Handle player-induced upward velocity
 	if (currPhysics == PHYSICS.FLY):
-		if not is_on_floor():
-			velocity += get_gravity() * delta
 		if Input.is_action_just_pressed("ui_accept") and !is_on_floor():
 			if flyCount < FLY_MAX:
 				flyCount += 1
 				velocity.y = JUMP_VELOCITY * 1.5
-		move_and_slide()
-		return
-		
+	elif (currPhysics == PHYSICS.JUMP):
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+	
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		hide_sprites()
-		$SpiderJumping.visible = true
-		metafloor = false
+	if !metafloor && is_on_floor():
+		Global.landed.emit()
+		metafloor = true
+		
+	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+	elif (currPhysics == PHYSICS.SWIM):
+		if not is_on_floor():
+			velocity += get_gravity() * delta / 3
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -101,6 +100,7 @@ func _physics_process(delta: float) -> void:
 	if global_position.y > 2000:
 		get_tree().quit()
 
+	UpdateSprites()
 	move_and_slide()
 	
 func POooooOONCH():
@@ -111,14 +111,14 @@ func POooooOONCH():
 
 
 #region Forms
-enum FORM { REGULAR, BIRD, SNAKE, SPIDER }
-var currForm = FORM.REGULAR
+enum FORM { SPIDER, BIRD, SNAKE, JELLYFISH }
+var currForm = FORM.SPIDER
 
-enum PHYSICS { NORMAL, FLY, CRAWL }
-var currPhysics = PHYSICS.NORMAL
-var formPhysics = [ PHYSICS.NORMAL, PHYSICS.FLY, PHYSICS.FLY, PHYSICS.CRAWL ]
+enum PHYSICS { JUMP, FLY, CRAWL, SWIM }
+var formPhysics = [ PHYSICS.CRAWL, PHYSICS.FLY, PHYSICS.JUMP, PHYSICS.SWIM ]
+var currPhysics = formPhysics[currForm]
 
-var formSpriteNames = [ "Attack1", "treefoot", "Barbarian", "Space_Wizard" ]
+var formSpriteNames = [ "spider", "bird", "snake", "jellyfish" ]
 var formSprites = [] # Gets loaded on config
 
 var flyCount = 0
@@ -132,32 +132,77 @@ func CheckFormSwap() -> void:
 	
 	var prevForm = currForm
 	if Input.is_action_just_pressed("form_cycle"):
-		var allowedForms = [ true, true, Global.GetVar("hasSnake"), Global.GetVar("hasSpider") ]
-		while true: # This forces at least one iteration, like a do-while (which Godot lacks)
-			currForm = (currForm as int + 1) % FORM.size() as FORM
-			if allowedForms[currForm]:
-				break
+		CycleUntilAllowed(1)
+	elif Input.is_action_just_pressed("form_cycle_reverse"):
+		CycleUntilAllowed(-1)
+	elif Input.is_action_just_pressed("form_spider"):
+		SwitchIfAllowed(FORM.SPIDER)
 	elif Input.is_action_just_pressed("form_bird"):
-		currForm = FORM.BIRD
+		SwitchIfAllowed(FORM.BIRD)
+	elif Input.is_action_just_pressed("form_snake"):
+		SwitchIfAllowed(FORM.SNAKE)
+	elif Input.is_action_just_pressed("form_jelly"):
+		SwitchIfAllowed(FORM.JELLYFISH)
 	
 	if (currForm != prevForm):
 		print ("Changed form to %s" % currForm)
 		currPhysics = formPhysics[currForm]
-		$Sprite2D.texture = formSprites[currForm]
+		UpdateSprites()
 		
 		if (currPhysics != PHYSICS.FLY):
 			flyCount = 0
 
 func land():
-	print("landed!")
 	hide_sprites()
 	$SpiderStanding.visible = true
 
+func IsFormAllowed(form : FORM):
+	var allowedForms = [ true, true, true, true] #Global.GetVar("hasSnake"), Global.GetVar("hasSpider") ]
+	return allowedForms[form]
+
+func CycleUntilAllowed(dir : int):
+	while true: # This forces at least one iteration, like a do-while (which Godot lacks)
+		currForm = (currForm as int + dir) % FORM.size() as FORM
+		if IsFormAllowed(currForm):
+			break
+
+func SwitchIfAllowed(form : FORM):
+	if (IsFormAllowed(form)):
+		currForm = form
+	
+#endregion
+
+@onready var all_sprites = [
+	%SpiderStanding,
+	%SnakeStanding, %SnakeJumping,
+	%BirdFlying,
+	%JellyfishSwimming
+]
+
 func activate_sprites():
-	$SpiderStanding.play()
-	$SpiderJumping.play()
+	for sprite in all_sprites:
+		if (sprite):
+			sprite.play()
 
 func hide_sprites():
-	$SpiderStanding.visible = false
-	$SpiderJumping.visible = false
-#endregion
+	for sprite in all_sprites:
+		if (sprite):
+			sprite.visible = false
+
+func show_sprite(sprite : Node):
+	sprite.visible = true
+	
+func UpdateSprites():
+	hide_sprites()
+	match currForm:
+		FORM.SNAKE:
+			if is_on_floor():
+				show_sprite(%SnakeStanding)
+			else:
+				show_sprite(%SnakeJumping)
+		FORM.SPIDER:
+			show_sprite(%SpiderStanding)
+		FORM.BIRD:
+			show_sprite(%BirdFlying)
+		FORM.JELLYFISH:
+			show_sprite(%JellyfishSwimming)
