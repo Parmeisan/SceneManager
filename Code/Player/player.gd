@@ -3,14 +3,48 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var facing = "RIGHT"
+var facing = Global.FACING.RIGHT
 var metafloor = true
 
+var invincible = false
+var stunned = false
+var crawling
+var direction
+
+var invincibleDuration = 2
+var stunDuration = 0.4
+
 func _ready():
+	Global.landed.connect(land)
+	
 	FormSetup()
 	hide_sprites()
 	activate_sprites()
 	show_sprite(%SpiderStanding)
+
+func is_player():
+	return true
+
+func get_hit(damage: int, direction: Vector2, force: int):
+	if !invincible:
+		velocity = direction.normalized() * force
+		become_invincible()
+		become_stunned()
+		
+
+func become_invincible():
+	invincible = true
+	$AnimationPlayer.play("invincibility")
+	await get_tree().create_timer(invincibleDuration).timeout
+	invincible = false
+	$AnimationPlayer.stop()
+	$AnimationPlayer.seek(0.11, true)
+
+func become_stunned():
+	stunned = true;
+	crawling = false
+	await get_tree().create_timer(stunDuration).timeout
+	stunned = false
 	
 func _input(_event: InputEvent) -> void:
 	CheckFormSwap()
@@ -18,7 +52,7 @@ func _input(_event: InputEvent) -> void:
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
 		if event.keycode == 4194326 && event.pressed == true:
-			if facing == "RIGHT":
+			if facing == Global.FACING.RIGHT:
 				$ThePunchZone.position.x = 43
 			else:
 				$ThePunchZone.position.x = -43
@@ -41,25 +75,53 @@ func _physics_process(delta: float) -> void:
 	if !metafloor && is_on_floor():
 		Global.landed.emit()
 		metafloor = true
-		
+	
+	if !crawling:
+		crawling = (is_on_floor() or custom_on_ceiling() or %SpiderWallLeft.is_colliding() && direction < 0 or %SpiderWallRight.is_colliding() && direction > 0)
+	else:
+		if !is_on_floor() && !custom_on_ceiling() && !%SpiderWallLeft.is_colliding() && !%SpiderWallRight.is_colliding():
+			crawling = false
+			
 	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 	elif (currPhysics == PHYSICS.SWIM):
 		if not is_on_floor():
 			velocity += get_gravity() * delta / 3
+	elif currPhysics == PHYSICS.CRAWL:
+		if stunned || !crawling:
+			velocity += get_gravity() * delta
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-		if(velocity.x < 0):
-			facing = "LEFT"
-		if(velocity.x > 0):
-			facing = "RIGHT"
+	
+	#left-right movement.
+	#briefly disable it when taking damage
+	direction = Input.get_axis("ui_left", "ui_right")
+	if !stunned:
+		if direction:
+			velocity.x = direction * SPEED
+			if(velocity.x < 0):
+				facing = Global.FACING.LEFT
+			if(velocity.x > 0):
+				facing = Global.FACING.RIGHT
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if PHYSICS.CRAWL and crawling:
+		var updir := Input.get_axis("ui_up", "ui_down")
+		if updir:
+			velocity.y = updir * SPEED
+			if(velocity.y < 0):
+				facing = Global.FACING.UP
+			if(velocity.y > 0):
+				facing = Global.FACING.DOWN
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+		
+	# Die code
 	if global_position.y > 2000:
 		get_tree().quit()
 
@@ -115,6 +177,17 @@ func CheckFormSwap() -> void:
 		if (currPhysics != PHYSICS.FLY):
 			flyCount = 0
 
+func land():
+	hide_sprites()
+	$SpiderStanding.visible = true
+
+func custom_on_ceiling():
+	var bodies = %SpiderCeiling.get_overlapping_bodies()
+	for body in bodies:
+		if body.get_class() == "TileMap":
+			return true
+	return false
+
 func IsFormAllowed(form : FORM):
 	var allowedForms = [ true, true, true, true] #Global.GetVar("hasSnake"), Global.GetVar("hasSpider") ]
 	return allowedForms[form]
@@ -130,6 +203,8 @@ func SwitchIfAllowed(form : FORM):
 		currForm = form
 	
 #endregion
+
+#region Animations
 
 @onready var all_sprites = [
 	%SpiderStanding,
@@ -161,7 +236,25 @@ func UpdateSprites():
 				show_sprite(%SnakeJumping)
 		FORM.SPIDER:
 			show_sprite(%SpiderStanding)
+			if is_on_floor():
+				SpiderRotate(facing == Global.FACING.LEFT, false, 0)
+			elif %SpiderWallLeft.is_colliding():
+				SpiderRotate(facing == Global.FACING.UP, false, 90)
+			elif %SpiderWallRight.is_colliding():
+				SpiderRotate(facing == Global.FACING.DOWN, false, -90)
+			elif custom_on_ceiling():
+				SpiderRotate(facing == Global.FACING.LEFT, true, 0)
+			else:
+				if !stunned:
+					SpiderRotate(facing == Global.FACING.LEFT, false, 0)
 		FORM.BIRD:
 			show_sprite(%BirdFlying)
 		FORM.JELLYFISH:
 			show_sprite(%JellyfishSwimming)
+
+func SpiderRotate(flip_h, flip_v, rotation):
+	%SpiderStanding.flip_h = flip_h
+	%SpiderStanding.flip_v = flip_v
+	%SpiderStanding.rotation = rotation
+
+#endregion

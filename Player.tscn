@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d3xksmwdntvb5"]
 
 [ext_resource type="Script" uid="uid://c5dwsndf37m8y" path="res://Code/Player/player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://be5yr4e62lgrs" path="res://Assets/characters/Attack1.png" id="1_xhfnw"]
-[ext_resource type="Texture2D" uid="uid://de0dkrcnnpgx7" path="res://Assets/characters/Attack2.png" id="3_e80uo"]
+[ext_resource type="Texture2D" uid="uid://es4jnndsqapo" path="res://Assets/characters/spider_walk1.png" id="2_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://gd27ibeb2oo7" path="res://Assets/characters/spider_walk2.png" id="3_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://d1lhd8e01xln1" path="res://Assets/images/White_Background.png" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://d3kjjsk4kyqa8" path="res://Assets/characters/skeletack1.png" id="4_tdg3f"]
 [ext_resource type="Texture2D" uid="uid://dkpi7rbwtn8u1" path="res://Assets/characters/snake.png" id="4_wi0c6"]
@@ -16,11 +16,11 @@ radius = 27.45906
 [sub_resource type="SpriteFrames" id="SpriteFrames_cxr5p"]
 animations = [{
 "frames": [{
-"duration": 2.1,
-"texture": ExtResource("1_xhfnw")
+"duration": 1.0,
+"texture": ExtResource("2_wi0c6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_e80uo")
+"texture": ExtResource("3_hp6x6")
 }],
 "loop": true,
 "name": &"default",
@@ -74,8 +74,48 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi0c6"]
+size = Vector2(0.10890657, 0.01318468)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
 size = Vector2(34, 20)
+
+[sub_resource type="Animation" id="Animation_tdg3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dtqjt"]
+resource_name = "invincibility"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ncpa"]
+_data = {
+&"RESET": SubResource("Animation_tdg3f"),
+&"invincibility": SubResource("Animation_dtqjt")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=1625906938]
 script = ExtResource("1_kpjcp")
@@ -88,24 +128,50 @@ shape = SubResource("CircleShape2D_kpjcp")
 [node name="SpiderStanding" type="AnimatedSprite2D" parent="Animations" unique_id=9786302]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_cxr5p")
-frame_progress = 0.2123497
+frame_progress = 0.91274816
 
 [node name="SnakeStanding" type="AnimatedSprite2D" parent="Animations" unique_id=2077674135]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_5ncpa")
 
 [node name="SnakeJumping" type="AnimatedSprite2D" parent="Animations" unique_id=105448691]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_l6ohk")
 frame_progress = 0.92885756
 
 [node name="BirdFlying" type="AnimatedSprite2D" parent="Animations" unique_id=1179513440]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_oudfo")
 
 [node name="JellyfishSwimming" type="AnimatedSprite2D" parent="Animations" unique_id=1251940073]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_d6rpx")
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=1428850002]
+
+[node name="SpiderWallLeft" type="RayCast2D" parent="Raycasts" unique_id=1946089268]
+unique_name_in_owner = true
+position = Vector2(-4, 0)
+target_position = Vector2(-39, 0)
+
+[node name="SpiderWallRight" type="RayCast2D" parent="Raycasts" unique_id=2052355990]
+unique_name_in_owner = true
+position = Vector2(1, 1)
+target_position = Vector2(48, -1)
+
+[node name="SpiderCeiling" type="Area2D" parent="Raycasts" unique_id=456458722]
+unique_name_in_owner = true
+position = Vector2(0.9999962, 0)
+scale = Vector2(-667.26263, 1156.6473)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Raycasts/SpiderCeiling" unique_id=460038400]
+position = Vector2(0.0014986545, -0.025937034)
+scale = Vector2(1.004556, 1)
+shape = SubResource("RectangleShape2D_wi0c6")
 
 [node name="ThePunchZone" type="Area2D" parent="." unique_id=197552567]
 position = Vector2(43, -10)
@@ -117,3 +183,8 @@ shape = SubResource("RectangleShape2D_xhfnw")
 self_modulate = Color(0.3732504, 0.090004705, 0.14010507, 1)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("3_kne1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=143440026]
+libraries/ = SubResource("AnimationLibrary_5ncpa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2144803868]
