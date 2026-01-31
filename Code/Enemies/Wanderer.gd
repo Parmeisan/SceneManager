@@ -11,6 +11,12 @@ var currDir = -1 if startsLeft else 1
 func _ready():
 	pass
 
+func _physics_process(delta):
+	bonk()
+	if !is_on_floor():
+		velocity = velocity + get_gravity() * delta
+	move_and_slide()
+
 func _process(delta):
 	# Guards
 	if not is_on_floor():

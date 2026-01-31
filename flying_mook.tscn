@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ds4vv2agvuudc"]
+
+[ext_resource type="Script" uid="uid://sbwbt33wba62" path="res://flying_mook.gd" id="1_bqw8s"]
+[ext_resource type="Texture2D" uid="uid://4wsnnimqvplx" path="res://Assets/characters/Jeff Angry.png" id="2_wmbaa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jh8ya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wmbaa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypttl"]
+size = Vector2(35, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rud3"]
+size = Vector2(76, 67)
+
+[node name="FlyingMook" type="CharacterBody2D" unique_id=2118646747]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_bqw8s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615610864]
+scale = Vector2(0.6328125, 0.59375)
+sprite_frames = SubResource("SpriteFrames_jh8ya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216383958]
+shape = SubResource("RectangleShape2D_ypttl")
+
+[node name="PlayerBonker" type="Area2D" parent="." unique_id=598343850]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBonker" unique_id=582873029]
+shape = SubResource("RectangleShape2D_6rud3")

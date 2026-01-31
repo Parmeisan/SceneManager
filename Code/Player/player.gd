@@ -25,7 +25,7 @@ func is_player():
 	return true
 
 func get_hit(damage: int, direction: Vector2, force: int):
-	print(	direction)
+	print(direction)
 	if !invincible:
 		velocity = direction.normalized() * force
 		become_invincible()
@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta / 3
 	elif currPhysics == PHYSICS.CRAWL:
-		if not crawling:
+		if stunned || !crawling:
 			velocity += get_gravity() * delta
 
 
