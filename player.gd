@@ -6,6 +6,12 @@ const JUMP_VELOCITY = -400.0
 
 var facing = "RIGHT"
 
+func _ready():
+	FormSetup();
+
+func _input(event):
+	CheckFormSwap()
+
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
 		if event.keycode == 4194326 && event.pressed == true:
@@ -15,7 +21,19 @@ func _unhandled_input(event):
 			else:
 
 				$ThePunchZone.position.x = -43
+
 func _physics_process(delta: float) -> void:
+	
+	if (currPhysics == PHYSICS.FLY):
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		if Input.is_action_just_pressed("ui_accept") and !is_on_floor():
+			if flyCount < FLY_MAX:
+				flyCount += 1
+				velocity.y = JUMP_VELOCITY * 1.5
+		move_and_slide()
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -39,3 +57,41 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 
 	move_and_slide()
+
+
+
+
+#region Forms
+enum FORM { REGULAR, BIRD, SNAKE, SPIDER }
+var currForm = FORM.REGULAR
+
+enum PHYSICS { NORMAL, FLY, CRAWL }
+var currPhysics = PHYSICS.NORMAL
+var formPhysics = [ PHYSICS.NORMAL, PHYSICS.FLY, PHYSICS.FLY, PHYSICS.CRAWL ]
+
+var formSpriteNames = [ "Attack1", "treefoot", "Barbarian", "Space_Wizard" ]
+var formSprites = [] # Gets loaded on config
+
+var flyCount = 0
+const FLY_MAX = 3
+
+func FormSetup() -> void:
+	for n in formSpriteNames:
+		formSprites.append(SceneManager.GetTexture("res://Assets/characters/", n, ".png"))
+	
+func CheckFormSwap() -> void:
+	var prevForm = currForm
+	if Input.is_action_just_pressed("form_cycle"):
+		currForm = (currForm as int + 1) % FORM.size() as FORM
+	elif Input.is_action_just_pressed("form_bird"):
+		currForm = FORM.BIRD
+	
+	if (currForm != prevForm):
+		print ("Changed form to %s" % currForm)
+		currPhysics = formPhysics[currForm]
+		$Sprite2D.texture = formSprites[currForm]
+		
+		if (currPhysics != PHYSICS.FLY):
+			flyCount = 0
+
+#endregion
