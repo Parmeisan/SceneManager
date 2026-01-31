@@ -1,9 +1,13 @@
 extends Node
 
 
+#region signals
+signal landed()
+#endregion
+
+#region Variables
+
 var variables = {}
-
-
 # Variable functions
 func GetVar(v):
 	if !variables.has(v):
@@ -12,7 +16,7 @@ func GetVar(v):
 func SetVar(v, to):
 	Global.variables[v] = to
 	print(Global.variables)
-
+#endregion
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

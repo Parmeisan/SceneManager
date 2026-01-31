@@ -5,9 +5,13 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var facing = "RIGHT"
+var metafloor = true
 
 func _ready():
 	FormSetup()
+	hide_sprites()
+	activate_sprites()
+	$SpiderStanding.visible = true
 	
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
@@ -20,7 +24,10 @@ func _unhandled_input(event):
 			POooooOONCH()
 
 func _physics_process(delta: float) -> void:
-	
+	if !metafloor && is_on_floor():
+		Global.landed.emit()
+		metafloor = true
+		 
 	CheckFormSwap()
 	if (currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
@@ -39,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		hide_sprites()
+		$SpiderJumping.visible = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -101,4 +110,11 @@ func CheckFormSwap() -> void:
 		if (currPhysics != PHYSICS.FLY):
 			flyCount = 0
 
+func activate_sprites():
+	$SpiderStanding.play()
+	$SpiderJumping.play()
+
+func hide_sprites():
+	$SpiderStanding.visible = false
+	$SpiderJumping.visible = false
 #endregion

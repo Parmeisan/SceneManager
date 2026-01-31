@@ -51,6 +51,9 @@ _data = {
 &"get hit": SubResource("Animation_3g0b1")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1wbi"]
+size = Vector2(42, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nk0t"]
 size = Vector2(35, 35)
 
@@ -63,6 +66,9 @@ sprite_frames = SubResource("SpriteFrames_i1wbi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=2010358180]
 libraries/ = SubResource("AnimationLibrary_2y4ht")
+
+[node name="WallFinder" type="CollisionShape2D" parent="." unique_id=108727133]
+shape = SubResource("RectangleShape2D_i1wbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
 shape = SubResource("RectangleShape2D_2nk0t")
