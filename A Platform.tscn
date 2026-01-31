@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d3xksmwdntvb5" path="res://Player.tscn" id="2_sryta"]
 [ext_resource type="PackedScene" uid="uid://bp5n4liitxa4p" path="res://a_mook.tscn" id="3_76pfe"]
 [ext_resource type="Script" uid="uid://cbih5a3e085ns" path="res://Code/Enemies/Wanderer.gd" id="4_vrra7"]
-[ext_resource type="PackedScene" uid="uid://c7dm13tuwl4c4" path="res://SceneManager/SceneManager.tscn" id="5_ifn1m"]
-[ext_resource type="PackedScene" uid="uid://ds4vv2agvuudc" path="res://flying_mook.tscn" id="5_ifn1m"]
+[ext_resource type="PackedScene" path="res://flying_mook.tscn" id="5_ifn1m"]
+[ext_resource type="PackedScene" uid="uid://c7dm13tuwl4c4" path="res://SceneManager/SceneManager.tscn" id="6_6gkw1"]
 
 [node name="APlatform" type="Node2D" unique_id=590419832]
 
@@ -22,10 +22,11 @@ script = ExtResource("4_vrra7")
 startsLeft = true
 wanderSpeed = 40.0
 
-[node name="SceneManager" parent="." unique_id=995662514 instance=ExtResource("5_ifn1m")]
-unique_name_in_owner = true
-visible = false
 [node name="FlyingMook" parent="." unique_id=2118646747 instance=ExtResource("5_ifn1m")]
 position = Vector2(589, 285)
 leftRange = 200
 rightRange = 400
+
+[node name="SceneManager" parent="." unique_id=995662514 instance=ExtResource("6_6gkw1")]
+unique_name_in_owner = true
+visible = false
