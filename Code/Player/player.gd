@@ -3,13 +3,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-enum FACING { LEFT, RIGHT, UP, DOWN } # Up and down are ONLY spider form
-var facing = FACING.RIGHT
+var facing = Global.FACING.RIGHT
 var metafloor = true
 
 var invincible = false
 var stunned = false
 var crawling
+var direction
 
 var invincibleDuration = 2
 var stunDuration = 0.4
@@ -53,7 +53,7 @@ func _input(_event: InputEvent) -> void:
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
 		if event.keycode == 4194326 && event.pressed == true:
-			if facing == FACING.RIGHT:
+			if facing == Global.FACING.RIGHT:
 				$ThePunchZone.position.x = 43
 			else:
 				$ThePunchZone.position.x = -43
@@ -102,9 +102,9 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			if(velocity.x < 0):
-				facing = FACING.LEFT
+				facing = Global.FACING.LEFT
 			if(velocity.x > 0):
-				facing = FACING.RIGHT
+				facing = Global.FACING.RIGHT
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
@@ -114,9 +114,9 @@ func _physics_process(delta: float) -> void:
 		if updir:
 			velocity.y = updir * SPEED
 			if(velocity.y < 0):
-				facing = FACING.UP
+				facing = Global.FACING.UP
 			if(velocity.y > 0):
-				facing = FACING.DOWN
+				facing = Global.FACING.DOWN
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
@@ -229,16 +229,16 @@ func UpdateSprites():
 		FORM.SPIDER:
 			show_sprite(%SpiderStanding)
 			if is_on_floor():
-				SpiderRotate(facing == FACING.LEFT, false, 0)
+				SpiderRotate(facing == Global.FACING.LEFT, false, 0)
 			elif %SpiderCeiling.is_colliding():
-				SpiderRotate(facing == FACING.LEFT, true, 0)
+				SpiderRotate(facing == Global.FACING.LEFT, true, 0)
 			elif %SpiderWallLeft.is_colliding():
-				SpiderRotate(facing == FACING.UP, false, 90)
+				SpiderRotate(facing == Global.FACING.UP, false, 90)
 			elif %SpiderWallRight.is_colliding():
-				SpiderRotate(facing == FACING.DOWN, false, -90)
+				SpiderRotate(facing == Global.FACING.DOWN, false, -90)
 			else:
 				if !stunned:
-					SpiderRotate(facing == FACING.LEFT, false, 0)
+					SpiderRotate(facing == Global.FACING.LEFT, false, 0)
 		FORM.BIRD:
 			show_sprite(%BirdFlying)
 		FORM.JELLYFISH:

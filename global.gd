@@ -1,6 +1,6 @@
 extends Node
 
-
+enum FACING { LEFT, RIGHT, UP, DOWN } # Up and down are ONLY spider form
 #region signals
 signal landed()
 #endregion

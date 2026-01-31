@@ -18,7 +18,7 @@ func is_punchable():
 func get_punched(facing):
 	$Sprite2D/AnimationPlayer.play("get hit")
 	var xMul
-	if(facing == "LEFT"):
+	if(facing == Global.FACING.LEFT):
 		xMul = -1
 	else:
 		xMul = 1
