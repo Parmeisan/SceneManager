@@ -54,8 +54,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1wbi"]
 size = Vector2(42, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nk0t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g0b1"]
 size = Vector2(35, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nk0t"]
+size = Vector2(30, 38)
 
 [node name="AMook" type="CharacterBody2D" unique_id=1041484247]
 script = ExtResource("1_t6wmc")
@@ -68,11 +71,16 @@ sprite_frames = SubResource("SpriteFrames_i1wbi")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=2010358180]
 libraries/ = SubResource("AnimationLibrary_2y4ht")
 
-[node name="WallFinder" type="CollisionShape2D" parent="." unique_id=108727133]
+[node name="WallFinder" type="Area2D" parent="." unique_id=1183658105]
+
+[node name="WallFinder" type="CollisionShape2D" parent="WallFinder" unique_id=108727133]
 shape = SubResource("RectangleShape2D_i1wbi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
-shape = SubResource("RectangleShape2D_2nk0t")
+[node name="PlayerBonker" type="Area2D" parent="." unique_id=55646579]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBonker" unique_id=461506179]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_3g0b1")
 
 [node name="DialogueArea" type="Area2D" parent="." unique_id=123546345]
 
@@ -94,3 +102,8 @@ target_position = Vector2(0, 13)
 
 [connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]
 [connection signal="body_shape_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_shape_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_2nk0t")
+
+[connection signal="body_entered" from="PlayerBonker" to="." method="_on_player_bonker_body_entered"]

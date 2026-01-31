@@ -1,6 +1,4 @@
-Todo:
-=====
-Sounds
-Check all endings loop etc
-Intro screen - and actually start the game there instead of booting up the scene explorer (one of the final tasks probably)
-Ending screen
+
+
+Form shift checks if you "fit"
+Spider rotates as he moves
