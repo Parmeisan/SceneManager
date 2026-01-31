@@ -112,7 +112,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if PHYSICS.CRAWL and crawling:
 		var updir := Input.get_axis("ui_up", "ui_down")
-		if updir:
+		if updir && (%SpiderWallLeft.is_colliding() || %SpiderWallRight.is_colliding() || custom_on_ceiling()):
 			velocity.y = updir * SPEED
 			if(velocity.y < 0):
 				facing = Global.FACING.UP
@@ -184,7 +184,7 @@ func land():
 func custom_on_ceiling():
 	var bodies = %SpiderCeiling.get_overlapping_bodies()
 	for body in bodies:
-		if body.get_class() == "TileMap" && !stunned && Input.is_action_pressed("ui_up"):
+		if body.get_class() == "TileMap" && !stunned && (Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right")):
 			return true
 	return false
 
