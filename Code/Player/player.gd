@@ -63,12 +63,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle player-induced upward velocity
 	if (currPhysics == PHYSICS.FLY):
-		if Input.is_action_just_pressed("ui_accept") and !is_on_floor():
+		if Input.is_action_just_pressed("jump") and !is_on_floor():
 			if flyCount < FLY_MAX:
 				flyCount += 1
 				velocity.y = JUMP_VELOCITY * 1.5
 	elif (currPhysics == PHYSICS.JUMP):
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 	
 	# Add the gravity.
@@ -84,6 +84,8 @@ func _physics_process(delta: float) -> void:
 			
 	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
+			pass
+			print(velocity.y)
 			velocity += get_gravity() * delta
 	elif (currPhysics == PHYSICS.SWIM):
 		if not is_on_floor():
@@ -110,7 +112,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if PHYSICS.CRAWL and crawling:
+	if currPhysics == PHYSICS.CRAWL and crawling:
 		var updir := Input.get_axis("ui_up", "ui_down")
 		if updir && (%SpiderWallLeft.is_colliding() || %SpiderWallRight.is_colliding() || custom_on_ceiling()):
 			velocity.y = updir * SPEED
