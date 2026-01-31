@@ -14,10 +14,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Scene Manager"
+config/name="GGJ 2026"
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.6")
-config/icon="res://icon.png"
+config/icon="uid://h27oiuqkr4bh"
 
 [autoload]
 

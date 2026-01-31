@@ -1,7 +1,55 @@
 [gd_scene format=3 uid="uid://bp5n4liitxa4p"]
 
-[ext_resource type="Script" uid="uid://djos6bv6p6e4x" path="res://a_mook.gd" id="1_t6wmc"]
+[ext_resource type="Script" uid="uid://djos6bv6p6e4x" path="res://Code/Enemies/EnemyBase.gd" id="1_t6wmc"]
 [ext_resource type="Texture2D" uid="uid://cv3jwoogextm7" path="res://Assets/images/Enemies/sprite_beast_dustfluffy_1.png" id="2_i1wbi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1wbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i1wbi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_i1wbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3g0b1"]
+resource_name = "get hit"
+length = 1.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2y4ht"]
+_data = {
+&"RESET": SubResource("Animation_i1wbi"),
+&"get hit": SubResource("Animation_3g0b1")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nk0t"]
 size = Vector2(35, 35)
@@ -9,9 +57,24 @@ size = Vector2(35, 35)
 [node name="AMook" type="CharacterBody2D" unique_id=1041484247]
 script = ExtResource("1_t6wmc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1702546687]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1844304917]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_i1wbi")
+sprite_frames = SubResource("SpriteFrames_i1wbi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=2010358180]
+libraries/ = SubResource("AnimationLibrary_2y4ht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
 shape = SubResource("RectangleShape2D_2nk0t")
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=1300242030]
+
+[node name="EdgeCheckerR" type="RayCast2D" parent="Raycasts" unique_id=340186985]
+unique_name_in_owner = true
+position = Vector2(20, 15)
+target_position = Vector2(0, 13)
+
+[node name="EdgeCheckerL" type="RayCast2D" parent="Raycasts" unique_id=1103997558]
+unique_name_in_owner = true
+position = Vector2(-20, 15)
+target_position = Vector2(0, 13)

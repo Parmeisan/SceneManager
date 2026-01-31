@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3xksmwdntvb5"]
 
-[ext_resource type="Script" uid="uid://c5dwsndf37m8y" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://c5dwsndf37m8y" path="res://Code/Player/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bmw86cmvqm2bn" path="res://Assets/characters/Attack1.png" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://f8dx5il5bksg" path="res://Assets/images/White_Background.png" id="3_kne1u"]
 
