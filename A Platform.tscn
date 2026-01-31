@@ -15,7 +15,7 @@ layer_0/tile_data = PackedInt32Array(1835018, 131072, 8, 1835019, 131072, 8, 183
 
 [node name="Player" parent="." unique_id=1625906938 instance=ExtResource("2_sryta")]
 unique_name_in_owner = true
-trueposition = Vector2(738, 261)
+position = Vector2(738, 261)
 
 [node name="AMook" parent="." unique_id=1041484247 instance=ExtResource("3_76pfe")]
 position = Vector2(438, 271)
