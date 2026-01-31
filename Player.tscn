@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbosi812n5ve5" path="res://Assets/characters/snake.png" id="4_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://jvjtbg17ul38" path="res://Assets/characters/snake_walk1.png" id="4_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://bdxb66xqclr0u" path="res://Assets/characters/snake_walk2.png" id="5_3tkgg"]
+[ext_resource type="Texture2D" uid="uid://c6u7o4ub8chox" path="res://Assets/characters/snake_jump.png" id="6_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://ur71pj3mftb3" path="res://Assets/characters/bird.png" id="7_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://xavpvj7w4ufi" path="res://Assets/characters/jellyfish.png" id="8_3tkgg"]
 
