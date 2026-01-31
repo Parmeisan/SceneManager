@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://d3xksmwdntvb5"]
 
 [ext_resource type="Script" uid="uid://c5dwsndf37m8y" path="res://Code/Player/player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://d3v3mnx53e2y7" path="res://Assets/characters/spider_walk1.png" id="2_wi0c6"]
-[ext_resource type="Texture2D" uid="uid://dib4vjak403bn" path="res://Assets/characters/spider_walk2.png" id="3_hp6x6"]
-[ext_resource type="Texture2D" uid="uid://f8dx5il5bksg" path="res://Assets/images/White_Background.png" id="3_kne1u"]
+[ext_resource type="Texture2D" uid="uid://es4jnndsqapo" path="res://Assets/characters/spider_walk1.png" id="2_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://gd27ibeb2oo7" path="res://Assets/characters/spider_walk2.png" id="3_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://d1lhd8e01xln1" path="res://Assets/images/White_Background.png" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://d3kjjsk4kyqa8" path="res://Assets/characters/skeletack1.png" id="4_tdg3f"]
-[ext_resource type="Texture2D" uid="uid://cbosi812n5ve5" path="res://Assets/characters/snake.png" id="4_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://dkpi7rbwtn8u1" path="res://Assets/characters/snake.png" id="4_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://cda8ouvytfw2i" path="res://Assets/characters/skeletack2.png" id="5_dtqjt"]
-[ext_resource type="Texture2D" uid="uid://ur71pj3mftb3" path="res://Assets/characters/bird.png" id="7_hp6x6"]
-[ext_resource type="Texture2D" uid="uid://xavpvj7w4ufi" path="res://Assets/characters/jellyfish.png" id="8_3tkgg"]
+[ext_resource type="Texture2D" uid="uid://c3tntshmt144m" path="res://Assets/characters/bird.png" id="7_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://cpoddn3rue6rn" path="res://Assets/characters/jellyfish.png" id="8_3tkgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
 radius = 27.45906
@@ -73,6 +73,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi0c6"]
+size = Vector2(0.10890657, 0.01318468)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
 size = Vector2(34, 20)
@@ -160,10 +163,15 @@ unique_name_in_owner = true
 position = Vector2(1, 1)
 target_position = Vector2(48, -1)
 
-[node name="SpiderCeiling" type="RayCast2D" parent="Raycasts" unique_id=957268961]
+[node name="SpiderCeiling" type="Area2D" parent="Raycasts" unique_id=456458722]
 unique_name_in_owner = true
-position = Vector2(0, -2)
-target_position = Vector2(0, -37)
+position = Vector2(0.9999962, 0)
+scale = Vector2(-667.26263, 1156.6473)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Raycasts/SpiderCeiling" unique_id=460038400]
+position = Vector2(0.0014986545, -0.025937034)
+scale = Vector2(1.004556, 1)
+shape = SubResource("RectangleShape2D_wi0c6")
 
 [node name="ThePunchZone" type="Area2D" parent="." unique_id=197552567]
 position = Vector2(43, -10)
@@ -178,3 +186,5 @@ texture = ExtResource("3_kne1u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=143440026]
 libraries/ = SubResource("AnimationLibrary_5ncpa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2144803868]
