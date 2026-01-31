@@ -7,12 +7,44 @@ const JUMP_VELOCITY = -400.0
 var facing = "RIGHT"
 var metafloor = true
 
+var invincible = false
+var stunned = false
+
+var invincibleDuration = 2
+var stunDuration = 0.4
+
 func _ready():
+	Global.landed.connect(land)
+	
 	FormSetup()
 	hide_sprites()
 	activate_sprites()
 	$SpiderStanding.visible = true
-	
+
+func is_player():
+	return true
+
+func get_hit(damage: int, direction: Vector2, force: int):
+	print(	direction)
+	if !invincible:
+		velocity = direction.normalized() * force
+		become_invincible()
+		become_stunned()
+		
+
+func become_invincible():
+	invincible = true
+	$AnimationPlayer.play("invincibility")
+	await get_tree().create_timer(invincibleDuration).timeout
+	invincible = false
+	$AnimationPlayer.stop()
+	$AnimationPlayer.seek(0.11, true)
+
+func become_stunned():
+	stunned = true;
+	await get_tree().create_timer(stunDuration).timeout
+	stunned = false;
+
 func _unhandled_input(event):
 	if event.get_class() == "InputEventKey":
 		if event.keycode == 4194326 && event.pressed == true:
@@ -48,18 +80,24 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		hide_sprites()
 		$SpiderJumping.visible = true
+		metafloor = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+	#left-right movement.
+	#briefly disable it when taking damage
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-		if(velocity.x < 0):
-			facing = "LEFT"
-		if(velocity.x > 0):
-			facing = "RIGHT"
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if !stunned:
+		if direction:
+			velocity.x = direction * SPEED
+			if(velocity.x < 0):
+				facing = "LEFT"
+			if(velocity.x > 0):
+				facing = "RIGHT"
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+
 	if global_position.y > 2000:
 		get_tree().quit()
 
@@ -109,6 +147,11 @@ func CheckFormSwap() -> void:
 		
 		if (currPhysics != PHYSICS.FLY):
 			flyCount = 0
+
+func land():
+	print("landed!")
+	hide_sprites()
+	$SpiderStanding.visible = true
 
 func activate_sprites():
 	$SpiderStanding.play()
