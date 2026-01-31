@@ -62,7 +62,6 @@ size = Vector2(30, 38)
 
 [node name="AMook" type="CharacterBody2D" unique_id=1041484247]
 script = ExtResource("1_t6wmc")
-dialogue_script = "AngryFluff"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1844304917]
 scale = Vector2(0.4, 0.4)
@@ -82,12 +81,6 @@ shape = SubResource("RectangleShape2D_i1wbi")
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_3g0b1")
 
-[node name="DialogueArea" type="Area2D" parent="." unique_id=123546345]
-
-[node name="DialogueShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=1394217004]
-scale = Vector2(2.105, 1)
-shape = SubResource("RectangleShape2D_2nk0t")
-
 [node name="Raycasts" type="Node2D" parent="." unique_id=1300242030]
 
 [node name="EdgeCheckerR" type="RayCast2D" parent="Raycasts" unique_id=340186985]
@@ -105,5 +98,3 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_2nk0t")
 
 [connection signal="body_entered" from="PlayerBonker" to="." method="_on_player_bonker_body_entered"]
-[connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]
-[connection signal="body_shape_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_shape_entered"]
