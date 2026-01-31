@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5dwsndf37m8y" path="res://Code/Player/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://be5yr4e62lgrs" path="res://Assets/characters/Attack1.png" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://7a0h8e7tm8pa" path="res://Assets/characters/spider.png" id="2_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://de0dkrcnnpgx7" path="res://Assets/characters/Attack2.png" id="3_e80uo"]
 [ext_resource type="Texture2D" uid="uid://d1lhd8e01xln1" path="res://Assets/images/White_Background.png" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://d3kjjsk4kyqa8" path="res://Assets/characters/skeletack1.png" id="4_tdg3f"]
@@ -16,6 +17,9 @@ radius = 27.45906
 [sub_resource type="SpriteFrames" id="SpriteFrames_cxr5p"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hp6x6")
+}, {
 "duration": 2.1,
 "texture": ExtResource("1_xhfnw")
 }, {
@@ -92,20 +96,41 @@ frame_progress = 0.2123497
 
 [node name="SnakeStanding" type="AnimatedSprite2D" parent="Animations" unique_id=2077674135]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_5ncpa")
 
 [node name="SnakeJumping" type="AnimatedSprite2D" parent="Animations" unique_id=105448691]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_l6ohk")
 frame_progress = 0.92885756
 
 [node name="BirdFlying" type="AnimatedSprite2D" parent="Animations" unique_id=1179513440]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_oudfo")
 
 [node name="JellyfishSwimming" type="AnimatedSprite2D" parent="Animations" unique_id=1251940073]
 unique_name_in_owner = true
+visible = false
 sprite_frames = SubResource("SpriteFrames_d6rpx")
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=1428850002]
+
+[node name="SpiderWallLeft" type="RayCast2D" parent="Raycasts" unique_id=1946089268]
+unique_name_in_owner = true
+position = Vector2(-4, 0)
+target_position = Vector2(-39, 0)
+
+[node name="SpiderWallRight" type="RayCast2D" parent="Raycasts" unique_id=2052355990]
+unique_name_in_owner = true
+position = Vector2(1, 1)
+target_position = Vector2(48, -1)
+
+[node name="SpiderCeiling" type="RayCast2D" parent="Raycasts" unique_id=957268961]
+unique_name_in_owner = true
+position = Vector2(0, -2)
+target_position = Vector2(0, -37)
 
 [node name="ThePunchZone" type="Area2D" parent="." unique_id=197552567]
 position = Vector2(43, -10)
