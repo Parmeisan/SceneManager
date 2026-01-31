@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d3xksmwdntvb5"]
+
+[ext_resource type="Texture2D" uid="uid://bmw86cmvqm2bn" path="res://Assets/characters/Attack1.png" id="1_xhfnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
+radius = 27.45906
+
+[node name="Player" type="CharacterBody2D" unique_id=1625906938]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1168795556]
+shape = SubResource("CircleShape2D_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=148446849]
+texture = ExtResource("1_xhfnw")
