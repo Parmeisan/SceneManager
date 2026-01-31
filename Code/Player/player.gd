@@ -3,11 +3,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var direction
 var facing = "RIGHT"
 var metafloor = true
 
 var invincible = false
 var stunned = false
+var crawling
 
 var invincibleDuration = 2
 var stunDuration = 0.4
@@ -41,6 +43,7 @@ func become_invincible():
 
 func become_stunned():
 	stunned = true;
+	crawling = false
 	await get_tree().create_timer(stunDuration).timeout
 	stunned = false;
 	
@@ -73,10 +76,11 @@ func _physics_process(delta: float) -> void:
 	if !metafloor && is_on_floor():
 		Global.landed.emit()
 		metafloor = true
-	
-	var crawling = (is_on_floor() or %SpiderCeiling.is_colliding()
-		or %SpiderWallLeft.is_colliding() or %SpiderWallRight.is_colliding())
-			
+	if !crawling:
+		crawling = (is_on_floor() or %SpiderCeiling.is_colliding() or %SpiderWallLeft.is_colliding() && direction < 0 or %SpiderWallRight.is_colliding() && direction > 0)
+	if crawling:
+		if !is_on_floor() && !%SpiderCeiling.is_colliding() && !%SpiderWallLeft.is_colliding() && !%SpiderWallRight.is_colliding():
+			crawling = false
 	if (currPhysics == PHYSICS.JUMP or currPhysics == PHYSICS.FLY):
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -93,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	
 	#left-right movement.
 	#briefly disable it when taking damage
-	var direction := Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	if !stunned:
 		if direction:
 			velocity.x = direction * SPEED
