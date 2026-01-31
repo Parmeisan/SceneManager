@@ -82,7 +82,11 @@ func FormSetup() -> void:
 func CheckFormSwap() -> void:
 	var prevForm = currForm
 	if Input.is_action_just_pressed("form_cycle"):
-		currForm = (currForm as int + 1) % FORM.size() as FORM
+		var allowedForms = [ true, true, Global.GetVar("hasSnake"), Global.GetVar("hasSpider") ]
+		while true: # This forces at least one iteration, like a do-while (which Godot lacks)
+			currForm = (currForm as int + 1) % FORM.size() as FORM
+			if allowedForms[currForm]:
+				break
 	elif Input.is_action_just_pressed("form_bird"):
 		currForm = FORM.BIRD
 	
