@@ -100,10 +100,10 @@ unique_name_in_owner = true
 position = Vector2(-20, 15)
 target_position = Vector2(0, 13)
 
-[connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]
-[connection signal="body_shape_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_shape_entered"]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592759732]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_2nk0t")
 
 [connection signal="body_entered" from="PlayerBonker" to="." method="_on_player_bonker_body_entered"]
+[connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]
+[connection signal="body_shape_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_shape_entered"]
