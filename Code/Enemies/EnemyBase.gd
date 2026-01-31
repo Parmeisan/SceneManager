@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name EnemyBase
 
-@export var dialogue_script: String
-
 var hitpoints = 5
 var damage = 2
 var bonkPower = 200
